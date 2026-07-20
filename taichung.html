@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>台中之旅 · 7月31日–8月2日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --sepia: #6b4c2a;
+    --gold: #c4964a;
+    --gold-light: #e8c87a;
+    --cream: #f7f1e8;
+    --paper: #fdf8f0;
+    --blush: #e8d5c4;
+    --moss: #5a6e4a;
+    --red: #9b2335;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid rgba(196,150,74,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    letter-spacing: 3px;
+  }
+  .nav-days {
+    display: flex;
+    gap: 6px;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(196,150,74,0.25);
+    color: rgba(247,241,232,0.5);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 1px;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(196,150,74,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(155,35,53,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(90,110,74,0.1) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    display: flex; gap: 20px; opacity: 0.15;
+  }
+  .hero-lines span { width: 1px; background: var(--gold); display: block; }
+  .hero-lines span:nth-child(1) { height: 280px; }
+  .hero-lines span:nth-child(2) { height: 200px; }
+  .hero-lines span:nth-child(3) { height: 320px; }
+  .hero-circle {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(196,150,74,0.15);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+  }
+  .hero-circle:nth-child(2) { width: 700px; height: 700px; border-color: rgba(196,150,74,0.08); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: 40px 20px; }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; letter-spacing: 4px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+  }
+  .hero-title {
+    font-size: clamp(52px, 8vw, 88px); font-weight: 300;
+    color: var(--cream); letter-spacing: -1px; line-height: 1; margin-bottom: 8px;
+    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title-en {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic; font-weight: 300; color: rgba(247,241,232,0.5);
+    letter-spacing: 6px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-dates {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
+  }
+  .hero-dates-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-dates-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; color: var(--gold-light); }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: 3px; color: rgba(247,241,232,0.4); text-transform: uppercase; }
+  .scroll-hint-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+
+  /* ── OVERVIEW ── */
+  .overview { padding: 80px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .overview-title { font-size: 28px; font-weight: 300; color: var(--sepia); margin-bottom: 24px; line-height: 1.6; }
+  .overview-desc { font-size: 15px; line-height: 2; color: rgba(26,18,8,0.65); max-width: 560px; margin: 0 auto 48px; }
+  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .info-card { background: white; border: 1px solid rgba(196,150,74,0.2); padding: 24px 16px; text-align: center; }
+  .info-card-icon { font-size: 24px; margin-bottom: 10px; }
+  .info-card-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .info-card-value { font-size: 14px; color: var(--sepia); line-height: 1.5; }
+
+  /* ── CONFIRMED BOOKINGS ── */
+  .confirmed-section { max-width: 800px; margin: 0 auto; padding: 0 24px 40px; }
+  .confirmed-inner { background: white; border: 1px solid rgba(90,110,74,0.25); }
+  .confirmed-header { background: rgba(90,110,74,0.08); padding: 14px 20px; border-bottom: 1px solid rgba(90,110,74,0.15); }
+  .confirmed-header h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--moss); }
+  .confirmed-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(90,110,74,0.08); gap: 12px; }
+  .confirmed-row:last-child { border-bottom: none; }
+  .confirmed-name { font-size: 14px; color: var(--ink); }
+  .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
+  .confirmed-code.pending { color: var(--red); }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(196,150,74,0.3), transparent); }
+  .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  /* ── DAYS ── */
+  .days-container { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+  .day-block { margin-bottom: 80px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .day-block.visible { opacity: 1; transform: translateY(0); }
+
+  .day-header {
+    display: flex; align-items: flex-start; gap: 24px;
+    margin-bottom: 32px; padding-bottom: 24px;
+    border-bottom: 1px solid rgba(196,150,74,0.2);
+  }
+  .day-number {
+    flex-shrink: 0; width: 64px; height: 64px; background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .day-number-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .day-number-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .day-header-info { flex: 1; padding-top: 4px; }
+  .day-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
+  .day-subtitle { font-size: 13px; color: rgba(26,18,8,0.5); letter-spacing: 1px; }
+
+  /* ── MAP ── */
+  .day-map {
+    width: 100%; height: 220px; margin-bottom: 32px;
+    border: 1px solid rgba(196,150,74,0.2); overflow: hidden; position: relative;
+  }
+  .day-map iframe { width: 100%; height: 100%; border: none; }
+  .map-label {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(26,18,8,0.85); color: var(--gold);
+    font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
+    font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px;
+    background: linear-gradient(to bottom, rgba(196,150,74,0.4), rgba(196,150,74,0.1));
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; display: flex; gap: 20px; }
+  .timeline-dot {
+    position: absolute; left: -29px; top: 6px; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--cream); border: 1.5px solid var(--gold); flex-shrink: 0;
+  }
+  .timeline-dot.meal { background: var(--gold); border-color: var(--gold); }
+  .timeline-dot.highlight { background: var(--red); border-color: var(--red); }
+  .timeline-dot.confirmed { background: var(--moss); border-color: var(--moss); }
+  .timeline-time { flex-shrink: 0; width: 72px; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); padding-top: 2px; letter-spacing: 0.5px; }
+  .timeline-content { flex: 1; }
+  .timeline-name { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+  .timeline-desc { font-size: 13px; color: rgba(26,18,8,0.55); line-height: 1.7; }
+  .timeline-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; border-radius: 0;
+  }
+  .tag-meal { background: rgba(196,150,74,0.12); color: var(--sepia); }
+  .tag-garden { background: rgba(90,110,74,0.12); color: var(--moss); }
+  .tag-culture { background: rgba(155,35,53,0.1); color: var(--red); }
+  .tag-shopping { background: rgba(107,76,42,0.1); color: var(--sepia); }
+  .tag-hotel { background: rgba(26,18,8,0.06); color: rgba(26,18,8,0.6); }
+  .timeline-warning { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; letter-spacing: 0.5px; }
+  .warn-red { color: var(--red); }
+  .warn-green { color: var(--moss); }
+  .warn-gold { color: var(--gold); }
+
+  /* ── HOTELS ── */
+  .hotels { background: var(--ink); padding: 64px 24px; }
+  .hotels-inner { max-width: 800px; margin: 0 auto; }
+  .hotels-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; text-align: center; }
+  .hotel-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hotel-card { border: 1px solid rgba(196,150,74,0.2); padding: 28px 24px; }
+  .hotel-nights { font-size: 11px; letter-spacing: 2px; color: rgba(196,150,74,0.6); text-transform: uppercase; margin-bottom: 8px; }
+  .hotel-name { font-size: 18px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+  .hotel-note { font-size: 13px; color: rgba(247,241,232,0.4); line-height: 1.7; }
+
+  /* ── MUST DO ── */
+  .mustdo { padding: 64px 24px; max-width: 800px; margin: 0 auto; }
+  .mustdo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .mustdo-item { background: white; border: 1px solid rgba(196,150,74,0.15); padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .mustdo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: rgba(196,150,74,0.3); line-height: 1; flex-shrink: 0; }
+  .mustdo-text { font-size: 14px; color: var(--sepia); line-height: 1.7; }
+  .mustdo-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); padding: 48px 24px; text-align: center; }
+  .footer-kanji { font-size: 48px; font-weight: 300; color: rgba(196,150,74,0.15); margin-bottom: 16px; }
+  .footer-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(247,241,232,0.3); letter-spacing: 2px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { min-height: 100svh; }
+    .hero-lines { display: none; }
+    .hero-circle { width: 280px; height: 280px; }
+    .hero-circle:nth-child(2) { width: 380px; height: 380px; }
+    .hero-title { font-size: clamp(64px, 18vw, 88px); }
+    .overview { padding: 48px 20px; }
+    .overview-title { font-size: 22px; }
+    .overview-desc { font-size: 14px; }
+    .info-cards { grid-template-columns: 1fr; gap: 10px; }
+    .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
+    .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
+    .confirmed-section { padding: 0 16px 32px; }
+    .days-container { padding: 40px 16px; }
+    .day-block { margin-bottom: 56px; }
+    .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
+    .day-number { width: 56px; height: 56px; }
+    .day-number-num { font-size: 24px; }
+    .day-title { font-size: 18px; }
+    .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .day-map { height: 200px; margin-bottom: 20px; }
+    .timeline { padding-left: 24px; }
+    .timeline::before { left: 5px; }
+    .timeline-item { gap: 12px; margin-bottom: 22px; }
+    .timeline-dot { left: -21px; }
+    .timeline-time { width: 62px; font-size: 12px; }
+    .timeline-name { font-size: 14px; }
+    .timeline-desc { font-size: 12px; line-height: 1.75; }
+    .timeline-warning { font-size: 11px; }
+    .hotels { padding: 48px 16px; }
+    .hotel-cards { grid-template-columns: 1fr; gap: 12px; }
+    .hotel-card { padding: 22px 18px; }
+    .mustdo { padding: 48px 16px; }
+    .mustdo-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+    .mustdo-item { padding: 20px; }
+    .divider { padding: 0 16px; }
+    footer { padding: 40px 16px; }
+    .sticky-nav { padding: 0 16px; }
+    .nav-logo { font-size: 16px; }
+  }
+  @media (max-width: 380px) {
+    .hero-title { font-size: 58px; }
+    .timeline-time { width: 56px; font-size: 11px; }
+    .timeline-name { font-size: 13px; }
+    .nav-btn { padding: 4px 8px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">台中 · 盛夏</div>
+  <div class="nav-days">
+    <button class="nav-btn" onclick="scrollToDay('day1')">31</button>
+    <button class="nav-btn" onclick="scrollToDay('day2')">01</button>
+    <button class="nav-btn" onclick="scrollToDay('day3')">02</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-lines"><span></span><span></span><span></span></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Family Trip · Taiwan</p>
+    <h1 class="hero-title">台中</h1>
+    <p class="hero-title-en">Taichung</p>
+    <div class="hero-dates">
+      <div class="hero-dates-line"></div>
+      <span class="hero-dates-text">7月31日 — 8月2日</span>
+      <div class="hero-dates-line"></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <p class="section-label">行程概覽</p>
+  <h2 class="overview-title">草悟道慢遊·三天兩夜</h2>
+  <p class="overview-desc">以美食、甜點、散步為主軸，落腳草悟道旁的勤美洲際。三天都在西區同一帶——審計新村、美村路、綠園道——輕鬆步行，不趕不累。Patty 當地陪，Gail、Chiman 遠道而來。</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="info-card-icon">🚄</div>
+      <div class="info-card-label">抵達</div>
+      <div class="info-card-value">7/31 · 桃園轉高鐵<br>Patty 高鐵台中站接<br>約中午抵達</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🏨</div>
+      <div class="info-card-label">住宿</div>
+      <div class="info-card-value">臺中勤美洲際酒店<br>InterContinental（2晚）</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">👥</div>
+      <div class="info-card-label">人數</div>
+      <div class="info-card-value">3人<br>Patty · Gail · Chiman</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMED BOOKINGS -->
+<div class="confirmed-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>✅ 訂位狀態</h3></div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">臺中勤美洲際酒店 · 7/31–8/2（IHG，2晚）</div>
+      <div class="confirmed-code">✅ 確認</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">老井燒肉 · 晚餐（7/31）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">8/1 晚餐 · 選一（澀 Sur-／鹽之華／forchetta）</div>
+      <div class="confirmed-code pending">⚠️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">悠寂庵 Yo Chi En · 內用下午茶（8/1）</div>
+      <div class="confirmed-code pending">⚠️ 建議預約</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<!-- DAYS -->
+<div class="days-container">
+
+  <!-- ═══ DAY 1 ═══ -->
+  <div class="day-block" id="day1">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+      <div class="day-header-info">
+        <div class="day-date">7月31日 · 週五</div>
+        <div class="day-title">抵達台中 · 草悟道初夜</div>
+        <div class="day-subtitle">高鐵接人 · 爭鮮午餐 · 誠品·永心鳳茶 · MINIMAL · 老井燒肉</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Day 1 · 勤美洲際 → 誠品綠園道</div>
+      <iframe src="https://maps.google.com/maps?q=%E8%87%BA%E4%B8%AD%E5%8B%A4%E7%BE%8E%E6%B4%B2%E9%9A%9B%E9%85%92%E5%BA%97&z=15&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">~11:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">抵達</span>
+          <div class="timeline-name">🚄 抵達桃園機場 · 轉高鐵南下</div>
+          <div class="timeline-desc">MFM→桃園、HKG→桃園 航班抵達。搭高鐵桃園站南下，桃園→台中約 40 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~12:00 PM</div>
+        <div class="timeline-content">
+          <div class="timeline-name">🚗 高鐵台中站接人</div>
+          <div class="timeline-desc">Patty 開車到高鐵台中站（烏日）接 Gail、Chiman。烏日 → 西區酒店約 20 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">12:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🍣 MAGiC TOUCH 点爭鮮 勤美店</div>
+          <div class="timeline-desc">爭鮮旗下觸控點餐迴轉壽司。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">1:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-shopping">逛街 · 茶</span>
+          <div class="timeline-name">🛍️ 逛誠品勤美 · 永心鳳茶坐坐</div>
+          <div class="timeline-desc">飯後逛誠品綠園道，文青選物、書店。累了進永心鳳茶，復古台式茶館喝壺茶、歇歇腿，等 check in。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">3:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 臺中勤美洲際酒店</div>
+          <div class="timeline-desc">2024 開幕，坐落西區草悟道／勤美商圈，IHG 洲際品牌。就在誠品綠園道旁。放好行李，稍作休息。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-shopping">散步 · 冰</span>
+          <div class="timeline-name">🍨 綠園道 + 草悟道 · MINIMAL 冰淇淋</div>
+          <div class="timeline-desc">傍晚沿草悟道林蔭大道散步。MINIMAL 全球首間米其林一星冰淇淋店（澀 Sur- 延伸品牌），味噌、紅酒、伯爵茶等 fine-dining 風味，外帶雙球 NT$180。營業至 18:30。</div>
+          <div class="timeline-warning warn-gold">MINIMAL 週二、三公休（週五有開）</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">7:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🥩 老井燒肉</div>
+          <div class="timeline-desc">台中高質感和牛燒肉名店，與屋馬、茶六齊名。專人代烤 A5 和牛、1cm 超厚切牛舌、雞湯冰沙無限續。</div>
+          <div class="timeline-warning warn-red">⚠️ 熱門店，inline 線上訂位務必先訂</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 2 ═══ -->
+  <div class="day-block" id="day2">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+      <div class="day-header-info">
+        <div class="day-date">8月1日 · 週六</div>
+        <div class="day-title">西區慢遊 · 藝術與茶席</div>
+        <div class="day-subtitle">Sundate 早午餐 · 勤美術館 · 悠寂庵下午茶 · 澀 Sur- · Bar</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Day 2 · 審計新村 → 美村路一帶</div>
+      <iframe src="https://maps.google.com/maps?q=%E5%AF%A9%E8%A8%88%E6%96%B0%E6%9D%91%20%E5%8F%B0%E4%B8%AD&z=15&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">11:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早午餐</span>
+          <div class="timeline-name">🥐 Sundate café · Brunch</div>
+          <div class="timeline-desc">睡到自然醒，悠閒早午餐開場。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">走走</span>
+          <div class="timeline-name">🎨 勤美術館 CMP Block Museum</div>
+          <div class="timeline-desc">酒店旁（館前路79號）。隈研吾為台灣設計，「掀開大地」捲曲唐草建築語彙，2024 底開幕的草悟道街區美術館。當代藝術＋公共空間，慢慢逛。週六 10:00–19:00。咖啡就喝 <strong>Phase Coffee Roasters × 碧月</strong>（4.7★）。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">茶席</span>
+          <div class="timeline-name">🍵 悠寂庵 Yo Chi En · 下午茶</div>
+          <div class="timeline-desc">審計新村旁，獨棟紅磚牆的日式典雅老宅茶館，秒飛日本。嚴選台日有機茶葉、自家發酵室，招牌本煉水蕨餅、最中餅、琥珀糖，每週更換口味。必點小山園抹茶水蕨餅。</div>
+          <div class="timeline-warning warn-red">⚠️ 內用建議提前預約（週一、二公休）</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍽️ 澀 Sur-</div>
+          <div class="timeline-desc">主廚林佾華領軍，結合現代法式手法與台灣在地食材的無菜單料理，每季菜單以台灣日常與文化觀察為靈感。MINIMAL 冰淇淋的母店。</div>
+          <div class="timeline-warning warn-red">⚠️ 需提前約一個月訂位</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">10:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">夜酒</span>
+          <div class="timeline-name">🍸 台中最後一夜 · Bar（四選一）</div>
+          <div class="timeline-desc">在台中唯一的夜晚，找間好酒吧收尾：<br>· <strong>榕之島 Ron Island</strong><br>· <strong>Petit Petit Bistro & Bar</strong>（4.9★）<br>· <strong>澤山</strong>（4.8★）<br>· <strong>SHU Club By 栖.Habitatto</strong></div>
+          <div class="timeline-warning warn-gold">⚠️ 熱門酒吧建議先問訂位</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 3 ═══ -->
+  <div class="day-block" id="day3">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+      <div class="day-header-info">
+        <div class="day-date">8月2日 · 週日</div>
+        <div class="day-title">退房 · 回苗栗 · 北京烤鴨</div>
+        <div class="day-subtitle">Check out · 台中午餐 · 開車回苗栗 · 家宴 · 夜航</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Day 3 · 台中 → 苗栗 → 桃園 TPE</div>
+      <iframe src="https://maps.google.com/maps?saddr=%E5%8F%B0%E4%B8%AD%E5%8B%A4%E7%BE%8E%E6%B4%B2%E9%9A%9B%E9%85%92%E5%BA%97&daddr=%E8%8B%97%E6%A0%97&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">退房</span>
+          <div class="timeline-name">🧳 Check out · 洲際酒店</div>
+          <div class="timeline-desc">退房，行李上車。不趕，最後一個台中早晨慢慢來。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">1:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🍽️ 台中午餐 · 聊天（待訂）</div>
+          <div class="timeline-desc">市區找間舒服的店，慢慢吃、好好聊。離開台中前的最後一頓。餐廳待訂。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">3:00 PM</div>
+        <div class="timeline-content">
+          <div class="timeline-name">🚗 開車回苗栗</div>
+          <div class="timeline-desc">台中 → 苗栗約 1 小時車程。回家休息。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">6:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">家宴</span>
+          <div class="timeline-name">🦆 北京烤鴨 · 苗栗家中</div>
+          <div class="timeline-desc">回到苗栗家中，北京烤鴨晚餐。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">8:00 PM</div>
+        <div class="timeline-content">
+          <div class="timeline-name">🚗 開車去桃園機場 TPE</div>
+          <div class="timeline-desc">晚餐後出發趕夜航。苗栗 → 桃園機場約 1 小時。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">10:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">起飛</span>
+          <div class="timeline-name">✈️ 夜航返程 · TPE → MFM / HKG</div>
+          <div class="timeline-desc">桃園 → 澳門、桃園 → 香港，各自搭夜間航班回家。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOTELS -->
+<section class="hotels">
+  <div class="hotels-inner">
+    <p class="hotels-title">住宿安排</p>
+    <div class="hotel-cards">
+      <div class="hotel-card">
+        <div class="hotel-nights">7/31–8/2 · 2晚</div>
+        <div class="hotel-name">臺中勤美洲際酒店</div>
+        <div class="hotel-note">InterContinental Taichung（IHG）。2024 開幕，西區草悟道／勤美商圈，誠品綠園道步行 2 分鐘。全程據點都在同一帶，步行可達。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">8/2 · 家宴</div>
+        <div class="hotel-name">苗栗自家</div>
+        <div class="hotel-note">最後一天回苗栗，家中北京烤鴨晚餐後，直接前往清泉崗機場搭夜航返程。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUST DO -->
+<section class="mustdo">
+  <p class="section-label" style="text-align:center">行前提醒</p>
+  <h2 class="overview-title" style="text-align:center">需要提前確認的事項</h2>
+  <div class="mustdo-grid">
+    <div class="mustdo-item">
+      <div class="mustdo-num">01</div>
+      <div class="mustdo-text"><strong>✅ 臺中勤美洲際酒店</strong>7/31–8/2 已訂，2晚（IHG）</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">02</div>
+      <div class="mustdo-text"><strong>⚠️ 8/1 晚餐 · 選一並訂位</strong>澀 Sur-／鹽之華／forchetta（星級約一個月，最優先！）</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">03</div>
+      <div class="mustdo-text"><strong>⚠️ 老井燒肉 · 7/31 晚餐</strong>熱門店，inline 線上訂位先訂</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">04</div>
+      <div class="mustdo-text"><strong>⚠️ 悠寂庵 · 8/1 下午茶</strong>內用建議提前預約（週一、二公休）</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">05</div>
+      <div class="mustdo-text"><strong>待訂用餐</strong>8/1 晚餐、8/2 台中午餐；老井、MINIMAL 訂位</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">06</div>
+      <div class="mustdo-text"><strong>返程航班</strong>8/2 夜航 TPE→MFM／HKG，確認起飛時間</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-kanji">中</div>
+  <p class="footer-text">Slow days · Good food · Together again</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
+
+  // Nav scroll
+  function scrollToDay(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 60;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Highlight active nav btn on scroll
+  const dayIds = ['day1','day2','day3'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    dayIds.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 120) current = i;
+    });
+    navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
+  });
+</script>
+</body>
+</html>
