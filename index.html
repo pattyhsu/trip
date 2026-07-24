@@ -5,870 +5,170 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow">
-<title>京都之旅 · 5月22–25日</title>
+<title>旅程 · Trips</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1a1208;
-    --sepia: #6b4c2a;
-    --gold: #c4964a;
-    --gold-light: #e8c87a;
-    --cream: #f7f1e8;
-    --paper: #fdf8f0;
-    --blush: #e8d5c4;
-    --moss: #5a6e4a;
-    --red: #9b2335;
+    --ink: #1f1a14;
+    --paper: #f4f1ea;
+    --muted: rgba(31,26,20,0.55);
+    /* Kyoto */
+    --kyoto-ink: #1a1208;
+    --kyoto-gold: #c4964a;
+    --kyoto-cream: #f7f1e8;
+    /* Taichung */
+    --tc-ink: #22302a;
+    --tc-sage: #5f8060;
+    --tc-cream: #f5f1e6;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: smooth; }
 
   body {
+    min-height: 100vh;
     background: var(--paper);
     color: var(--ink);
     font-family: 'Noto Serif TC', serif;
     font-weight: 300;
-  }
-
-  /* ── STICKY NAV ── */
-  .sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    background: var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    height: 50px;
-    border-bottom: 1px solid rgba(196,150,74,0.2);
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--cream);
-    letter-spacing: 3px;
-  }
-  .nav-days {
-    display: flex;
-    gap: 6px;
-  }
-  .nav-btn {
-    background: none;
-    border: 1px solid rgba(196,150,74,0.25);
-    color: rgba(247,241,232,0.5);
-    font-family: 'Noto Serif TC', serif;
-    font-size: 11px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-    border-radius: 1px;
-  }
-  .nav-btn:hover, .nav-btn.active {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--ink);
-    font-weight: 600;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    min-height: 85vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--ink);
-    overflow: hidden;
+    background-image:
+      radial-gradient(ellipse 50% 60% at 15% 20%, rgba(196,150,74,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 85% 80%, rgba(95,128,96,0.07) 0%, transparent 60%);
   }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(196,150,74,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(155,35,53,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(90,110,74,0.1) 0%, transparent 50%);
+
+  /* ── HEADER ── */
+  .site-header {
+    text-align: center;
+    padding: 96px 24px 56px;
   }
-  .hero-lines {
-    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
-    display: flex; gap: 20px; opacity: 0.15;
-  }
-  .hero-lines span { width: 1px; background: var(--gold); display: block; }
-  .hero-lines span:nth-child(1) { height: 280px; }
-  .hero-lines span:nth-child(2) { height: 200px; }
-  .hero-lines span:nth-child(3) { height: 320px; }
-  .hero-circle {
-    position: absolute; border-radius: 50%;
-    border: 1px solid rgba(196,150,74,0.15);
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 500px; height: 500px;
-  }
-  .hero-circle:nth-child(2) { width: 700px; height: 700px; border-color: rgba(196,150,74,0.08); }
-  .hero-content { position: relative; z-index: 1; text-align: center; padding: 40px 20px; }
-  .hero-eyebrow {
+  .site-eyebrow {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 14px; letter-spacing: 4px; color: var(--gold);
-    text-transform: uppercase; margin-bottom: 24px;
-    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+    font-size: 14px; letter-spacing: 5px; color: var(--muted);
+    text-transform: uppercase; margin-bottom: 20px;
   }
-  .hero-title {
-    font-size: clamp(52px, 8vw, 88px); font-weight: 300;
-    color: var(--cream); letter-spacing: -1px; line-height: 1; margin-bottom: 8px;
-    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  .site-title {
+    font-size: clamp(44px, 9vw, 76px); font-weight: 300;
+    letter-spacing: 6px; line-height: 1; margin-bottom: 16px;
   }
-  .hero-title-en {
-    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
-    font-style: italic; font-weight: 300; color: rgba(247,241,232,0.5);
-    letter-spacing: 6px; margin-bottom: 40px;
-    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
-  }
-  .hero-dates {
-    display: flex; align-items: center; justify-content: center; gap: 16px;
-    opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
-  }
-  .hero-dates-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
-  .hero-dates-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; color: var(--gold-light); }
-  .scroll-hint {
-    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
-  }
-  .scroll-hint span { font-size: 11px; letter-spacing: 3px; color: rgba(247,241,232,0.4); text-transform: uppercase; }
-  .scroll-hint-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
-
-  /* ── OVERVIEW ── */
-  .overview { padding: 80px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
-  .section-label {
+  .site-title-en {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+    font-size: clamp(15px, 2.4vw, 20px); letter-spacing: 6px; color: var(--muted);
   }
-  .overview-title { font-size: 28px; font-weight: 300; color: var(--sepia); margin-bottom: 24px; line-height: 1.6; }
-  .overview-desc { font-size: 15px; line-height: 2; color: rgba(26,18,8,0.65); max-width: 560px; margin: 0 auto 48px; }
-  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .info-card { background: white; border: 1px solid rgba(196,150,74,0.2); padding: 24px 16px; text-align: center; }
-  .info-card-icon { font-size: 24px; margin-bottom: 10px; }
-  .info-card-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
-  .info-card-value { font-size: 14px; color: var(--sepia); line-height: 1.5; }
-
-  /* ── CONFIRMED BOOKINGS ── */
-  .confirmed-section { max-width: 800px; margin: 0 auto; padding: 0 24px 40px; }
-  .confirmed-inner { background: white; border: 1px solid rgba(90,110,74,0.25); }
-  .confirmed-header { background: rgba(90,110,74,0.08); padding: 14px 20px; border-bottom: 1px solid rgba(90,110,74,0.15); }
-  .confirmed-header h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--moss); }
-  .confirmed-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(90,110,74,0.08); gap: 12px; }
-  .confirmed-row:last-child { border-bottom: none; }
-  .confirmed-name { font-size: 14px; color: var(--ink); }
-  .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
-
-  /* ── DIVIDER ── */
-  .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
-  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(196,150,74,0.3), transparent); }
-  .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
-
-  /* ── DAYS ── */
-  .days-container { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
-  .day-block { margin-bottom: 80px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .day-block.visible { opacity: 1; transform: translateY(0); }
-
-  .day-header {
-    display: flex; align-items: flex-start; gap: 24px;
-    margin-bottom: 32px; padding-bottom: 24px;
-    border-bottom: 1px solid rgba(196,150,74,0.2);
-  }
-  .day-number {
-    flex-shrink: 0; width: 64px; height: 64px; background: var(--ink);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-  }
-  .day-number-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
-  .day-number-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1; }
-  .day-header-info { flex: 1; padding-top: 4px; }
-  .day-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
-  .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
-  .day-subtitle { font-size: 13px; color: rgba(26,18,8,0.5); letter-spacing: 1px; }
-
-  /* ── MAP ── */
-  .day-map {
-    width: 100%; height: 220px; margin-bottom: 32px;
-    border: 1px solid rgba(196,150,74,0.2); overflow: hidden; position: relative;
-  }
-  .day-map iframe { width: 100%; height: 100%; border: none; }
-  .map-label {
-    position: absolute; top: 10px; left: 10px;
-    background: rgba(26,18,8,0.85); color: var(--gold);
-    font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
-    font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
-    pointer-events: none; z-index: 1;
+  .header-rule {
+    width: 48px; height: 1px; background: var(--ink); opacity: 0.25;
+    margin: 32px auto 0;
   }
 
-  /* ── TIMELINE ── */
-  .timeline { position: relative; padding-left: 32px; }
-  .timeline::before {
-    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px;
-    background: linear-gradient(to bottom, rgba(196,150,74,0.4), rgba(196,150,74,0.1));
+  /* ── TRIP GRID ── */
+  .trips {
+    flex: 1;
+    max-width: 860px; width: 100%;
+    margin: 0 auto; padding: 0 24px 64px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
   }
-  .timeline-item { position: relative; margin-bottom: 28px; display: flex; gap: 20px; }
-  .timeline-dot {
-    position: absolute; left: -29px; top: 6px; width: 8px; height: 8px;
-    border-radius: 50%; background: var(--cream); border: 1.5px solid var(--gold); flex-shrink: 0;
+  .trip-card {
+    position: relative; display: block; text-decoration: none;
+    color: inherit; overflow: hidden;
+    background: var(--card-bg, #fff);
+    border: 1px solid rgba(31,26,20,0.12);
+    padding: 40px 32px 36px;
+    min-height: 280px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   }
-  .timeline-dot.meal { background: var(--gold); border-color: var(--gold); }
-  .timeline-dot.highlight { background: var(--red); border-color: var(--red); }
-  .timeline-dot.confirmed { background: var(--moss); border-color: var(--moss); }
-  .timeline-time { flex-shrink: 0; width: 72px; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); padding-top: 2px; letter-spacing: 0.5px; }
-  .timeline-content { flex: 1; }
-  .timeline-name { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
-  .timeline-desc { font-size: 13px; color: rgba(26,18,8,0.55); line-height: 1.7; }
-  .timeline-tag {
-    display: inline-block; font-size: 10px; letter-spacing: 1.5px;
-    text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; border-radius: 0;
+  .trip-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--accent);
   }
-  .tag-meal { background: rgba(196,150,74,0.12); color: var(--sepia); }
-  .tag-garden { background: rgba(90,110,74,0.12); color: var(--moss); }
-  .tag-culture { background: rgba(155,35,53,0.1); color: var(--red); }
-  .tag-shopping { background: rgba(107,76,42,0.1); color: var(--sepia); }
-  .tag-hotel { background: rgba(26,18,8,0.06); color: rgba(26,18,8,0.6); }
-  .timeline-warning { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; letter-spacing: 0.5px; }
-  .warn-red { color: var(--red); }
-  .warn-green { color: var(--moss); }
-  .warn-gold { color: var(--gold); }
+  .trip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -18px rgba(31,26,20,0.35);
+    border-color: var(--accent);
+  }
+  .trip-index {
+    font-family: 'Cormorant Garamond', serif; font-size: 13px;
+    letter-spacing: 3px; color: var(--accent); text-transform: uppercase;
+  }
+  .trip-body { margin-top: auto; }
+  .trip-kanji {
+    font-size: 52px; font-weight: 300; letter-spacing: 4px;
+    color: var(--card-ink); line-height: 1; margin-bottom: 8px;
+  }
+  .trip-en {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 16px; letter-spacing: 4px; color: var(--accent); margin-bottom: 18px;
+  }
+  .trip-dates {
+    font-family: 'Cormorant Garamond', serif; font-size: 15px;
+    letter-spacing: 1.5px; color: var(--card-ink); opacity: 0.75; margin-bottom: 6px;
+  }
+  .trip-desc { font-size: 13px; line-height: 1.7; color: rgba(31,26,20,0.55); }
+  .trip-cta {
+    margin-top: 20px; display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; letter-spacing: 2px; color: var(--accent);
+  }
+  .trip-cta .arrow { transition: transform 0.3s ease; }
+  .trip-card:hover .trip-cta .arrow { transform: translateX(5px); }
 
-  /* ── HOTELS ── */
-  .hotels { background: var(--ink); padding: 64px 24px; }
-  .hotels-inner { max-width: 800px; margin: 0 auto; }
-  .hotels-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; text-align: center; }
-  .hotel-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .hotel-card { border: 1px solid rgba(196,150,74,0.2); padding: 28px 24px; }
-  .hotel-nights { font-size: 11px; letter-spacing: 2px; color: rgba(196,150,74,0.6); text-transform: uppercase; margin-bottom: 8px; }
-  .hotel-name { font-size: 18px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
-  .hotel-note { font-size: 13px; color: rgba(247,241,232,0.4); line-height: 1.7; }
-
-  /* ── MUST DO ── */
-  .mustdo { padding: 64px 24px; max-width: 800px; margin: 0 auto; }
-  .mustdo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-  .mustdo-item { background: white; border: 1px solid rgba(196,150,74,0.15); padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
-  .mustdo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: rgba(196,150,74,0.3); line-height: 1; flex-shrink: 0; }
-  .mustdo-text { font-size: 14px; color: var(--sepia); line-height: 1.7; }
-  .mustdo-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 13px; }
+  .card-kyoto { --accent: var(--kyoto-gold); --card-ink: var(--kyoto-ink); --card-bg: #fffdf8; }
+  .card-taichung { --accent: var(--tc-sage); --card-ink: var(--tc-ink); --card-bg: #fbfcf7; }
 
   /* ── FOOTER ── */
-  footer { background: var(--ink); padding: 48px 24px; text-align: center; }
-  .footer-kanji { font-size: 48px; font-weight: 300; color: rgba(196,150,74,0.15); margin-bottom: 16px; }
-  .footer-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(247,241,232,0.3); letter-spacing: 2px; }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
-
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-    .hero { min-height: 100svh; }
-    .hero-lines { display: none; }
-    .hero-circle { width: 280px; height: 280px; }
-    .hero-circle:nth-child(2) { width: 380px; height: 380px; }
-    .hero-title { font-size: clamp(64px, 18vw, 88px); }
-    .overview { padding: 48px 20px; }
-    .overview-title { font-size: 22px; }
-    .overview-desc { font-size: 14px; }
-    .info-cards { grid-template-columns: 1fr; gap: 10px; }
-    .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
-    .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
-    .confirmed-section { padding: 0 16px 32px; }
-    .days-container { padding: 40px 16px; }
-    .day-block { margin-bottom: 56px; }
-    .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
-    .day-number { width: 56px; height: 56px; }
-    .day-number-num { font-size: 24px; }
-    .day-title { font-size: 18px; }
-    .day-subtitle { font-size: 12px; line-height: 1.5; }
-    .day-map { height: 200px; margin-bottom: 20px; }
-    .timeline { padding-left: 24px; }
-    .timeline::before { left: 5px; }
-    .timeline-item { gap: 12px; margin-bottom: 22px; }
-    .timeline-dot { left: -21px; }
-    .timeline-time { width: 62px; font-size: 12px; }
-    .timeline-name { font-size: 14px; }
-    .timeline-desc { font-size: 12px; line-height: 1.75; }
-    .timeline-warning { font-size: 11px; }
-    .hotels { padding: 48px 16px; }
-    .hotel-cards { grid-template-columns: 1fr; gap: 12px; }
-    .hotel-card { padding: 22px 18px; }
-    .mustdo { padding: 48px 16px; }
-    .mustdo-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
-    .mustdo-item { padding: 20px; }
-    .divider { padding: 0 16px; }
-    footer { padding: 40px 16px; }
-    .sticky-nav { padding: 0 16px; }
-    .nav-logo { font-size: 16px; }
+  footer { text-align: center; padding: 32px 24px 48px; }
+  .footer-text {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 13px; letter-spacing: 2px; color: var(--muted);
   }
-  @media (max-width: 380px) {
-    .hero-title { font-size: 58px; }
-    .timeline-time { width: 56px; font-size: 11px; }
-    .timeline-name { font-size: 13px; }
-    .nav-btn { padding: 4px 8px; font-size: 10px; }
+
+  @media (max-width: 700px) {
+    .site-header { padding: 64px 20px 40px; }
+    .trips { grid-template-columns: 1fr; gap: 16px; padding: 0 16px 48px; }
+    .trip-card { min-height: 220px; padding: 32px 24px 28px; }
+    .trip-kanji { font-size: 44px; }
   }
 </style>
 </head>
 <body>
 
-<!-- STICKY NAV -->
-<nav class="sticky-nav">
-  <div class="nav-logo">京都 · 五月</div>
-  <div class="nav-days">
-    <button class="nav-btn" onclick="scrollToDay('day1')">22</button>
-    <button class="nav-btn" onclick="scrollToDay('day2')">23</button>
-    <button class="nav-btn" onclick="scrollToDay('day3')">24</button>
-    <button class="nav-btn" onclick="scrollToDay('day4')">25</button>
-  </div>
-</nav>
+<header class="site-header">
+  <p class="site-eyebrow">Patty's Travels</p>
+  <h1 class="site-title">旅程</h1>
+  <p class="site-title-en">Journeys</p>
+  <div class="header-rule"></div>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-circle"></div>
-  <div class="hero-circle"></div>
-  <div class="hero-lines"><span></span><span></span><span></span></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Family Trip · Kansai Japan</p>
-    <h1 class="hero-title">京都</h1>
-    <p class="hero-title-en">Kyoto</p>
-    <div class="hero-dates">
-      <div class="hero-dates-line"></div>
-      <span class="hero-dates-text">5月22日 — 25日</span>
-      <div class="hero-dates-line"></div>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-hint-line"></div>
-  </div>
-</section>
+<main class="trips">
 
-<!-- OVERVIEW -->
-<section class="overview">
-  <p class="section-label">行程概覽</p>
-  <h2 class="overview-title">慢活京都·四天三夜</h2>
-  <p class="overview-desc">以美食、庭院、茶室為主軸，避開人潮，感受京都真正的生活節奏。不趕景點，每天一個重心。</p>
-  <div class="info-cards">
-    <div class="info-card">
-      <div class="info-card-icon">✈️</div>
-      <div class="info-card-label">抵達</div>
-      <div class="info-card-value">5/22 下午 14:50<br>關西國際機場 KIX</div>
+  <a class="trip-card card-kyoto" href="kyoto.html">
+    <div class="trip-index">01 · Japan</div>
+    <div class="trip-body">
+      <div class="trip-kanji">京都</div>
+      <div class="trip-en">Kyoto</div>
+      <div class="trip-dates">5月22日 — 25日</div>
+      <div class="trip-desc">慢活京都·四天三夜。美食、庭院、茶室為主軸。</div>
+      <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
     </div>
-    <div class="info-card">
-      <div class="info-card-icon">🏨</div>
-      <div class="info-card-label">住宿</div>
-      <div class="info-card-value">柊家（1晚）<br>Park Hyatt Kyoto（2晚）</div>
-    </div>
-    <div class="info-card">
-      <div class="info-card-icon">👥</div>
-      <div class="info-card-label">人數</div>
-      <div class="info-card-value">3人<br>家庭同遊</div>
-    </div>
-  </div>
-</section>
+  </a>
 
-<!-- CONFIRMED BOOKINGS -->
-<div class="confirmed-section">
-  <div class="confirmed-inner">
-    <div class="confirmed-header"><h3>✅ 已確認訂位</h3></div>
-    <div class="confirmed-row">
-      <div class="confirmed-name">柊家 · 私家車接機（5/22 KIX）</div>
-      <div class="confirmed-code">✅ 確認</div>
+  <a class="trip-card card-taichung" href="taichung.html">
+    <div class="trip-index">02 · Taiwan</div>
+    <div class="trip-body">
+      <div class="trip-kanji">台中</div>
+      <div class="trip-en">Taichung</div>
+      <div class="trip-dates">7月31日 — 8月2日</div>
+      <div class="trip-desc">草悟道慢遊·三天兩夜。美食、甜點、散步為主軸。</div>
+      <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
     </div>
-    <div class="confirmed-row">
-      <div class="confirmed-name">ひいらぎ亭 · 晚餐（5/23 20:00）</div>
-      <div class="confirmed-code">#4XRD3AESRT</div>
-    </div>
-    <div class="confirmed-row">
-      <div class="confirmed-name">Mouriya Gion · 午餐（5/24 11:30）</div>
-      <div class="confirmed-code">✅ 確認</div>
-    </div>
-  </div>
-</div>
+  </a>
 
-<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
-
-<!-- DAYS -->
-<div class="days-container">
-
-  <!-- ═══ DAY 1 ═══ -->
-  <div class="day-block" id="day1">
-    <div class="day-header">
-      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
-      <div class="day-header-info">
-        <div class="day-date">5月22日 · 週五</div>
-        <div class="day-title">抵達京都 · 柊家初夜</div>
-        <div class="day-subtitle">KIX → 私家車 → 百年旅館 → 懷石料理</div>
-      </div>
-    </div>
-
-    <div class="day-map">
-      <div class="map-label">Day 1 · KIX → 柊家</div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d218553.4!2d135.49!3d34.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m3!3e0!4m0!4m0!5e0!3m2!1szh-TW!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot confirmed"></div>
-        <div class="timeline-time">2:50 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">降落 KIX 關西國際機場</div>
-          <div class="timeline-desc">出關、取行李，柊家私家車在出口等候</div>
-          <div class="timeline-warning warn-green">✅ 私家車已確認</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">3:10 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">私家車出發</div>
-          <div class="timeline-desc">車程約90分鐘</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">~4:40 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-hotel">住宿</span>
-          <div class="timeline-name">抵達柊家 · Check in</div>
-          <div class="timeline-desc">1818年創業，200年歷史旅館。換上浴衣，感受榻榻米日式空間。川端康成、三島由紀夫曾入住。</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">7:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">晚餐</span>
-          <div class="timeline-name">柊家懷石料理</div>
-          <div class="timeline-desc">在房內享用懷石料理，含在住宿費內。早點休息，明天行程豐富。</div>
-          <div class="timeline-warning warn-green">✅ 含在住宿費內</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ DAY 2 ═══ -->
-  <div class="day-block" id="day2">
-    <div class="day-header">
-      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
-      <div class="day-header-info">
-        <div class="day-date">5月23日 · 週六</div>
-        <div class="day-title">金閣寺 · 庭園慢遊</div>
-        <div class="day-subtitle">金閣寺 · 永觀堂 · 天授庵 · 無鄰菴 · 焼鳥</div>
-      </div>
-    </div>
-
-    <div class="day-map">
-      <div class="map-label">Day 2 v2 · 銀閣寺 → 哲學之道 → 永觀堂 → 南禪寺</div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13140!2d135.79!3d35.02!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60010892b2b2b2b2%3A0x1!2zR2luLWthay1qaSwgS3lvdG8!5e0!3m2!1szh-TW!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">8:00 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">早餐</span>
-          <div class="timeline-name">柊家日式早餐</div>
-          <div class="timeline-desc">傳統日式早餐，含在住宿費內</div>
-          <div class="timeline-warning warn-green">✅ 含在住宿費內</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">9:30 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-hotel">行李</span>
-          <div class="timeline-name">Check out · 行李宅急便送 Park Hyatt</div>
-          <div class="timeline-desc">每件約¥1,500，下午到達酒店。輕鬆出遊一整天</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">10:00 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">必看</span>
-          <div class="timeline-name">🏯 金閣寺（鹿苑寺）</div>
-          <div class="timeline-desc">金箔寺廟倒映在鏡湖，30–40 分鐘足夠。9:00 開門，10 點到避開團客高峰</div>
-          <div class="timeline-warning warn-red">⚠️ 出口有金箔抹茶冰淇淋 ¥800</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">11:00 AM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">🚕 計程車去南禪寺一帶</div>
-          <div class="timeline-desc">金閣寺 → 永觀堂約 30 分鐘，¥2,500 上下</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">11:30 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-garden">庭園</span>
-          <div class="timeline-name">🌿 永觀堂（禅林寺）</div>
-          <div class="timeline-desc">池泉庭園，依山而建，一步一景。「京都白月光庭院」。爸媽不爬樓梯就在庭園裡慢慢看，~60 分鐘</div>
-          <div class="timeline-warning warn-red">⚠️ 16:00 關門</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">12:30 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">午餐</span>
-          <div class="timeline-name">🍜 権太呂 岡崎店</div>
-          <div class="timeline-desc">1875 年京都蕎麥老店，蕎麥+うどん。從永觀堂走 10 分鐘到岡崎，環境寬敞、桌位舒服</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">2:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-garden">庭園</span>
-          <div class="timeline-name">🌿 天授庵（南禪寺境內）</div>
-          <div class="timeline-desc">池泉迴遊式庭園，大錦鯉池、苔蘚、石橋。¥500 入場，靜謐</div>
-          <div class="timeline-warning warn-gold">16:30 關門</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">3:00 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">☕ Blue Bottle Coffee 南禪寺</div>
-          <div class="timeline-desc">百年町屋改建，日式庭院配落地玻璃窗。庭園走完後坐下休息 45 分鐘，補咖啡因準備下一站</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">3:45 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-garden">庭園+茶</span>
-          <div class="timeline-name">🍵 無鄰菴</div>
-          <div class="timeline-desc">山縣有朋別墅，溪流穿園的池泉庭園，茶室邊看庭園邊喝抹茶。坐下休息+品茶 60–90 分鐘</div>
-          <div class="timeline-warning warn-red">⚠️ 需官網提前預約</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">5:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-hotel">住宿</span>
-          <div class="timeline-name">Park Hyatt Kyoto · Check in + 午睡</div>
-          <div class="timeline-desc">告知第三位客人，需要加床。行李應已先到。走了一天路，**爸媽好好睡個午覺**，晚餐前再起來換衣服。</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">8:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">晚餐</span>
-          <div class="timeline-name">🍗 ひいらぎ亭（地鶏とおばんざい）</div>
-          <div class="timeline-desc">親子三代，每日親赴滋賀縣取淡海地雞。Michelin Bib Gourmand。</div>
-          <div class="timeline-warning warn-green">✅ 已訂位 · #4XRD3AESRT</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">~10:00 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">⛩️ 八坂神社深夜散步</div>
-          <div class="timeline-desc">飯後步行5分鐘即到。深夜人更少，燈籠更亮，氣氛更靜謐。24小時開放，免費。</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">~10:30 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">步行回 Park Hyatt</div>
-          <div class="timeline-desc">夜間的二年坂石板路，路燈昏黃，完美收尾</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ DAY 3 ═══ -->
-  <div class="day-block" id="day3">
-    <div class="day-header">
-      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
-      <div class="day-header-info">
-        <div class="day-date">5月24日 · 週日</div>
-        <div class="day-title">神戶牛 · 錦市場 · 茶室</div>
-        <div class="day-subtitle">清水寺 · 星巴克 · 神戶牛 · 錦市場 · 甜點 · 鴨川</div>
-      </div>
-    </div>
-
-    <div class="day-map">
-      <div class="map-label">Day 3 · 東山 → 祇園 → 中京</div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d13189.4!2d135.774!3d35.005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x600108d2a2a2a2a2%3A0x1!2sStarbucks+Ninenzaka+Kyoto!3m2!1d34.9983!2d135.7808!4m5!1s0x600109b9b9b9b9b9%3A0x2!2sHeian+Shrine+Kyoto!3m2!1d35.0161!2d135.7841!4m5!1s0x60010864a4a4a4a4%3A0x3!2sMouriya+Gion+Kyoto!3m2!1d35.0034!2d135.7727!4m5!1s0x600108b3b3b3b3b3%3A0x4!2sKyo+Amahare+Kyoto!3m2!1d35.0061!2d135.7646!4m5!1s0x600108c4c4c4c4c4%3A0x5!2sIppodo+Tea+Kyoto!3m2!1d35.0145!2d135.7674!5e0!3m2!1szh-TW!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">7:15 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">早晨</span>
-          <div class="timeline-name">🛕 清水寺（早起版）</div>
-          <div class="timeline-desc">6:00 AM 開門，7:15 抵達還幾乎沒人。晨光打在清水舞台超漂亮。8:30 從清水坂走下來，二寧坂三年坂也都還沒擠</div>
-          <div class="timeline-warning warn-gold">⚠️ 起不來就跳過，當天臨機應變</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">8:30 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">早餐</span>
-          <div class="timeline-name">🏨 Park Hyatt 酒店早餐</div>
-          <div class="timeline-desc">想坐下好好吃的人來這裡，日式/西式都有</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">9:00 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">早餐（另選）</span>
-          <div class="timeline-name">☕ 星巴克 二寧坂ヤサカ茶屋店</div>
-          <div class="timeline-desc">酒店步行即到，百年町屋改建，榻榻米座位，日本限定飲料。想拍照、想吃輕食的人來這</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">10:00 AM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">回酒店休息 / 慢慢晃</div>
-          <div class="timeline-desc">早晨清水寺走完可以回 Park Hyatt 休息一下。或慢慢晃下到祇園</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">11:30 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">午餐</span>
-          <div class="timeline-name">🥩 Mouriya Gion · 神戶牛鐵板燒</div>
-          <div class="timeline-desc">140 年老店，一對一主廚鐵板現烤，神戶牛入口即化，含沙拉、米飯、甜點</div>
-          <div class="timeline-warning warn-green">✅ 已確認 11:30 午餐場</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">2:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-shopping">市場+逛街</span>
-          <div class="timeline-name">🍣 錦市場 + 寺町三条</div>
-          <div class="timeline-desc">400 年「京都廚房」400 公尺長拱廊，漬物、豆腐、玉子燒、抹茶甜點一路試吃。逛完接寺町三条器皿陶瓷小店（同一帶，差一條街）</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">5:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">甜點</span>
-          <div class="timeline-name">🍰 溫onn 京都甜品</div>
-          <div class="timeline-desc">京都市中京区伊勢屋町 341-1。從寺町三条/錦市場走路就到，逛完坐下吃甜點剛剛好</div>
-          <div class="timeline-warning warn-gold">⚠️ 確認營業時間 / 是否需訂位</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">6:00 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">🌊 三条橋 · 鴨川散步</div>
-          <div class="timeline-desc">傍晚坐在鴨川河岸，看京都人的日常。日落約19:05，黃金時刻</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">7:00 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">🏮 花見小路 · 藍調時刻</div>
-          <div class="timeline-desc">燈籠剛亮、天空還有餘光，最美的一刻。不進任何店，走走看看</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">7:30 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">計程車回 Park Hyatt</div>
-          <div class="timeline-desc">晚餐無特別安排，可即興發揮——酒店輕食、room service，或祇園附近隨意找間小店</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">8:30 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">放鬆</span>
-          <div class="timeline-name">💆 按摩（外部店）</div>
-          <div class="timeline-desc">最後一晚放鬆。60–90 分鐘。地點待定，建議找祇園/河原町一帶的店</div>
-          <div class="timeline-warning warn-gold">⚠️ 店家+訂位待確認</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">10:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">最後一夜</span>
-          <div class="timeline-name">🥃 Bar Kohaku · Park Hyatt 4樓</div>
-          <div class="timeline-desc">京都最後一夜的收尾。落地玻璃窗直對八坂塔，開到 24:00。京都蒸餾廠 KI NO BI 限定 gin、日本威士忌、sake。首席調酒師中村亞希子，銅杯為京都傳統工匠特製。<strong>$100 property credit 在這裡用掉</strong></div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">11:30 PM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">🛁 回房 · 慢慢收尾</div>
-          <div class="timeline-desc">泡個澡、整理行李、好好睡一覺。明早還要去高台寺散步</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ DAY 4 ═══ -->
-  <div class="day-block" id="day4">
-    <div class="day-header">
-      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
-      <div class="day-header-info">
-        <div class="day-date">5月25日 · 週一</div>
-        <div class="day-title">慢早晨 · 離京回台</div>
-        <div class="day-subtitle">酒店早餐 · 高台寺 · 計程車 → KIX · JX821</div>
-      </div>
-    </div>
-
-    <div class="day-map">
-      <div class="map-label">Day 4 · 東山 → 京都站 → KIX</div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m34!1m12!1m3!1d218553.4!2d135.55!3d34.79!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m19!3e0!4m5!1s0x600108a5a5a5a5a5%3A0x1!2sInoda+Coffee+Main+Kyoto!3m2!1d35.0081!2d135.7632!4m5!1s0x60010942b2b2b2b2%3A0x2!2sShoren-in+Temple+Kyoto!3m2!1d35.0073!2d135.7832!4m5!1s0x6001089e2e2e2e2e%3A0x3!2sKansai+International+Airport!3m2!1d34.4348!2d135.2444!5e0!3m2!1szh-TW!2sjp!4v1" allowfullscreen loading="lazy"></iframe>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">7:30 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">早餐</span>
-          <div class="timeline-name">🏨 Park Hyatt · 酒店早餐</div>
-          <div class="timeline-desc">在酒店慢慢吃。有日式和西式選擇。</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">9:00 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-garden">庭園</span>
-          <div class="timeline-name">🌳 高台寺</div>
-          <div class="timeline-desc">酒店步行 5 分鐘（穿過寧寧之道）。豐臣秀吉夫人寧寧建的庭院，枯山水「波心庭」+ 池泉迴遊式「臥龍池」。30 分鐘逛完剛好回去 check out</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">10:00 AM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">Check out · 計程車去 KIX</div>
-          <div class="timeline-desc">10:00 出發，約90分鐘到機場</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">~11:30 AM</div>
-        <div class="timeline-content">
-          <div class="timeline-name">抵達 KIX · 辦理登機</div>
-          <div class="timeline-desc">星宇航空 JX821 check-in</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot confirmed"></div>
-        <div class="timeline-time">1:25 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">起飛</span>
-          <div class="timeline-name">✈️ JX821 · KIX → TPE</div>
-          <div class="timeline-desc">星宇航空，飛行約2小時55分，抵達桃園約15:20（台灣時間）</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- HOTELS -->
-<section class="hotels">
-  <div class="hotels-inner">
-    <p class="hotels-title">住宿安排</p>
-    <div class="hotel-cards">
-      <div class="hotel-card">
-        <div class="hotel-nights">5/22 · 1晚</div>
-        <div class="hotel-name">柊家</div>
-        <div class="hotel-note">1818年創業，200年歷史。榻榻米、浴衣、私人懷石料理。早晚餐含在內。私家車接機已確認。</div>
-      </div>
-      <div class="hotel-card">
-        <div class="hotel-nights">5/23–5/25 · 2晚</div>
-        <div class="hotel-name">Park Hyatt Kyoto</div>
-        <div class="hotel-note">東山區，步出即是二年坂石板路。90間客房，服務細膩。告知第三位客人需加床。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MUST DO -->
-<section class="mustdo">
-  <p class="section-label" style="text-align:center">行前提醒</p>
-  <h2 class="overview-title" style="text-align:center">需要提前預訂的事項</h2>
-  <div class="mustdo-grid">
-    <div class="mustdo-item">
-      <div class="mustdo-num">01</div>
-      <div class="mustdo-text"><strong>✅ 柊家 · 私家車接機</strong>5/22 KIX 14:50降落，已確認</div>
-    </div>
-    <div class="mustdo-item">
-      <div class="mustdo-num">02</div>
-      <div class="mustdo-text"><strong>✅ ひいらぎ亭 · 5/23晚餐</strong>已訂位 20:00，訂位編號 #4XRD3AESRT</div>
-    </div>
-    <div class="mustdo-item">
-      <div class="mustdo-num">03</div>
-      <div class="mustdo-text"><strong>✅ Mouriya Gion · 5/24午餐</strong>已確認 11:30 午餐場</div>
-    </div>
-    <div class="mustdo-item">
-      <div class="mustdo-num">04</div>
-      <div class="mustdo-text"><strong>⚠️ 無鄰菴 · 5/23下午</strong>官網預約，附抹茶和菓子</div>
-    </div>
-    <div class="mustdo-item">
-      <div class="mustdo-num">06</div>
-      <div class="mustdo-text"><strong>溫onn 京都甜品 · 5/24下午</strong>確認營業時間與訂位需求</div>
-    </div>
-  </div>
-</section>
+</main>
 
 <footer>
-  <div class="footer-kanji">京</div>
-  <p class="footer-text">Slow travel · Good food · Beautiful gardens</p>
+  <p class="footer-text">Good food · Slow days · Beautiful places</p>
 </footer>
 
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
-
-  // Nav scroll
-  function scrollToDay(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      const offset = 60;
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  }
-
-  // Highlight active nav btn on scroll
-  const dayIds = ['day1','day2','day3','day4'];
-  const navBtns = document.querySelectorAll('.nav-btn');
-  window.addEventListener('scroll', () => {
-    let current = 0;
-    dayIds.forEach((id, i) => {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top < 120) current = i;
-    });
-    navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
-  });
-</script>
 </body>
 </html>
