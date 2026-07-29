@@ -1,0 +1,2331 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>瑞士之旅 · 9月5日–15日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2e3b;
+    --sepia: #2b4a5c;
+    --gold: #c0392b;
+    --gold-light: #e08b7e;
+    --cream: #f4f6f6;
+    --paper: #f6f8f8;
+    --blush: #e3ecec;
+    --moss: #4a7c6f;
+    --red: #c0392b;
+    --alp: #3f7d8c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 20px; height: 50px; gap: 12px;
+    border-bottom: 1px solid rgba(192,57,43,0.25);
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--cream); letter-spacing: 3px; flex-shrink: 0; }
+  .nav-days { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; }
+  .nav-days::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    background: none; border: 1px solid rgba(224,139,126,0.3);
+    color: rgba(244,246,246,0.5);
+    font-family: 'Noto Serif TC', serif; font-size: 11px;
+    padding: 5px 8px; cursor: pointer; transition: all 0.2s; border-radius: 1px; flex-shrink: 0;
+  }
+  .nav-btn:hover, .nav-btn.active { background: var(--gold); border-color: var(--gold); color: #fff; font-weight: 600; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 85vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(165deg, #f7f9f9 0%, #e8f0f1 55%, #dfebec 100%);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 55%, rgba(63,125,140,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 28%, rgba(192,57,43,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(74,124,111,0.13) 0%, transparent 55%);
+  }
+  .hero-peaks { position: absolute; bottom: 0; left: 0; right: 0; height: 38%; opacity: 0.13; }
+  .hero-peaks svg { width: 100%; height: 100%; display: block; }
+  .hero-circle {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(63,125,140,0.18);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+  }
+  .hero-circle:nth-of-type(2) { width: 700px; height: 700px; border-color: rgba(63,125,140,0.1); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: 40px 20px; }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; letter-spacing: 4px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+  }
+  .hero-title {
+    font-size: clamp(52px, 8vw, 88px); font-weight: 300;
+    color: var(--ink); letter-spacing: -1px; line-height: 1; margin-bottom: 8px;
+    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title-en {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic; font-weight: 300; color: rgba(26,46,59,0.45);
+    letter-spacing: 6px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-dates { display: flex; align-items: center; justify-content: center; gap: 16px; opacity: 0; animation: fadeUp 1s ease 0.9s forwards; }
+  .hero-dates-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-dates-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; color: var(--gold); }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s ease 1.5s forwards; z-index: 1;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: 3px; color: rgba(26,46,59,0.4); text-transform: uppercase; }
+  .scroll-hint-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+
+  /* ── OVERVIEW ── */
+  .overview { padding: 80px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .section-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+  .overview-title { font-size: 28px; font-weight: 300; color: var(--sepia); margin-bottom: 24px; line-height: 1.6; }
+  .overview-desc { font-size: 15px; line-height: 2; color: rgba(26,46,59,0.65); max-width: 580px; margin: 0 auto 48px; }
+  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .info-card { background: white; border: 1px solid rgba(63,125,140,0.22); padding: 24px 16px; text-align: center; }
+  .info-card-icon { font-size: 24px; margin-bottom: 10px; }
+  .info-card-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .info-card-value { font-size: 14px; color: var(--sepia); line-height: 1.6; }
+
+  /* ── CONFIRMED BOOKINGS ── */
+  .confirmed-section { max-width: 800px; margin: 0 auto; padding: 0 24px 40px; }
+  .confirmed-inner { background: white; border: 1px solid rgba(74,124,111,0.25); }
+  .confirmed-header { background: rgba(74,124,111,0.08); padding: 14px 20px; border-bottom: 1px solid rgba(74,124,111,0.15); }
+  .confirmed-header h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--moss); }
+  .confirmed-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(74,124,111,0.08); gap: 12px; }
+  .confirmed-row:last-child { border-bottom: none; }
+  .confirmed-name { font-size: 14px; color: var(--ink); line-height: 1.6; }
+  .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
+  .confirmed-code.pending { color: var(--red); }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(63,125,140,0.3), transparent); }
+  .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  /* ── ROUTE VERSION SWITCH ── */
+  .routes { max-width: 800px; margin: 0 auto; padding: 60px 24px 0; text-align: center; }
+  .routes-title { font-size: 24px; font-weight: 300; color: var(--sepia); margin-bottom: 14px; }
+  .routes-desc { font-size: 14px; line-height: 1.9; color: rgba(26,46,59,0.6); max-width: 560px; margin: 0 auto 32px; }
+  .version-switch { display: flex; gap: 8px; margin-bottom: 24px; }
+  .ver-btn {
+    flex: 1; background: white; border: 1px solid rgba(63,125,140,0.3);
+    color: var(--sepia); font-family: 'Noto Serif TC', serif; font-size: 13px;
+    padding: 14px 8px; cursor: pointer; transition: all 0.2s; line-height: 1.4;
+  }
+  .ver-btn small { display: block; font-size: 10px; letter-spacing: 1px; opacity: 0.6; margin-top: 3px; }
+  .ver-btn:hover { border-color: var(--gold); }
+  .ver-btn.active { background: var(--gold); border-color: var(--gold); color: #fff; font-weight: 600; }
+  .ver-btn.active small { opacity: 0.85; }
+
+  .ver-panel[hidden] { display: none; }
+  .ver-head { margin-bottom: 20px; text-align: left; }
+  .ver-title { font-size: 20px; font-weight: 400; color: var(--sepia); margin-bottom: 6px; line-height: 1.4; }
+  .ver-sub { font-size: 13px; color: rgba(26,46,59,0.55); letter-spacing: 0.5px; line-height: 1.8; }
+
+  /* route strip */
+  .route-strip {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    background: white; border: 1px solid rgba(63,125,140,0.2);
+    padding: 16px 18px; margin-bottom: 18px; text-align: left;
+  }
+  .route-stop { font-size: 13px; color: var(--sepia); }
+  .route-stop b { font-weight: 600; }
+  .route-stop small { color: rgba(26,46,59,0.45); font-size: 11px; margin-left: 3px; }
+  .route-arrow { color: var(--gold); opacity: 0.55; font-size: 12px; }
+
+  .drive-note {
+    display: flex; align-items: flex-start; gap: 8px;
+    background: rgba(192,57,43,0.07); border-left: 2px solid var(--red);
+    padding: 10px 14px; font-size: 12px; color: var(--sepia); line-height: 1.75; margin-bottom: 24px; text-align: left;
+  }
+  .drive-note.calm { background: rgba(74,124,111,0.08); border-left-color: var(--moss); }
+  .drive-note.cool { background: rgba(63,125,140,0.08); border-left-color: var(--alp); }
+
+  /* ── DAYS ── */
+  .days-container { padding: 24px 0 60px; max-width: 800px; margin: 0 auto; }
+  .day-block { margin-bottom: 72px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .day-block.visible { opacity: 1; transform: translateY(0); }
+
+  .day-header { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid rgba(63,125,140,0.2); }
+  .day-number { flex-shrink: 0; width: 64px; height: 64px; background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .day-number-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold-light); text-transform: uppercase; }
+  .day-number-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .day-header-info { flex: 1; padding-top: 4px; }
+  .day-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
+  .day-subtitle { font-size: 13px; color: rgba(26,46,59,0.5); letter-spacing: 1px; line-height: 1.6; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, rgba(63,125,140,0.4), rgba(63,125,140,0.1)); }
+  .timeline-item { position: relative; margin-bottom: 28px; display: flex; gap: 20px; }
+  .timeline-dot { position: absolute; left: -29px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--cream); border: 1.5px solid var(--alp); flex-shrink: 0; }
+  .timeline-dot.meal { background: var(--alp); border-color: var(--alp); }
+  .timeline-dot.highlight { background: var(--red); border-color: var(--red); }
+  .timeline-dot.confirmed { background: var(--moss); border-color: var(--moss); }
+  .timeline-time { flex-shrink: 0; width: 72px; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); padding-top: 2px; letter-spacing: 0.5px; }
+  .timeline-content { flex: 1; }
+  .timeline-name { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.5; }
+  .timeline-desc { font-size: 13px; color: rgba(26,46,59,0.58); line-height: 1.8; }
+  .timeline-tag { display: inline-block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; }
+  .tag-meal { background: rgba(63,125,140,0.12); color: var(--sepia); }
+  .tag-move { background: rgba(74,124,111,0.14); color: var(--moss); }
+  .tag-culture { background: rgba(192,57,43,0.1); color: var(--red); }
+  .tag-view { background: rgba(63,125,140,0.16); color: var(--alp); }
+  .tag-hotel { background: rgba(26,46,59,0.07); color: rgba(26,46,59,0.6); }
+
+  /* ── PREP NOTES ── */
+  .prep { max-width: 800px; margin: 0 auto; padding: 20px 24px 80px; }
+  .prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+  .prep-card { background: white; border: 1px solid rgba(63,125,140,0.2); padding: 20px 20px 18px; }
+  .prep-card h4 { font-size: 14px; font-weight: 600; color: var(--sepia); margin-bottom: 8px; letter-spacing: 1px; }
+  .prep-card p { font-size: 12.5px; line-height: 1.9; color: rgba(26,46,59,0.6); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); padding: 48px 24px; text-align: center; }
+  .footer-kanji { font-size: 48px; font-weight: 300; color: rgba(224,139,126,0.18); margin-bottom: 16px; }
+  .footer-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(244,246,246,0.35); letter-spacing: 2px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { min-height: 100svh; }
+    .hero-circle { width: 280px; height: 280px; }
+    .hero-circle:nth-of-type(2) { width: 380px; height: 380px; }
+    .hero-title { font-size: clamp(64px, 18vw, 88px); }
+    .overview { padding: 48px 20px; }
+    .overview-title { font-size: 22px; }
+    .overview-desc { font-size: 14px; }
+    .info-cards { grid-template-columns: 1fr; gap: 10px; }
+    .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
+    .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
+    .confirmed-section { padding: 0 16px 32px; }
+    .routes { padding: 44px 16px 0; }
+    .routes-title { font-size: 20px; }
+    .days-container { padding: 20px 16px 40px; }
+    .day-block { margin-bottom: 56px; }
+    .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
+    .day-number { width: 56px; height: 56px; }
+    .day-number-num { font-size: 24px; }
+    .day-title { font-size: 18px; }
+    .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .version-switch { gap: 6px; }
+    .ver-btn { font-size: 12px; padding: 10px 4px; }
+    .ver-btn small { font-size: 9px; }
+    .route-strip { padding: 14px; }
+    .route-stop { font-size: 12px; }
+    .timeline { padding-left: 24px; }
+    .timeline::before { left: 5px; }
+    .timeline-item { gap: 12px; margin-bottom: 22px; }
+    .timeline-dot { left: -21px; }
+    .timeline-time { width: 62px; font-size: 12px; }
+    .timeline-name { font-size: 14px; }
+    .timeline-desc { font-size: 12px; line-height: 1.85; }
+    .divider { padding: 0 16px; }
+    .prep { padding: 12px 16px 56px; }
+    .prep-grid { grid-template-columns: 1fr; }
+    footer { padding: 40px 16px; }
+    .sticky-nav { padding: 0 12px; gap: 8px; }
+    .nav-logo { font-size: 15px; letter-spacing: 2px; }
+  }
+  @media (max-width: 380px) {
+    .hero-title { font-size: 58px; }
+    .timeline-time { width: 56px; font-size: 11px; }
+    .timeline-name { font-size: 13px; }
+    .nav-btn { padding: 4px 6px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">瑞士 · 阿爾卑斯</div>
+  <div class="nav-days">
+    <button class="nav-btn" onclick="scrollToDay(1)">01</button>
+    <button class="nav-btn" onclick="scrollToDay(2)">02</button>
+    <button class="nav-btn" onclick="scrollToDay(3)">03</button>
+    <button class="nav-btn" onclick="scrollToDay(4)">04</button>
+    <button class="nav-btn" onclick="scrollToDay(5)">05</button>
+    <button class="nav-btn" onclick="scrollToDay(6)">06</button>
+    <button class="nav-btn" onclick="scrollToDay(7)">07</button>
+    <button class="nav-btn" onclick="scrollToDay(8)">08</button>
+    <button class="nav-btn" onclick="scrollToDay(9)">09</button>
+    <button class="nav-btn" onclick="scrollToDay(10)">10</button>
+    <button class="nav-btn" onclick="scrollToDay(11)">11</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-peaks">
+    <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+      <path d="M0,300 L120,170 L200,215 L330,90 L420,180 L520,120 L640,250 L760,140 L880,205 L1000,110 L1100,190 L1200,150 L1200,300 Z" fill="#1a2e3b"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Alps · Lakes · Switzerland</p>
+    <h1 class="hero-title">瑞士</h1>
+    <p class="hero-title-en">Switzerland</p>
+    <div class="hero-dates">
+      <div class="hero-dates-line"></div>
+      <span class="hero-dates-text">9月5日 — 15日</span>
+      <div class="hero-dates-line"></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <p class="section-label">行程概覽</p>
+  <h2 class="overview-title">爸媽的第一次歐洲 · 十天十晚</h2>
+  <p class="overview-desc">九月的瑞士——夏季人潮退了、雪還沒下，山上纜車全開，谷地 15–22 度。整趟以火車為骨幹、關鍵路段包車，每站至少住兩晚，不趕、不拖行李。前五天三種版本完全一樣（琉森湖 + 少女峰），第六天起分成三條路線可切換：純瑞士湖山、南下義大利湖區、或西行法國阿爾薩斯。</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="info-card-icon">✈️</div>
+      <div class="info-card-label">航班</div>
+      <div class="info-card-value">Patty：LAX→ZRH 直飛 約11h<br>爸媽：TPE→ZRH 轉機一次<br>9/5 上午 蘇黎世機場會合</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🚆</div>
+      <div class="info-card-label">交通</div>
+      <div class="info-card-value">Swiss Travel Pass 為主<br>接機、酒莊、湖區包車<br>每站 2–3 晚，不天天換飯店</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">👨‍👩‍👧</div>
+      <div class="info-card-label">同行</div>
+      <div class="info-card-value">3人 · 陪爸媽<br>首次歐洲 · 慢節奏<br>文化、放鬆、風景、美食</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMED BOOKINGS -->
+<div class="confirmed-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>✅ 訂位狀態</h3></div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">去程 Patty · 9/4 LAX→ZRH（Swiss LX41 直飛 約11h，隔日上午抵達）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">去程 爸媽 · 9/4 TPE→ZRH 轉機一次（國泰經香港／新航經新加坡／長榮+奧航經維也納，擇一）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">回程 · 9/15 ZRH→LAX ／ ZRH→TPE（版本②改為 MXP 米蘭出境）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Swiss Travel Pass · 8天連續票 ×3（含火車、船、市區公車、500+ 博物館）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">接機包車 · 9/5 蘇黎世機場→琉森（3人+行李，約 1 小時）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">琉森飯店 · 9/5–9/7（2晚，湖畔）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">因特拉肯飯店 · 9/7–9/10（3晚，市中心平地）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">第 6 天之後住宿 · 依路線版本而定（三個版本各列在下方）</div>
+      <div class="confirmed-code pending">◻️ 待定</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">少女峰車票 · 9/8（線上先買可省排隊，遇壞天氣可改期）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">證件確認 · 護照效期 6 個月以上；ETIAS 若已上路須線上申請</div>
+      <div class="confirmed-code pending">◻️ 待確認</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<!-- ROUTE VERSIONS -->
+<section class="routes">
+  <p class="section-label">路線版本</p>
+  <h2 class="routes-title">前五天一樣 · 第六天起分三條路</h2>
+  <p class="routes-desc">Day 1–5 都是「琉森湖 + 少女峰」，這段不用選。差別在後半段：留在瑞士看馬特洪峰與日內瓦湖、南下義大利湖區、或西行法國阿爾薩斯。按按鈕切換整份行程。</p>
+
+  <div class="version-switch">
+    <button class="ver-btn active" data-v="1" onclick="setVer('1')">① 純瑞士<small>馬特洪峰・日內瓦湖</small></button>
+    <button class="ver-btn" data-v="2" onclick="setVer('2')">② 瑞士+義大利<small>盧加諾・科莫湖</small></button>
+    <button class="ver-btn" data-v="3" onclick="setVer('3')">③ 瑞士+法國<small>伯恩・科爾馬</small></button>
+  </div>
+</section>
+
+<!-- ═════════ VERSION 1 ═════════ -->
+<div class="ver-panel" data-panel="1">
+  <div class="routes" style="padding-top:0;">
+    <div class="ver-head">
+      <div class="ver-title">① 純瑞士 · 湖與山</div>
+      <div class="ver-sub">最經典、也最不折騰的一條。全程瑞士境內、同一張火車票走到底，進出都在蘇黎世。三大明信片畫面一次收齊：琉森湖、少女峰、馬特洪峰，最後在日內瓦湖畔的葡萄園慢下來。</div>
+    </div>
+    <div class="route-strip">
+      <span class="route-stop"><b>蘇黎世</b><small>抵達</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>琉森</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>因特拉肯</b><small>3晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>策馬特</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>蒙特勒</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>蘇黎世</b><small>1晚</small></span>
+    </div>
+    <div class="drive-note calm">🚆 全程 Swiss Travel Pass 通用，最長一段車程 2.5 小時。行李可用瑞士鐵路的「站到站行李寄送」前一晚先送到下一間飯店，長輩完全不必拎行李上下車。</div>
+  </div>
+
+  <div class="days-container">
+
+    <!-- V1 DAY 1 -->
+    <div class="day-block" id="v1-day1">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月5日 · 週六</div>
+          <div class="day-title">抵達蘇黎世 · 落腳琉森湖畔</div>
+          <div class="day-subtitle">機場會合 · 包車進琉森 · 老城散步 · 第一頓瑞士菜</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">11:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">會合</span>
+            <div class="timeline-name">✈️ 蘇黎世機場 入境大廳集合</div>
+            <div class="timeline-desc">爸媽從台北轉機一次、上午先到；Patty 從洛杉磯直飛、中午前落地。約在入境大廳會合後直接上車，不進市區。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚗 包車 蘇黎世機場 → 琉森</div>
+            <div class="timeline-desc">約 1 小時直達飯店門口。第一天剛下長途飛機，不轉火車、不拖行李。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住琉森湖畔飯店</div>
+            <div class="timeline-desc">選湖畔一線（如 Schweizerhof Luzern 或 Palace Luzern），走出門就是湖與老城。放行李、洗個澡、小睡一下。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">散步</span>
+            <div class="timeline-name">🌉 卡貝爾橋 · 老城慢走</div>
+            <div class="timeline-desc">1333 年的木造廊橋，橋頂三角木板畫著琉森的歷史；旁邊是八角水塔。老城全是平路，壁畫房屋、老藥局、廣場市集，走多走少都行。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">地標</span>
+            <div class="timeline-name">🦁 獅子紀念碑</div>
+            <div class="timeline-desc">岩壁上垂死的獅子，紀念法國大革命殉職的瑞士傭兵。馬克吐溫說它是世上最哀傷的一塊石頭。離老城 10 分鐘平路。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🧀 第一頓：起司火鍋 + 湖魚</div>
+            <div class="timeline-desc">老城餐館坐下來，起司火鍋、Rösti 薯餅、湖鱸魚。第一天別吃太重，早點回飯店倒時差。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 2 -->
+    <div class="day-block" id="v1-day2">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月6日 · 週日</div>
+          <div class="day-title">瑞吉山 · 山巒皇后</div>
+          <div class="day-subtitle">湖上遊船 · 歐洲第一條登山齒軌 · 全景午餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">⛴️ 琉森碼頭搭船 → 維茲瑙</div>
+            <div class="timeline-desc">飯店旁碼頭上船，湖上 1 小時。有機會搭到 19 世紀的明輪蒸汽船，甲板上看兩岸山壁。Travel Pass 直接刷。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">登山</span>
+            <div class="timeline-name">🚞 瑞吉山齒軌列車（1871 年通車）</div>
+            <div class="timeline-desc">歐洲第一條登山鐵道，紅色小火車 30 分鐘爬到 1797 公尺的瑞吉山頂。山頂平緩草坡，一邊琉森湖、一邊阿爾卑斯群峰，不用爬山也看得到全景。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🥩 山頂餐廳 · 看著湖吃飯</div>
+            <div class="timeline-desc">山頂旅館餐廳，牛肉腸、烤起司、山區湯品。九月山上約 8–14 度，帶件外套。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">下山</span>
+            <div class="timeline-name">🚡 下山回琉森</div>
+            <div class="timeline-desc">走另一側經 Rigi Kaltbad 纜車下到 Weggis，再搭船回琉森，等於繞湖一圈不走回頭路。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">可選</span>
+            <div class="timeline-name">🍫 巧克力與錶店街（可選）</div>
+            <div class="timeline-desc">天鵝廣場一帶：Max Chocolatier 手工巧克力、Bucherer 錶店。爸媽若累了就回飯店休息，這段隨時可跳過。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍽️ 琉森老城晚餐</div>
+            <div class="timeline-desc">試試 Luzerner Chügelipastete（琉森酥皮肉派）這種在地老菜。週日部分餐廳休息，記得先訂位。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 3 -->
+    <div class="day-block" id="v1-day3">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月7日 · 週一</div>
+          <div class="day-title">景觀列車 · 進阿爾卑斯心臟</div>
+          <div class="day-subtitle">琉森–因特拉肯快車 · 瀑布山谷 · 入住三晚</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">景觀列車</span>
+            <div class="timeline-name">🚆 琉森–因特拉肯快車（2 小時）</div>
+            <div class="timeline-desc">全瑞士最美的常規路線之一：沿布呂尼隘口爬升，一路貼著四個湖，車廂大窗、對號座。訂靠左側座位視野較好。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住因特拉肯（3 晚）</div>
+            <div class="timeline-desc">選市中心平地飯店（如 Victoria-Jungfrau Grand Hotel & Spa），有溫水泳池與 SPA。住三晚不搬家，白天上山、晚上回同一張床。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🥗 荷黑馬特草坪旁午餐</div>
+            <div class="timeline-desc">飯店對面就是市中心大草坪，天氣好會有滑翔傘一個個降落。輕食就好，下午還要出門。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">山谷</span>
+            <div class="timeline-name">💧 勞特布倫嫩 · 72 道瀑布的山谷</div>
+            <div class="timeline-desc">火車 20 分鐘。兩側千米峭壁夾一條平坦谷地，施陶河瀑布近 300 公尺從崖上飄下來。村裡全平路，慢慢走、慢慢拍。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">回程</span>
+            <div class="timeline-name">🚆 回因特拉肯 · 休息</div>
+            <div class="timeline-desc">回飯店泡個 SPA、養精蓄銳，明天是重頭戲。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍖 伯恩高地家常菜</div>
+            <div class="timeline-desc">烤起司 Raclette、山區火腿、蘋果塔。早點睡，明早要早起上少女峰。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 4 -->
+    <div class="day-block" id="v1-day4">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月8日 · 週二</div>
+          <div class="day-title">少女峰 · 歐洲之巔</div>
+          <div class="day-subtitle">纜車直上 3454 公尺 · 冰宮 · 阿萊奇冰河</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">8:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">🚆 因特拉肯 → 格林德瓦航站</div>
+            <div class="timeline-desc">先看當天山頂即時影像再出發，天氣不好就改期（票可改）。早上出發人少、雲層也低。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">纜車</span>
+            <div class="timeline-name">🚡 艾格快線 → 少女峰鐵道</div>
+            <div class="timeline-desc">三索纜車 15 分鐘直達艾格冰河站，再轉齒軌火車鑽進艾格北壁隧道，直達 3454 公尺的少女峰車站——歐洲最高的火車站。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">山頂</span>
+            <div class="timeline-name">❄️ 冰宮 · 斯芬克斯觀景台 · 阿萊奇冰河</div>
+            <div class="timeline-desc">室內冰雕長廊、電梯直達的觀景平台，腳下是阿爾卑斯最長的阿萊奇冰河（世界遺產）。全程有電梯與室內通道，不必爬。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍜 山頂餐廳午餐</div>
+            <div class="timeline-desc">山頂有幾間餐廳，坐下來吃碗熱的。高度 3454 公尺，走慢一點、多喝水，別急著到處跑。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">下山</span>
+            <div class="timeline-name">🌿 下山經小夏戴克 · 綠色高原</div>
+            <div class="timeline-desc">走另一條線下山，從雪白山頂回到綠草坡與牛鈴聲，一路是艾格、僧侶、少女三峰正面。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">回程</span>
+            <div class="timeline-name">🏨 回飯店休息</div>
+            <div class="timeline-desc">今天上上下下有點累，晚上不排行程，飯店內用餐或散步吃簡單的就好。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 5 -->
+    <div class="day-block" id="v1-day5">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">05</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月9日 · 週三</div>
+          <div class="day-title">慢日 · 湖光與無車山村</div>
+          <div class="day-subtitle">布里恩茨湖遊船 · 木雕小鎮 · 傍晚哈德昆看日落</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">遊船</span>
+            <div class="timeline-name">⛴️ 布里恩茨湖遊船</div>
+            <div class="timeline-desc">因特拉肯東站旁上船，湖水是不真實的松綠色。船上坐著看兩岸山村，1 小時多到布里恩茨。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">11:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">工藝</span>
+            <div class="timeline-name">🪵 布里恩茨 · 木雕小鎮</div>
+            <div class="timeline-desc">瑞士木雕與小提琴製作的故鄉，主街上都是工坊與木雕店。安靜、平坦、遊客少，很適合慢慢逛。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🐟 湖畔午餐 · 白鮭魚</div>
+            <div class="timeline-desc">湖邊小館吃當地湖魚配白酒，坐在露台看湖。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">可選</span>
+            <div class="timeline-name">🏡 巴倫堡露天博物館（可選）</div>
+            <div class="timeline-desc">把全瑞士各地的百年老農舍搬到一起的露天博物館，有工匠現場示範、農場動物。園區大，挑一區走就好；不想走就直接搭船回去。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">6:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">日落</span>
+            <div class="timeline-name">🌄 哈德昆 · 兩湖之間的觀景台</div>
+            <div class="timeline-desc">因特拉肯市區搭纜索車 10 分鐘上到 1322 公尺，觀景平台正對少女峰、腳下同時看得到兩座湖。山頂餐廳可以直接吃晚餐看日落。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 6 -->
+    <div class="day-block" id="v1-day6">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">06</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月10日 · 週四</div>
+          <div class="day-title">前進策馬特 · 無車山村</div>
+          <div class="day-subtitle">火車 2.5 小時 · 電瓶車接駁 · 馬特洪峰第一眼</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚆 因特拉肯 → 策馬特（約 2h20，轉一次）</div>
+            <div class="timeline-desc">經施皮茨、菲斯普轉車。行李建議前一晚用鐵路寄送直送飯店，路上輕鬆。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住策馬特（2 晚）</div>
+            <div class="timeline-desc">全村禁止燃油車，只有電瓶小車和馬車。飯店多半到車站接人。挑一間看得到馬特洪峰的房間（如 Monte Rosa、Zermatterhof）。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🧀 村裡午餐 · 瓦萊州風味</div>
+            <div class="timeline-desc">瓦萊州的乾醃牛肉、黑麥麵包、Raclette 起司，配當地白酒。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">散步</span>
+            <div class="timeline-name">🏘️ 老村區 · 百年木倉群</div>
+            <div class="timeline-desc">村中心後方的 Hinterdorf 保留一整片 16–18 世紀的黑木穀倉，架在石板上防老鼠。走個 20 分鐘就看完，很有味道。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">6:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">黃昏</span>
+            <div class="timeline-name">🏔️ 教堂橋看馬特洪峰</div>
+            <div class="timeline-desc">村裡主街盡頭的小橋，是拍馬特洪峰的經典角度。傍晚山尖會被夕陽染成金紅色。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍷 策馬特晚餐（需訂位）</div>
+            <div class="timeline-desc">村裡好餐廳幾乎都要訂位。想吃講究一點可請飯店禮賓代訂。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 7 -->
+    <div class="day-block" id="v1-day7">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">07</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月11日 · 週五</div>
+          <div class="day-title">戈爾內格拉特 · 馬特洪峰正面</div>
+          <div class="day-subtitle">露天齒軌上 3089 公尺 · 高山湖倒影 · 山中餐廳午餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">登山鐵道</span>
+            <div class="timeline-name">🚞 戈爾內格拉特鐵道（1898 年通車）</div>
+            <div class="timeline-desc">露天齒軌火車 33 分鐘爬到 3089 公尺。坐右邊，一路馬特洪峰不離視線。山頂平台一次看到 29 座 4000 公尺以上的山峰與戈爾內冰河。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">11:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">倒影</span>
+            <div class="timeline-name">🪞 里費爾湖 · 馬特洪峰倒影</div>
+            <div class="timeline-desc">往下坐一站到 Rotenboden，走 10 分鐘平緩碎石路就到湖邊，無風時湖面是完整的倒三角。不想走的話可以在車上等下一班。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍲 山中小屋餐廳</div>
+            <div class="timeline-desc">Riffelalp 或 Riffelberg 站旁的山屋餐廳，露台正對馬特洪峰。這頓飯是全程最好的位子之一。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">可選</span>
+            <div class="timeline-name">🚠 蘇內加 · 萊湖（可選）</div>
+            <div class="timeline-desc">村內地下纜車 3 分鐘直上 2288 公尺，觀景台旁就是小湖與草坡，比戈爾內格拉特輕鬆很多。體力有餘再加。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">休息</span>
+            <div class="timeline-name">♨️ 回飯店泡湯 · 逛主街</div>
+            <div class="timeline-desc">策馬特多數飯店有 SPA。主街上有登山用品店、瑞士刀、巧克力，慢慢晃。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 8 -->
+    <div class="day-block" id="v1-day8">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">08</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月12日 · 週六</div>
+          <div class="day-title">下山向湖 · 蒙特勒與西庸城堡</div>
+          <div class="day-subtitle">火車 2.5 小時 · 湖畔棕櫚樹 · 千年水上城堡</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚆 策馬特 → 蒙特勒（約 2h30）</div>
+            <div class="timeline-desc">經菲斯普沿隆河谷西行，出山之後氣候一下變溫暖，湖岸長棕櫚樹。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住蒙特勒湖畔（2 晚）</div>
+            <div class="timeline-desc">日內瓦湖東岸的度假小城（如 Fairmont Le Montreux Palace）。湖濱步道長，平坦好走，這兩天是全程最放鬆的。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🐟 湖畔午餐 · 白酒煎湖鱸</div>
+            <div class="timeline-desc">法語區的招牌：奶油白酒煎鱸魚排配薯條，配一杯 Chasselas 白酒。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">城堡</span>
+            <div class="timeline-name">🏰 西庸城堡</div>
+            <div class="timeline-desc">建在湖中岩石上的中世紀水上城堡，1000 年歷史。地窖、大廳、臥室都可以走進去，拜倫〈西庸的囚徒〉就寫這裡。從飯店沿湖濱步道走或搭湖上小船都到得了。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">散步</span>
+            <div class="timeline-name">🌹 湖濱花道 · 佛萊迪雕像</div>
+            <div class="timeline-desc">蒙特勒湖濱是一條開滿花的長步道，路上有皇后合唱團主唱 Freddie Mercury 的銅像（他在此錄音多年）。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍷 湖景晚餐</div>
+            <div class="timeline-desc">看著對岸法國的山吃晚餐，日落後湖面全是燈。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 9 -->
+    <div class="day-block" id="v1-day9">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">09</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月13日 · 週日</div>
+          <div class="day-title">拉沃葡萄園 · 世界遺產梯田</div>
+          <div class="day-subtitle">包車半日酒莊 · 湖上遊船 · 洛桑老城</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">酒鄉</span>
+            <div class="timeline-name">🍇 拉沃梯田葡萄園（包車半日）</div>
+            <div class="timeline-desc">2007 年列入世界遺產，從湖面一路疊到山腰的石砌梯田，已經種了 800 年。包車走山腰景觀路，停 2–3 個觀景點，長輩完全不用爬坡。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">品酒午餐</span>
+            <div class="timeline-name">🥂 酒莊午餐 · Chasselas 白酒</div>
+            <div class="timeline-desc">在 Rivaz 或 Saint-Saphorin 的家族酒莊吃飯，露台正對湖與對岸阿爾卑斯。九月是採收季前後，正熱鬧。需事先預約。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">遊船</span>
+            <div class="timeline-name">⛴️ 日內瓦湖遊船 → 洛桑</div>
+            <div class="timeline-desc">從湖邊小碼頭上老式明輪船，坐著看整片梯田從水面升起。Travel Pass 通用。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">城市</span>
+            <div class="timeline-name">🏛️ 洛桑 · 奧林匹克博物館或老城主教座堂</div>
+            <div class="timeline-desc">奧會總部所在地，博物館在湖畔平地、動線輕鬆；老城主教座堂是瑞士最重要的哥德式教堂，但要上坡（有地鐵可搭）。二選一就好。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">6:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">回程</span>
+            <div class="timeline-name">🚆 洛桑 → 蒙特勒（25 分鐘）</div>
+            <div class="timeline-desc">回飯店，最後一個湖畔夜晚。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 10 -->
+    <div class="day-block" id="v1-day10">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">10</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月14日 · 週一</div>
+          <div class="day-title">回蘇黎世 · 最後一天採買</div>
+          <div class="day-subtitle">火車 2.5 小時 · 老城 · 巧克力之家 · 告別晚餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚆 蒙特勒 → 蘇黎世（約 2h40）</div>
+            <div class="timeline-desc">中午前到，飯店放行李。住機場側或老城都可以，明天早班機。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">老城</span>
+            <div class="timeline-name">⛪ 大教堂 · 聖母教堂夏卡爾玻璃</div>
+            <div class="timeline-desc">利馬特河兩岸的老城，雙塔大教堂是蘇黎世地標；對岸聖母教堂內有夏卡爾的五面彩繪玻璃，安靜又震撼。都在平地、彼此走路 5 分鐘。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🥘 蘇黎世小牛肉 + 薯餅</div>
+            <div class="timeline-desc">奶油白酒燴小牛肉配 Rösti，蘇黎世的代表菜。老城裡的百年餐館都有。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">伴手禮</span>
+            <div class="timeline-name">🍫 蓮花巧克力之家</div>
+            <div class="timeline-desc">湖畔搭船或電車到基爾希貝格，館內有 9 公尺高的巧克力噴泉、免費試吃區與大賣店。爸媽的伴手禮一次搞定。週一照常開。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">購物</span>
+            <div class="timeline-name">🛍️ 班霍夫大街 · Sprüngli</div>
+            <div class="timeline-desc">從火車站到湖邊的主街，錶店、Sprüngli 的 Luxemburgerli 小馬卡龍。行李收一收，明天早班機。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🥂 告別晚餐</div>
+            <div class="timeline-desc">老城裡吃最後一頓，敬爸媽的第一次歐洲。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V1 DAY 11 -->
+    <div class="day-block" id="v1-day11">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">11</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月15日 · 週二</div>
+          <div class="day-title">返程</div>
+          <div class="day-subtitle">蘇黎世機場 · Patty 直飛洛杉磯 · 爸媽轉機回台北</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">7:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">前往機場</span>
+            <div class="timeline-name">🚆 市區 → 蘇黎世機場（火車 10 分鐘）</div>
+            <div class="timeline-desc">從中央車站直達機場只要 10 分鐘，班次密集。抓起飛前 3 小時到即可。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">起飛</span>
+            <div class="timeline-name">✈️ ZRH → LAX ／ ZRH → TPE</div>
+            <div class="timeline-desc">Patty 直飛洛杉磯；爸媽轉機一次回台北。分手前先在機場一起吃個早餐。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═════════ VERSION 2 ═════════ -->
+<div class="ver-panel" data-panel="2" hidden>
+  <div class="routes" style="padding-top:0;">
+    <div class="ver-head">
+      <div class="ver-title">② 瑞士 + 義大利湖區</div>
+      <div class="ver-sub">前半段一模一樣，第六天穿過阿爾卑斯往南——瑞士的義語區盧加諾、聯合國教科文的貝林佐納三座城堡，再進義大利科莫湖與米蘭。從雪山一路走到棕櫚樹與義大利菜，氣候與食物的反差是最大的樂趣。進蘇黎世、出米蘭。</div>
+    </div>
+    <div class="route-strip">
+      <span class="route-stop"><b>蘇黎世</b><small>抵達</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>琉森</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>因特拉肯</b><small>3晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>盧加諾</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>科莫湖</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>米蘭</b><small>1晚</small></span>
+    </div>
+    <div class="drive-note cool">🛂 跨到義大利後 Swiss Travel Pass 不再通用，義大利段改用點對點車票 + 湖區包車。回程機場改成米蘭 MXP，訂機票時要留意是「不同點進出」。</div>
+  </div>
+
+  <div class="days-container">
+
+    <!-- V2 DAY 1 -->
+    <div class="day-block" id="v2-day1">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月5日 · 週六</div>
+          <div class="day-title">抵達蘇黎世 · 落腳琉森湖畔</div>
+          <div class="day-subtitle">機場會合 · 包車進琉森 · 老城散步 · 第一頓瑞士菜</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">11:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">會合</span>
+            <div class="timeline-name">✈️ 蘇黎世機場 入境大廳集合</div>
+            <div class="timeline-desc">爸媽從台北轉機一次、上午先到；Patty 從洛杉磯直飛、中午前落地。會合後直接上車。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚗 包車 蘇黎世機場 → 琉森</div>
+            <div class="timeline-desc">約 1 小時直達飯店門口，剛下長途飛機不轉車。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住琉森湖畔飯店</div>
+            <div class="timeline-desc">湖畔一線飯店，出門就是湖與老城。放行李、小睡一下。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">散步</span>
+            <div class="timeline-name">🌉 卡貝爾橋 · 老城慢走</div>
+            <div class="timeline-desc">1333 年的木造廊橋與八角水塔，老城全平路，壁畫房屋與廣場。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">地標</span>
+            <div class="timeline-name">🦁 獅子紀念碑</div>
+            <div class="timeline-desc">岩壁上垂死的獅子，紀念殉職的瑞士傭兵，離老城 10 分鐘平路。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🧀 第一頓：起司火鍋 + 湖魚</div>
+            <div class="timeline-desc">老城餐館，起司火鍋、Rösti、湖鱸魚。早點回去倒時差。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 2 -->
+    <div class="day-block" id="v2-day2">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月6日 · 週日</div>
+          <div class="day-title">瑞吉山 · 山巒皇后</div>
+          <div class="day-subtitle">湖上遊船 · 歐洲第一條登山齒軌 · 全景午餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">⛴️ 琉森碼頭搭船 → 維茲瑙</div>
+            <div class="timeline-desc">湖上 1 小時，有機會搭到 19 世紀明輪蒸汽船。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">登山</span>
+            <div class="timeline-name">🚞 瑞吉山齒軌列車（1871 年通車）</div>
+            <div class="timeline-desc">歐洲第一條登山鐵道，30 分鐘到 1797 公尺山頂。平緩草坡，湖與群峰全景。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🥩 山頂餐廳 · 看著湖吃飯</div>
+            <div class="timeline-desc">九月山上約 8–14 度，帶件外套。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">下山</span>
+            <div class="timeline-name">🚡 下山回琉森</div>
+            <div class="timeline-desc">走另一側纜車下到 Weggis，再搭船回琉森，繞湖一圈不走回頭路。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍽️ 琉森老城晚餐</div>
+            <div class="timeline-desc">試 Luzerner Chügelipastete。週日部分餐廳休息，先訂位。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 3 -->
+    <div class="day-block" id="v2-day3">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月7日 · 週一</div>
+          <div class="day-title">景觀列車 · 進阿爾卑斯心臟</div>
+          <div class="day-subtitle">琉森–因特拉肯快車 · 瀑布山谷 · 入住三晚</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">景觀列車</span>
+            <div class="timeline-name">🚆 琉森–因特拉肯快車（2 小時）</div>
+            <div class="timeline-desc">沿布呂尼隘口爬升，一路貼著四個湖，大窗對號座。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住因特拉肯（3 晚）</div>
+            <div class="timeline-desc">市中心平地飯店，有 SPA 與泳池。住三晚不搬家。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">山谷</span>
+            <div class="timeline-name">💧 勞特布倫嫩 · 72 道瀑布的山谷</div>
+            <div class="timeline-desc">火車 20 分鐘。千米峭壁夾一條平坦谷地，施陶河瀑布近 300 公尺飄下來。全平路。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍖 伯恩高地家常菜</div>
+            <div class="timeline-desc">Raclette 烤起司、山區火腿、蘋果塔。早點睡，明早上少女峰。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 4 -->
+    <div class="day-block" id="v2-day4">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月8日 · 週二</div>
+          <div class="day-title">少女峰 · 歐洲之巔</div>
+          <div class="day-subtitle">纜車直上 3454 公尺 · 冰宮 · 阿萊奇冰河</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">8:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">🚆 因特拉肯 → 格林德瓦航站</div>
+            <div class="timeline-desc">先看山頂即時影像再出發，天氣不好就改期。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">纜車</span>
+            <div class="timeline-name">🚡 艾格快線 → 少女峰鐵道</div>
+            <div class="timeline-desc">纜車 15 分鐘到艾格冰河站，轉齒軌火車鑽艾格北壁隧道，直達 3454 公尺——歐洲最高的火車站。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">山頂</span>
+            <div class="timeline-name">❄️ 冰宮 · 斯芬克斯觀景台 · 阿萊奇冰河</div>
+            <div class="timeline-desc">室內冰雕長廊、電梯直達觀景平台，腳下是世界遺產阿萊奇冰河。全程有電梯與室內通道。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍜 山頂餐廳午餐</div>
+            <div class="timeline-desc">3454 公尺，走慢一點、多喝水。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">下山</span>
+            <div class="timeline-name">🌿 下山經小夏戴克 · 綠色高原</div>
+            <div class="timeline-desc">從雪白山頂回到草坡與牛鈴聲，艾格、僧侶、少女三峰正面。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 5 -->
+    <div class="day-block" id="v2-day5">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">05</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月9日 · 週三</div>
+          <div class="day-title">慢日 · 湖光與木雕小鎮</div>
+          <div class="day-subtitle">布里恩茨湖遊船 · 工藝老鎮 · 傍晚哈德昆看日落</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">遊船</span>
+            <div class="timeline-name">⛴️ 布里恩茨湖遊船</div>
+            <div class="timeline-desc">松綠色的湖水，船上坐著看兩岸山村，1 小時多到布里恩茨。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">11:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">工藝</span>
+            <div class="timeline-name">🪵 布里恩茨 · 木雕小鎮</div>
+            <div class="timeline-desc">瑞士木雕與小提琴製作的故鄉，主街上都是工坊。安靜、平坦、遊客少。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🐟 湖畔午餐 · 白鮭魚</div>
+            <div class="timeline-desc">湖邊小館的當地湖魚配白酒，坐露台看湖。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">6:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">日落</span>
+            <div class="timeline-name">🌄 哈德昆 · 兩湖之間的觀景台</div>
+            <div class="timeline-desc">纜索車 10 分鐘上 1322 公尺，平台正對少女峰、腳下同時兩座湖。山頂餐廳可直接吃晚餐看日落。行李今晚整理好，明天南下。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 6 -->
+    <div class="day-block" id="v2-day6">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">06</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月10日 · 週四</div>
+          <div class="day-title">穿越阿爾卑斯 · 進瑞士的義大利</div>
+          <div class="day-subtitle">聖哥達隧道南下 · 棕櫚樹與義語區 · 盧加諾湖畔</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚆 因特拉肯 → 盧加諾（約 3.5–4 小時，轉一次）</div>
+            <div class="timeline-desc">經琉森走聖哥達基線隧道穿過阿爾卑斯。出隧道那一刻語言換成義大利語、氣溫升高、屋頂變紅——是整趟最戲劇化的一段。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住盧加諾湖畔（2 晚）</div>
+            <div class="timeline-desc">瑞士義語區的湖畔城市，棕櫚樹、拱廊、義式咖啡館。九月這裡比北邊暖 5 度左右。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍝 第一頓義大利菜</div>
+            <div class="timeline-desc">湖畔露天座，燉飯、義大利麵、Merlot 紅酒。提契諾州的家常小館叫 grotto，很值得試。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">散步</span>
+            <div class="timeline-name">🌴 湖濱步道 · 老城拱廊</div>
+            <div class="timeline-desc">從市中心一路沿湖走，全平路。老城石板巷弄裡有教堂濕壁畫與市場廣場。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍷 湖畔晚餐</div>
+            <div class="timeline-desc">南邊天黑得晚，可以吃得比較晚、比較慢。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 7 -->
+    <div class="day-block" id="v2-day7">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">07</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月11日 · 週五</div>
+          <div class="day-title">貝林佐納三城堡 · 湖上小村</div>
+          <div class="day-subtitle">世界遺產中世紀要塞 · 纜車看湖 · 湖畔漁村</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">世界遺產</span>
+            <div class="timeline-name">🏰 貝林佐納 · 三座中世紀城堡</div>
+            <div class="timeline-desc">火車 25 分鐘。守著阿爾卑斯南口的三座城堡與城牆，2000 年列入世界遺產。主城堡有電梯從市區直上，不必爬坡。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🧀 城堡內餐廳 / 老城 grotto</div>
+            <div class="timeline-desc">城堡庭院有餐廳，或回老城吃提契諾家常菜：玉米糊配燉肉、當地起司。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">纜車</span>
+            <div class="timeline-name">🚡 布雷山纜車（可選）</div>
+            <div class="timeline-desc">回盧加諾後搭纜索車上 925 公尺的布雷山，俯瞰整座湖與遠處的義大利。山頂有餐廳與小藝術村。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">5:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">小村</span>
+            <div class="timeline-name">⛴️ 甘德里亞 · 湖畔小漁村</div>
+            <div class="timeline-desc">搭船 20 分鐘，貼著山壁的無車小村，只有一條沿湖石階步道與幾間露台餐廳。傍晚光線最好。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍤 村裡露台晚餐 · 搭船回程</div>
+            <div class="timeline-desc">在甘德里亞吃完再搭末班船回盧加諾，湖上夜色很美。船班時間要先確認。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 8 -->
+    <div class="day-block" id="v2-day8">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">08</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月12日 · 週六</div>
+          <div class="day-title">進義大利 · 科莫湖</div>
+          <div class="day-subtitle">跨境 1 小時 · 湖畔別墅小鎮 · 住兩晚放空</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">跨境</span>
+            <div class="timeline-name">🚗 包車 盧加諾 → 科莫湖（約 1–1.5 小時）</div>
+            <div class="timeline-desc">這段建議包車：帶行李跨境轉火車再轉渡輪對長輩太麻煩。直接送到湖畔飯店門口。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住科莫湖畔（2 晚）</div>
+            <div class="timeline-desc">建議住湖中段的瓦倫納或貝拉焦一帶——比科莫市區安靜，渡輪站就在門口。挑有湖景露台的房間。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍋 湖畔午餐 · 湖魚義大利麵</div>
+            <div class="timeline-desc">科莫湖的招牌是湖鱸與白鮭，配檸檬與橄欖油。露台位子要早點去。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">散步</span>
+            <div class="timeline-name">🌺 彩色小鎮 · 湖濱步道</div>
+            <div class="timeline-desc">粉黃粉橘的房子疊在山坡上，湖邊有木棧道。今天不排硬行程，就是走走坐坐喝咖啡。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍷 湖景晚餐</div>
+            <div class="timeline-desc">義大利晚餐開得晚（19:30 之後），慢慢吃，前菜到甜點三小時是常態。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 9 -->
+    <div class="day-block" id="v2-day9">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">09</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月13日 · 週日</div>
+          <div class="day-title">湖上一日 · 別墅與花園</div>
+          <div class="day-subtitle">渡輪跳島 · 貝拉焦 · 老別墅庭園</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">渡輪</span>
+            <div class="timeline-name">⛴️ 湖中三鎮渡輪</div>
+            <div class="timeline-desc">瓦倫納、貝拉焦、梅納焦之間渡輪 15 分鐘一段，可以整天跳著坐。買一日票最方便。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">11:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">小鎮</span>
+            <div class="timeline-name">🏛️ 貝拉焦 · 湖中的珍珠</div>
+            <div class="timeline-desc">科莫湖分岔口上的小鎮，石板階梯巷弄、絲織品店、老教堂。主要街道在湖邊平地，階梯段可以不上去。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍝 貝拉焦午餐</div>
+            <div class="timeline-desc">湖畔露台，燉飯或手工麵。餐後來杯 espresso 與檸檬酒。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">花園</span>
+            <div class="timeline-name">🌿 老別墅花園（梅爾齊或卡洛塔）</div>
+            <div class="timeline-desc">18–19 世紀的湖畔別墅庭園，杜鵑、雪松、湖景雕像。梅爾齊花園地勢平緩、沿湖走，比較適合長輩。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">回程</span>
+            <div class="timeline-name">⛴️ 渡輪回飯店</div>
+            <div class="timeline-desc">傍晚湖面金光，回程那段船最好看。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 10 -->
+    <div class="day-block" id="v2-day10">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">10</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月14日 · 週一</div>
+          <div class="day-title">米蘭 · 最後一天</div>
+          <div class="day-subtitle">大教堂 · 玻璃拱廊 · 告別晚餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚗 包車 科莫湖 → 米蘭（約 1.5 小時）</div>
+            <div class="timeline-desc">直接送到市區飯店。住大教堂附近，晚上走路就能逛。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">地標</span>
+            <div class="timeline-name">⛪ 米蘭大教堂</div>
+            <div class="timeline-desc">蓋了近 600 年的白色大理石哥德教堂，3400 多尊雕像。屋頂平台可搭電梯上去走在飛扶壁之間。門票線上先訂，免排隊。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍽️ 米蘭燉飯 + 米蘭炸牛排</div>
+            <div class="timeline-desc">番紅花黃燉飯與骨排炸肉排，兩道最經典的米蘭菜。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">拱廊</span>
+            <div class="timeline-name">🛍️ 艾曼紐二世拱廊 · 斯卡拉歌劇院</div>
+            <div class="timeline-desc">1877 年的玻璃穹頂購物拱廊，全室內、全平地。旁邊就是斯卡拉歌劇院（可參觀博物館）。伴手禮在這裡買齊。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">可選</span>
+            <div class="timeline-name">🖼️〈最後的晚餐〉（需另訂 · 週一休館）</div>
+            <div class="timeline-desc">達文西壁畫每 15 分鐘限 25 人，通常要提前數月搶票，而且週一不開。若想看必須調整這天的順序，或在 Day 8 抵達當天先安排。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">8:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🥂 告別晚餐</div>
+            <div class="timeline-desc">米蘭最後一頓，敬爸媽的第一次歐洲。行李收好，明天早班機。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V2 DAY 11 -->
+    <div class="day-block" id="v2-day11">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">11</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月15日 · 週二</div>
+          <div class="day-title">返程</div>
+          <div class="day-subtitle">米蘭馬爾彭薩機場 · 各自轉機回家</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">7:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">前往機場</span>
+            <div class="timeline-name">🚗 包車 市區 → MXP（約 50 分鐘）</div>
+            <div class="timeline-desc">也可搭機場快線火車。米蘭出境人多，抓起飛前 3 小時。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">10:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">起飛</span>
+            <div class="timeline-name">✈️ MXP → LAX ／ MXP → TPE</div>
+            <div class="timeline-desc">Patty 回洛杉磯、爸媽轉機回台北。此版本進出點不同，訂票時記得選開口式行程。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═════════ VERSION 3 ═════════ -->
+<div class="ver-panel" data-panel="3" hidden>
+  <div class="routes" style="padding-top:0;">
+    <div class="ver-head">
+      <div class="ver-title">③ 瑞士 + 法國阿爾薩斯</div>
+      <div class="ver-sub">文化與美食最濃、體力負擔最小的一條。後半段不再上高山：先住兩晚瑞士首都伯恩的世界遺產老城，再西行到法國阿爾薩斯的科爾馬，逛半木造彩色房屋與葡萄酒村。進出都在蘇黎世。</div>
+    </div>
+    <div class="route-strip">
+      <span class="route-stop"><b>蘇黎世</b><small>抵達</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>琉森</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>因特拉肯</b><small>3晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>伯恩</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>科爾馬</b><small>2晚</small></span><span class="route-arrow">→</span>
+      <span class="route-stop"><b>蘇黎世</b><small>1晚</small></span>
+    </div>
+    <div class="drive-note calm">🚶 這版走路最少、坡最少、車程最短（最長一段 2.5 小時），沒有 3000 公尺以上的行程。若擔心爸媽高山不適或體力，選這個最穩。</div>
+  </div>
+
+  <div class="days-container">
+
+    <!-- V3 DAY 1 -->
+    <div class="day-block" id="v3-day1">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月5日 · 週六</div>
+          <div class="day-title">抵達蘇黎世 · 落腳琉森湖畔</div>
+          <div class="day-subtitle">機場會合 · 包車進琉森 · 老城散步 · 第一頓瑞士菜</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">11:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">會合</span>
+            <div class="timeline-name">✈️ 蘇黎世機場 入境大廳集合</div>
+            <div class="timeline-desc">爸媽從台北轉機一次、上午先到；Patty 從洛杉磯直飛、中午前落地。會合後直接上車。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚗 包車 蘇黎世機場 → 琉森</div>
+            <div class="timeline-desc">約 1 小時直達飯店門口。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住琉森湖畔飯店</div>
+            <div class="timeline-desc">湖畔一線飯店，出門就是湖與老城。放行李、小睡一下。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">散步</span>
+            <div class="timeline-name">🌉 卡貝爾橋 · 獅子紀念碑</div>
+            <div class="timeline-desc">1333 年的木造廊橋與八角水塔；岩壁上的垂死獅子紀念殉職的瑞士傭兵。兩處都在平地。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🧀 第一頓：起司火鍋 + 湖魚</div>
+            <div class="timeline-desc">老城餐館，第一天別吃太重，早點回去倒時差。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 2 -->
+    <div class="day-block" id="v3-day2">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月6日 · 週日</div>
+          <div class="day-title">瑞吉山 · 山巒皇后</div>
+          <div class="day-subtitle">湖上遊船 · 歐洲第一條登山齒軌 · 全景午餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">⛴️ 琉森碼頭搭船 → 維茲瑙</div>
+            <div class="timeline-desc">湖上 1 小時，有機會搭到 19 世紀明輪蒸汽船。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">登山</span>
+            <div class="timeline-name">🚞 瑞吉山齒軌列車（1871 年通車）</div>
+            <div class="timeline-desc">歐洲第一條登山鐵道，30 分鐘到 1797 公尺山頂。平緩草坡，湖與群峰全景。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🥩 山頂餐廳 · 看著湖吃飯</div>
+            <div class="timeline-desc">九月山上約 8–14 度，帶件外套。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">下山</span>
+            <div class="timeline-name">🚡 下山回琉森</div>
+            <div class="timeline-desc">另一側纜車下到 Weggis 再搭船回琉森，繞湖一圈。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍽️ 琉森老城晚餐</div>
+            <div class="timeline-desc">週日部分餐廳休息，先訂位。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 3 -->
+    <div class="day-block" id="v3-day3">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月7日 · 週一</div>
+          <div class="day-title">景觀列車 · 進阿爾卑斯心臟</div>
+          <div class="day-subtitle">琉森–因特拉肯快車 · 瀑布山谷 · 入住三晚</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">景觀列車</span>
+            <div class="timeline-name">🚆 琉森–因特拉肯快車（2 小時）</div>
+            <div class="timeline-desc">沿布呂尼隘口爬升，一路貼著四個湖，大窗對號座。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住因特拉肯（3 晚）</div>
+            <div class="timeline-desc">市中心平地飯店，有 SPA 與泳池。住三晚不搬家。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">山谷</span>
+            <div class="timeline-name">💧 勞特布倫嫩 · 72 道瀑布的山谷</div>
+            <div class="timeline-desc">火車 20 分鐘。千米峭壁夾一條平坦谷地，施陶河瀑布近 300 公尺飄下來。全平路。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍖 伯恩高地家常菜</div>
+            <div class="timeline-desc">Raclette 烤起司、山區火腿、蘋果塔。早點睡，明早上少女峰。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 4 -->
+    <div class="day-block" id="v3-day4">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月8日 · 週二</div>
+          <div class="day-title">少女峰 · 歐洲之巔</div>
+          <div class="day-subtitle">纜車直上 3454 公尺 · 冰宮 · 阿萊奇冰河</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">8:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">🚆 因特拉肯 → 格林德瓦航站</div>
+            <div class="timeline-desc">先看山頂即時影像再出發，天氣不好就改期。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">纜車</span>
+            <div class="timeline-name">🚡 艾格快線 → 少女峰鐵道</div>
+            <div class="timeline-desc">纜車 15 分鐘到艾格冰河站，轉齒軌火車直達 3454 公尺——歐洲最高的火車站。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">山頂</span>
+            <div class="timeline-name">❄️ 冰宮 · 斯芬克斯觀景台 · 阿萊奇冰河</div>
+            <div class="timeline-desc">室內冰雕長廊、電梯直達觀景平台，腳下是世界遺產阿萊奇冰河。全程有電梯與室內通道。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">下山</span>
+            <div class="timeline-name">🌿 下山經小夏戴克 · 綠色高原</div>
+            <div class="timeline-desc">從雪白山頂回到草坡與牛鈴聲，艾格、僧侶、少女三峰正面。晚上不排行程。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 5 -->
+    <div class="day-block" id="v3-day5">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">05</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月9日 · 週三</div>
+          <div class="day-title">慢日 · 湖光與木雕小鎮</div>
+          <div class="day-subtitle">布里恩茨湖遊船 · 露天農舍博物館 · 哈德昆日落</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">遊船</span>
+            <div class="timeline-name">⛴️ 布里恩茨湖遊船</div>
+            <div class="timeline-desc">松綠色的湖水，1 小時多到布里恩茨。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">11:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">工藝</span>
+            <div class="timeline-name">🪵 布里恩茨 · 木雕小鎮</div>
+            <div class="timeline-desc">瑞士木雕與小提琴製作的故鄉，主街上都是工坊。安靜、平坦。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">文化</span>
+            <div class="timeline-name">🏡 巴倫堡露天博物館</div>
+            <div class="timeline-desc">把全瑞士各地的百年老農舍原樣搬來重建的露天博物館，有工匠示範與農場動物。園區大，挑一區走就好，有園內接駁車。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">6:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">日落</span>
+            <div class="timeline-name">🌄 哈德昆 · 兩湖之間的觀景台</div>
+            <div class="timeline-desc">纜索車 10 分鐘上 1322 公尺，平台正對少女峰、腳下兩座湖。山頂餐廳吃晚餐看日落。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 6 -->
+    <div class="day-block" id="v3-day6">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">06</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月10日 · 週四</div>
+          <div class="day-title">伯恩 · 世界遺產老城</div>
+          <div class="day-subtitle">火車 55 分鐘 · 六公里拱廊 · 鐘樓 · 熊公園</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚆 因特拉肯 → 伯恩（55 分鐘，直達）</div>
+            <div class="timeline-desc">全程最短的一段移動，中午前就到。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">11:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住伯恩老城（2 晚）</div>
+            <div class="timeline-desc">瑞士首都，整座老城 1983 年就列入世界遺產。住老城邊上（如 Bellevue Palace），景點全是走路距離。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍺 拱廊下的老餐館</div>
+            <div class="timeline-desc">伯恩老城有全歐洲最長的連續拱廊（約 6 公里），下雨也不必撐傘。地窖改的老餐廳很有氣氛。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">地標</span>
+            <div class="timeline-name">🕰️ 鐘樓 · 大教堂 · 街心噴泉</div>
+            <div class="timeline-desc">13 世紀的鐘樓每逢整點前 4 分鐘會有轉動人偶報時；老城主街上一連串 16 世紀彩繪噴泉。愛因斯坦故居也在這條街上。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">俯瞰</span>
+            <div class="timeline-name">🐻 熊公園 · 玫瑰園</div>
+            <div class="timeline-desc">阿勒河彎道旁的熊苑（熊是伯恩的市徽），對面山坡上的玫瑰園是俯瞰整座紅屋頂老城最好的角度。有公車直達，不用爬坡。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍽️ 伯恩老城晚餐</div>
+            <div class="timeline-desc">伯恩拼盤（香腸、培根、豆子燉酸菜）是本地代表菜，份量大，可以三人分食。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 7 -->
+    <div class="day-block" id="v3-day7">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">07</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月11日 · 週五</div>
+          <div class="day-title">伯恩慢日 · 美術館與河岸</div>
+          <div class="day-subtitle">保羅克利中心 · 市集 · 河邊咖啡</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">市集</span>
+            <div class="timeline-name">🥬 聯邦廣場市集</div>
+            <div class="timeline-desc">週二、週六是大市集日，平日也有攤。國會大廈前廣場的噴泉會從地面直接噴起，孩子與大人都愛看。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">11:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">美術館</span>
+            <div class="timeline-name">🎨 保羅克利中心</div>
+            <div class="timeline-desc">建築師倫佐皮亞諾設計的三道波浪形建築，收藏克利作品四千多件，是全世界最完整的。館內平坦、有咖啡廳，適合慢慢看。Travel Pass 可折。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">☕ 美術館餐廳 / 老城咖啡</div>
+            <div class="timeline-desc">輕食沙拉、義大利麵，配一杯咖啡與伯恩杏仁塔。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">可選</span>
+            <div class="timeline-name">🏛️ 伯恩美術館 或 阿勒河岸散步</div>
+            <div class="timeline-desc">美術館有從中世紀到現代的收藏；不想看畫就沿阿勒河走一段，河水是不真實的松綠色，夏末還有人漂流。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍷 地窖餐廳晚餐</div>
+            <div class="timeline-desc">老城的拱形地窖餐廳，氣氛很好。明天出國到法國，今晚早點收行李。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 8 -->
+    <div class="day-block" id="v3-day8">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">08</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月12日 · 週六</div>
+          <div class="day-title">進法國 · 科爾馬小威尼斯</div>
+          <div class="day-subtitle">火車 2.5 小時 · 半木造彩色老屋 · 運河邊晚餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚆 伯恩 → 巴塞爾 → 科爾馬（約 2.5 小時）</div>
+            <div class="timeline-desc">在巴塞爾轉車進法國。這段是三個版本裡唯一的跨國火車，換車一次、月台同層。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-hotel">住宿</span>
+            <div class="timeline-name">🏨 入住科爾馬老城（2 晚）</div>
+            <div class="timeline-desc">阿爾薩斯的代表小城，德法交界、兩種文化混在一起。老城全是行人徒步區，飯店走出來就是景。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🥧 阿爾薩斯薄餅 + 麗絲玲白酒</div>
+            <div class="timeline-desc">Tarte flambée 薄脆火焰烤餅，加酸奶油、洋蔥、培根。配當地的 Riesling 或 Gewürztraminer。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">3:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">老城</span>
+            <div class="timeline-name">🛶 小威尼斯 · 半木造老屋</div>
+            <div class="timeline-desc">運河兩岸粉紅、鵝黃、天藍的半木造房子擠在一起，窗台全是花。可以搭平底小船遊運河 30 分鐘，坐著看最省力。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">博物館</span>
+            <div class="timeline-name">🖼️ 恩特林登博物館（可選）</div>
+            <div class="timeline-desc">修道院改建，鎮館之寶是伊森海姆祭壇畫——歐洲中世紀末最震撼的宗教畫之一。館內平坦有電梯。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍲 阿爾薩斯燉菜</div>
+            <div class="timeline-desc">酸菜燉豬肉香腸拼盤、白酒燉雞、洋蔥塔。份量偏大，可以合點。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 9 -->
+    <div class="day-block" id="v3-day9">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">09</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月13日 · 週日</div>
+          <div class="day-title">阿爾薩斯酒鄉之路</div>
+          <div class="day-subtitle">包車一日 · 童話酒村 · 葡萄園午餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">包車</span>
+            <div class="timeline-name">🚐 酒鄉之路 · 包車一日</div>
+            <div class="timeline-desc">阿爾薩斯酒鄉之路沿孚日山腳南北綿延 170 公里，村與村之間 10–20 分鐘。包車最合適——大眾運輸到不了、又不必自己開山路找停車位。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">酒村</span>
+            <div class="timeline-name">🏘️ 里克維爾 · 城牆裡的中世紀酒村</div>
+            <div class="timeline-desc">被葡萄園包住的小村，主街兩側全是 16 世紀彩色老屋與酒窖。村子很小，一條主街走完就是全部。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">11:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">酒村</span>
+            <div class="timeline-name">🌻 埃吉桑 · 圓環狀的花之村</div>
+            <div class="timeline-desc">以同心圓街道與滿街鮮花聞名，多次被選為法國最美村莊。同樣是平地、規模小。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍇 葡萄園旁午餐 · 酒莊品飲</div>
+            <div class="timeline-desc">村裡的家族酒莊多半可以預約品飲，九月正是採收季，空氣裡都是葡萄味。開車的是司機，可以放心喝。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-view">城堡</span>
+            <div class="timeline-name">🏰 高柯尼斯堡（可選）</div>
+            <div class="timeline-desc">山頂上重建的中世紀紅砂岩城堡，可俯瞰整片萊茵平原。車可開到山上，園內仍有石階與坡道，體力斟酌。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">6:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍽️ 回科爾馬 · 運河邊晚餐</div>
+            <div class="timeline-desc">最後一個法國夜晚。老城入夜點燈之後更漂亮。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 10 -->
+    <div class="day-block" id="v3-day10">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">10</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月14日 · 週一</div>
+          <div class="day-title">回蘇黎世 · 最後一天採買</div>
+          <div class="day-subtitle">火車 2.5 小時 · 老城 · 巧克力之家 · 告別晚餐</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚆 科爾馬 → 巴塞爾 → 蘇黎世（約 2.5 小時）</div>
+            <div class="timeline-desc">中午前後到，飯店先放行李。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">1:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">老城</span>
+            <div class="timeline-name">⛪ 大教堂 · 聖母教堂夏卡爾玻璃</div>
+            <div class="timeline-desc">利馬特河兩岸的老城，雙塔大教堂是蘇黎世地標；對岸聖母教堂內有夏卡爾的五面彩繪玻璃。都在平地、走路 5 分鐘。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🥘 蘇黎世小牛肉 + 薯餅</div>
+            <div class="timeline-desc">奶油白酒燴小牛肉配 Rösti，蘇黎世的代表菜。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">3:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">伴手禮</span>
+            <div class="timeline-name">🍫 蓮花巧克力之家</div>
+            <div class="timeline-desc">館內有 9 公尺高的巧克力噴泉、免費試吃區與大賣店。伴手禮一次搞定，週一照常開。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">購物</span>
+            <div class="timeline-name">🛍️ 班霍夫大街 · Sprüngli</div>
+            <div class="timeline-desc">錶店與 Sprüngli 的 Luxemburgerli 小馬卡龍。行李收一收，明天早班機。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">7:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🥂 告別晚餐</div>
+            <div class="timeline-desc">老城裡吃最後一頓，敬爸媽的第一次歐洲。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- V3 DAY 11 -->
+    <div class="day-block" id="v3-day11">
+      <div class="day-header">
+        <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">11</span></div>
+        <div class="day-header-info">
+          <div class="day-date">9月15日 · 週二</div>
+          <div class="day-title">返程</div>
+          <div class="day-subtitle">蘇黎世機場 · Patty 直飛洛杉磯 · 爸媽轉機回台北</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">7:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">前往機場</span>
+            <div class="timeline-name">🚆 市區 → 蘇黎世機場（火車 10 分鐘）</div>
+            <div class="timeline-desc">中央車站直達機場 10 分鐘，班次密集。抓起飛前 3 小時。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">起飛</span>
+            <div class="timeline-name">✈️ ZRH → LAX ／ ZRH → TPE</div>
+            <div class="timeline-desc">Patty 直飛洛杉磯；爸媽轉機一次回台北。分手前先在機場一起吃個早餐。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<!-- PREP -->
+<section class="prep">
+  <p class="section-label" style="text-align:center;">行前備忘</p>
+  <div class="prep-grid">
+    <div class="prep-card">
+      <h4>🛂 證件</h4>
+      <p>台灣與美國護照進申根區都免簽（90 天內），護照效期需離境後 3 個月以上，建議留 6 個月。歐盟的 ETIAS 電子旅行許可若在出發前已上路，兩本護照都要線上申請，出發前務必上官網確認最新狀態。</p>
+    </div>
+    <div class="prep-card">
+      <h4>🚆 交通票</h4>
+      <p>Swiss Travel Pass 涵蓋火車、船、市區公車與 500 多間博物館，登山鐵道與纜車另有折扣。10 晚的行程買 8 天連續票最划算，剩下的日子單買。版本②③ 出瑞士後改用當地票券。</p>
+    </div>
+    <div class="prep-card">
+      <h4>🧳 行李</h4>
+      <p>瑞士鐵路有「站到站行李寄送」，前一天下午交件、隔天送到下一站車站，長輩完全不用拎行李換車。跨國段（義大利、法國）不適用，改用包車。</p>
+    </div>
+    <div class="prep-card">
+      <h4>🌡️ 九月天氣</h4>
+      <p>谷地白天 15–22 度、早晚 8–12 度；3000 公尺以上山頂常在 0 度上下、有風有雪。洋蔥式穿搭：薄羽絨或刷毛 + 防風外套 + 圍巾手套，鞋子要好走的。太陽眼鏡與防曬別忘，高山紫外線強。</p>
+    </div>
+    <div class="prep-card">
+      <h4>⛰️ 高山注意</h4>
+      <p>少女峰 3454 公尺、戈爾內格拉特 3089 公尺，都是纜車或火車直達、不需要爬。到頂後動作放慢、多喝水，若爸媽有心血管或呼吸道問題，出發前先問過醫生；山上都有醫護站。</p>
+    </div>
+    <div class="prep-card">
+      <h4>🍽️ 用餐習慣</h4>
+      <p>瑞士餐廳普遍要訂位，午餐約 12:00、晚餐 18:30 起，很多店週日整天休、超市週日也關門。義大利晚餐 19:30 之後才開。餐廳都有免費自來水可要，瓶裝水另計。</p>
+    </div>
+    <div class="prep-card">
+      <h4>💳 錢與插座</h4>
+      <p>瑞士用瑞士法郎（CHF），義大利與法國用歐元，兩種都要備一點現金；刷卡非常普及。瑞士是 J 型三孔插座，義法是歐規兩孔，帶萬用轉接頭最省事，電壓 230V。</p>
+    </div>
+    <div class="prep-card">
+      <h4>📱 網路與 App</h4>
+      <p>買一張涵蓋歐洲的 eSIM 最方便。必裝：SBB Mobile（瑞士國鐵，查車次即時月台）、各登山鐵道官網的即時山頂影像（決定要不要上山）、Google Maps 先下載離線地圖。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-kanji">瑞</div>
+  <p class="footer-text">Mountains · Lakes · Their first Europe</p>
+</footer>
+
+<script>
+  let currentVer = '1';
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
+
+  function setVer(v) {
+    currentVer = v;
+    document.querySelectorAll('.ver-btn').forEach(b => b.classList.toggle('active', b.dataset.v === v));
+    document.querySelectorAll('.ver-panel').forEach(p => { p.hidden = p.dataset.panel !== v; });
+    const panel = document.querySelector('.ver-panel[data-panel="' + v + '"]');
+    if (panel) panel.querySelectorAll('.day-block').forEach(b => b.classList.add('visible'));
+    const routes = document.querySelector('.routes');
+    if (routes) {
+      const top = routes.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  function scrollToDay(n) {
+    const el = document.getElementById('v' + currentVer + '-day' + n);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    const navBtns = document.querySelectorAll('.nav-btn');
+    let current = -1;
+    for (let i = 1; i <= 11; i++) {
+      const el = document.getElementById('v' + currentVer + '-day' + i);
+      if (el && el.getBoundingClientRect().top < 120) current = i - 1;
+    }
+    navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
+  });
+</script>
+</body>
+</html>
