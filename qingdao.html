@@ -187,6 +187,28 @@
   .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
   .day-subtitle { font-size: 13px; color: rgba(22,50,79,0.5); letter-spacing: 1px; }
 
+  /* ── VERSION SWITCH ── */
+  .version-switch { display: flex; gap: 8px; margin-bottom: 28px; }
+  .ver-btn {
+    flex: 1; background: white; border: 1px solid rgba(46,122,166,0.3);
+    color: var(--sepia); font-family: 'Noto Serif TC', serif; font-size: 13px;
+    padding: 14px 8px; cursor: pointer; transition: all 0.2s; line-height: 1.4;
+  }
+  .ver-btn small { display: block; font-size: 10px; letter-spacing: 1px; opacity: 0.6; margin-top: 3px; }
+  .ver-btn:hover { border-color: var(--gold); }
+  .ver-btn.active { background: var(--gold); border-color: var(--gold); color: #fff; font-weight: 600; }
+  .ver-btn.active small { opacity: 0.85; }
+  .ver-panel[hidden] { display: none; }
+  .ver-head { margin-bottom: 20px; }
+  .ver-title { font-size: 20px; font-weight: 400; color: var(--sepia); margin-bottom: 6px; line-height: 1.4; }
+  .ver-sub { font-size: 13px; color: rgba(22,50,79,0.5); letter-spacing: 0.5px; line-height: 1.6; }
+  .drive-note {
+    display: flex; align-items: flex-start; gap: 8px;
+    background: rgba(193,91,58,0.07); border-left: 2px solid var(--red);
+    padding: 10px 14px; font-size: 12px; color: var(--sepia); line-height: 1.6; margin-bottom: 24px;
+  }
+  .drive-note.calm { background: rgba(47,109,140,0.07); border-left-color: var(--moss); }
+
   /* ── TIMELINE ── */
   .timeline { position: relative; padding-left: 32px; }
   .timeline::before {
@@ -210,14 +232,10 @@
     text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; border-radius: 0;
   }
   .tag-meal { background: rgba(46,122,166,0.12); color: var(--sepia); }
-  .tag-garden { background: rgba(47,109,140,0.12); color: var(--moss); }
+  .tag-move { background: rgba(47,109,140,0.12); color: var(--moss); }
   .tag-culture { background: rgba(193,91,58,0.1); color: var(--red); }
-  .tag-shopping { background: rgba(36,69,95,0.1); color: var(--sepia); }
+  .tag-family { background: rgba(46,122,166,0.14); color: var(--gold); }
   .tag-hotel { background: rgba(22,50,79,0.06); color: rgba(22,50,79,0.6); }
-  .timeline-warning { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; letter-spacing: 0.5px; }
-  .warn-red { color: var(--red); }
-  .warn-green { color: var(--moss); }
-  .warn-gold { color: var(--gold); }
 
   /* ── FOOTER ── */
   footer { background: var(--ink); padding: 48px 24px; text-align: center; }
@@ -249,6 +267,9 @@
     .day-number-num { font-size: 24px; }
     .day-title { font-size: 18px; }
     .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .version-switch { gap: 6px; }
+    .ver-btn { font-size: 12px; padding: 10px 4px; }
+    .ver-btn small { font-size: 9px; }
     .timeline { padding-left: 24px; }
     .timeline::before { left: 5px; }
     .timeline-item { gap: 12px; margin-bottom: 22px; }
@@ -256,7 +277,6 @@
     .timeline-time { width: 62px; font-size: 12px; }
     .timeline-name { font-size: 14px; }
     .timeline-desc { font-size: 12px; line-height: 1.75; }
-    .timeline-warning { font-size: 11px; }
     .divider { padding: 0 16px; }
     footer { padding: 40px 16px; }
     .sticky-nav { padding: 0 16px; }
@@ -308,12 +328,12 @@
 <section class="overview">
   <p class="section-label">行程概覽</p>
   <h2 class="overview-title">紅瓦綠樹·碧海藍天·三天兩夜</h2>
-  <p class="overview-desc">直飛青島，落腳石老人海灘旁的鵬利凱悅。海景酒店慢活兩晚，一天走老城經典——八大關、棧橋、教堂、啤酒街，海鮮配青島原漿。不趕，海邊度假的節奏。</p>
+  <p class="overview-desc">陪爸媽的慢節奏小旅行。直飛青島，落腳石老人海灘旁的鵬利凱悅，海景酒店住兩晚。週六北上即墨探親、與親戚共進晚餐——白天怎麼走，備了三種版本可切換：純陪家人、嶗山山海、或老城紅瓦。週日午班機直飛返台，不趕。</p>
   <div class="info-cards">
     <div class="info-card">
       <div class="info-card-icon">✈️</div>
-      <div class="info-card-label">抵達</div>
-      <div class="info-card-value">8/7 · 華航/東方 直達<br>13:00 → 15:35 抵 TAO<br>膠東機場→酒店約 1 小時</div>
+      <div class="info-card-label">航班</div>
+      <div class="info-card-value">去 8/7 華航/東方 13:00→15:35<br>回 8/9 山東 SC4085 13:25→15:45<br>膠東機場↔酒店約 1 小時</div>
     </div>
     <div class="info-card">
       <div class="info-card-icon">🏨</div>
@@ -321,9 +341,9 @@
       <div class="info-card-value">青島鵬利凱悅酒店<br>Hyatt Regency（2晚·海景）</div>
     </div>
     <div class="info-card">
-      <div class="info-card-icon">👥</div>
-      <div class="info-card-label">人數</div>
-      <div class="info-card-value">3人</div>
+      <div class="info-card-icon">👨‍👩‍👧</div>
+      <div class="info-card-label">同行</div>
+      <div class="info-card-value">3人 · 陪爸媽<br>週六即墨探親</div>
     </div>
   </div>
 </section>
@@ -337,12 +357,16 @@
       <div class="confirmed-code pending">◻️ 待訂</div>
     </div>
     <div class="confirmed-row">
-      <div class="confirmed-name">回程 TAO→TPE · 8/9 週日 13:25–15:45（山東航空 直達 2h20m · 約 NT$67,381／3人）</div>
+      <div class="confirmed-name">回程 TAO→TPE · 8/9 週日 13:25–15:45（山東 SC4085 直達 · 週日最晚的直飛班次）</div>
       <div class="confirmed-code pending">◻️ 待訂</div>
     </div>
     <div class="confirmed-row">
       <div class="confirmed-name">青島鵬利凱悅酒店 Hyatt Regency · 8/7–8/9（2晚·海景）</div>
       <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">即墨親戚晚餐 · 8/8 週六晚（三種版本都排在週六晚）</div>
+      <div class="confirmed-code">👨‍👩‍👧 家庭</div>
     </div>
   </div>
 </div>
@@ -370,7 +394,7 @@
         <div class="timeline-content">
           <span class="timeline-tag tag-culture">抵達</span>
           <div class="timeline-name">✈️ 抵達 TAO 膠東國際機場</div>
-          <div class="timeline-desc">華航／東方直達，13:00 TPE 起飛，15:35 落地。新機場位於城區西北，往東海岸嶗山區酒店約 1 小時車程，包車或叫車前往。</div>
+          <div class="timeline-desc">華航／東方直達，13:00 TPE 起飛、15:35 落地。新機場在城區西北，往東海岸嶗山區酒店約 1 小時，包車或叫車直接進飯店。</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -379,16 +403,16 @@
         <div class="timeline-content">
           <span class="timeline-tag tag-hotel">住宿</span>
           <div class="timeline-name">🏨 入住 青島鵬利凱悅酒店</div>
-          <div class="timeline-desc">東海東路，石老人海水浴場旁，嶗山區海岸線上。海景房俯瞰海灣，泳池、SPA。放行李，稍作休息。</div>
+          <div class="timeline-desc">東海東路，石老人海水浴場旁，嶗山區海岸線上。海景房俯瞰海灣，泳池、SPA。放行李，讓爸媽休息一下。</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-time">6:00 PM</div>
         <div class="timeline-content">
-          <span class="timeline-tag tag-shopping">散步</span>
+          <span class="timeline-tag tag-move">散步</span>
           <div class="timeline-name">🌊 石老人海水浴場 · 傍晚海邊</div>
-          <div class="timeline-desc">酒店旁沙灘散步，看石老人礁石與海灣夕陽。夏夜海風舒服。</div>
+          <div class="timeline-desc">酒店旁沙灘散步，看石老人礁石與海灣夕陽。平路好走，夏夜海風舒服。</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -397,7 +421,7 @@
         <div class="timeline-content">
           <span class="timeline-tag tag-meal">晚餐</span>
           <div class="timeline-name">🦞 海鮮 + 青島原漿啤酒</div>
-          <div class="timeline-desc">第一晚吃青島最經典——當季海鮮（蛤蜊、皮皮蝦、鮁魚）配剛打的原漿啤酒。可就近選嶗山／石老人一帶海鮮餐廳，或請酒店禮賓推薦。</div>
+          <div class="timeline-desc">第一晚吃最經典的——當季海鮮（蛤蜊、皮皮蝦、鮁魚）配剛打的原漿啤酒。就近選石老人／嶗山一帶海鮮館，或請酒店禮賓推薦。</div>
         </div>
       </div>
     </div>
@@ -409,64 +433,232 @@
       <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
       <div class="day-header-info">
         <div class="day-date">8月8日 · 週六</div>
-        <div class="day-title">老城經典 · 紅瓦綠樹</div>
-        <div class="day-subtitle">八大關 · 棧橋 · 天主教堂 · 啤酒博物館 · 五四廣場夜景</div>
+        <div class="day-title">探親日 · 三種走法</div>
+        <div class="day-subtitle">白天選一種版本 · 晚上都在即墨與親戚晚餐</div>
       </div>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">9:00 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">早餐</span>
-          <div class="timeline-name">🥐 酒店早餐 · 出發老城</div>
-          <div class="timeline-desc">悠閒早餐後往西進老城區，嶗山→市南約 30–40 分鐘車程。</div>
+    <!-- VERSION SWITCH -->
+    <div class="version-switch">
+      <button class="ver-btn active" data-v="1" onclick="setVer('1')">① 純陪家人<small>即墨一日</small></button>
+      <button class="ver-btn" data-v="2" onclick="setVer('2')">② 嶗山山海<small>太清宮</small></button>
+      <button class="ver-btn" data-v="3" onclick="setVer('3')">③ 老城紅瓦<small>棧橋八大關</small></button>
+    </div>
+
+    <!-- VERSION 1 · 即墨 family day -->
+    <div class="ver-panel" data-panel="1">
+      <div class="ver-head">
+        <div class="ver-title">① 即墨一日 · 純陪家人</div>
+        <div class="ver-sub">最輕鬆的一天。一路往北，即墨古城慢慢逛，整天陪著親戚，晚餐一起吃。單一方向、不折返、幾乎全平路。</div>
+      </div>
+      <div class="drive-note calm">🚗 車程最省：酒店→即墨約 1 小時，一去一回，白天不再移動。最適合爸媽的節奏。</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">🥐 酒店早餐 · 北上即墨</div>
+            <div class="timeline-desc">悠閒早餐後往北，酒店→即墨約 1 小時車程。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">11:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">走走</span>
+            <div class="timeline-name">🏯 即墨古城</div>
+            <div class="timeline-desc">重建的明清風古城，平坦寬街，文廟、城隍廟、牌坊、小吃街。可約親戚一起逛，慢慢走、慢慢拍。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍜 即墨午餐</div>
+            <div class="timeline-desc">古城內或城區小館，山東家常味。也可由親戚帶路吃在地。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-family">家人</span>
+            <div class="timeline-name">👨‍👩‍👧 與親戚相聚</div>
+            <div class="timeline-desc">到親戚家或找間茶館坐下來，慢慢聊。爸媽也能歇腳，不用趕行程。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">4:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">可選</span>
+            <div class="timeline-name">🍶 即墨老酒博物館（可選）</div>
+            <div class="timeline-desc">有興致可看看即墨老酒（在地黃酒）小館，或城區散步。想休息就直接回親戚家。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">6:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍽️ 與親戚晚餐 · 即墨</div>
+            <div class="timeline-desc">今晚重頭戲——和親戚好好吃頓飯。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">8:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">回程</span>
+            <div class="timeline-name">🚗 返回酒店</div>
+            <div class="timeline-desc">即墨→酒店約 1 小時，回海邊休息。</div>
+          </div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">10:00 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">走走</span>
-          <div class="timeline-name">🏛️ 八大關風景區</div>
-          <div class="timeline-desc">德式與各國老別墅、林蔭大道，青島最美街區。花石樓、公主樓，走到第二海水浴場看海。慢慢散步拍照。</div>
+    </div>
+
+    <!-- VERSION 2 · 嶗山 + 即墨 dinner -->
+    <div class="ver-panel" data-panel="2" hidden>
+      <div class="ver-head">
+        <div class="ver-title">② 嶗山山海 · 即墨晚餐</div>
+        <div class="ver-sub">上午看「海上第一名山」——太清宮海邊道觀，平緩好走。午後北上即墨，晚上與親戚晚餐。</div>
+      </div>
+      <div class="drive-note">🚗 車程較多：嶗山在東南、即墨在北，午後那段約 1.5 小時。想看山海就值得，但一天下來坐車偏長。</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">8:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">🥐 早餐 · 出發嶗山</div>
+            <div class="timeline-desc">早點出門，酒店→嶗山太清約 40 分鐘沿海車程。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">山海</span>
+            <div class="timeline-name">⛰️ 嶗山 · 太清遊覽區</div>
+            <div class="timeline-desc">海邊的千年道觀太清宮，背山面海、古樹參天，園區多為平路。想看全景可搭太清索道上覽望台，不必爬山。慢逛 2–3 小時。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🍲 嶗山農家宴 / 青山漁村</div>
+            <div class="timeline-desc">山腳農家菜（嶗山菇燉雞、海鮮、嶗山綠茶），或順路青山漁村看茶園臨海的漁村風景。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">移動</span>
+            <div class="timeline-name">🚗 驅車北上即墨</div>
+            <div class="timeline-desc">嶗山南岸繞行北上即墨，約 1.5 小時。爸媽可在車上小憩。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">5:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-family">家人</span>
+            <div class="timeline-name">👨‍👩‍👧 與親戚相聚 · 即墨</div>
+            <div class="timeline-desc">抵達即墨，先到親戚家坐坐。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">6:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍽️ 與親戚晚餐 · 即墨</div>
+            <div class="timeline-desc">和親戚一起吃晚餐。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">8:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">回程</span>
+            <div class="timeline-name">🚗 返回酒店</div>
+            <div class="timeline-desc">即墨→酒店約 1 小時，回海邊休息。</div>
+          </div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">12:30 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">午餐</span>
-          <div class="timeline-name">🍜 老城午餐</div>
-          <div class="timeline-desc">中山路／老城一帶午餐，可吃山東水餃、炸海鮮或本地小館。</div>
-        </div>
+      <div class="drive-note calm" style="margin-top:24px;">🎫 提醒：嶗山夏季門票需實名網路預約，車子停大河東換乘中心、轉園區觀光巴士進山。請酒店禮賓協助訂票。</div>
+    </div>
+
+    <!-- VERSION 3 · 老城 + 即墨 dinner -->
+    <div class="ver-panel" data-panel="3" hidden>
+      <div class="ver-head">
+        <div class="ver-title">③ 老城紅瓦 · 即墨晚餐</div>
+        <div class="ver-sub">上午走青島最經典的老城前海——棧橋、八大關、德式教堂，順路啤酒博物館。傍晚北上即墨與親戚晚餐。</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div>
-        <div class="timeline-time">2:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">走走</span>
-          <div class="timeline-name">⛪ 棧橋 · 聖彌厄爾天主教堂</div>
-          <div class="timeline-desc">棧橋回瀾閣伸入前海，青島地標。往上走到中山路頂端的聖彌厄爾天主教堂（哥德式雙塔），周邊老街拍照。體力夠可加信號山看紅瓦全景。</div>
+      <div class="drive-note">🚗 車程最多、行程最滿：老城在西南、即墨在北，等於橫跨整個市區。最「青島」但也最不 chill，爸媽會比較累。</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">出發</span>
+            <div class="timeline-name">🥐 早餐 · 出發老城</div>
+            <div class="timeline-desc">酒店→市南老城約 35–40 分鐘。</div>
+          </div>
         </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div>
-        <div class="timeline-time">5:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">啤酒</span>
-          <div class="timeline-name">🍺 青島啤酒博物館 · 登州路啤酒街</div>
-          <div class="timeline-desc">百年老廠改建的博物館，看釀造史、試飲原漿與純生。門口登州路啤酒街，塑膠袋裝生啤配烤串、辣炒蛤蜊，最地道的青島夜晚。</div>
+        <div class="timeline-item">
+          <div class="timeline-dot highlight"></div><div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">走走</span>
+            <div class="timeline-name">🏛️ 八大關 · 短環線</div>
+            <div class="timeline-desc">只走精華段：花石樓 + 第二海水浴場，德式老別墅林蔭道，不繞全區以免走太多。</div>
+          </div>
         </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-time">8:00 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-culture">夜景</span>
-          <div class="timeline-name">🌃 五四廣場 · 奧帆中心</div>
-          <div class="timeline-desc">回程順路看五四廣場「五月的風」紅色地標與奧帆中心夜景燈光，海灣點燈。之後回酒店。</div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">11:30 AM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">地標</span>
+            <div class="timeline-name">⛪ 棧橋 · 聖彌厄爾天主教堂</div>
+            <div class="timeline-desc">棧橋回瀾閣伸入前海，青島地標；中山路頂端的哥德式雙塔天主教堂拍照。體力有限可二選一。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">12:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">午餐</span>
+            <div class="timeline-name">🥟 船歌魚水餃 / 劈柴院</div>
+            <div class="timeline-desc">老城午餐：船歌魚水餃（鮁魚／海鮮餃）舒服坐下來吃，或劈柴院老食街。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">可選</span>
+            <div class="timeline-name">🚶 中山路 · 里院（可選）</div>
+            <div class="timeline-desc">廣興里、大鮑島修復老街區，咖啡與老里院，平路輕鬆逛。累了可跳過。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">3:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-culture">啤酒</span>
+            <div class="timeline-name">🍺 青島啤酒博物館（順路）</div>
+            <div class="timeline-desc">登州路百年老廠改建，室內看釀造史、試飲原漿與純生。位在市北，正好在往即墨的路上，停一下再北上。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot confirmed"></div><div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-family">家人</span>
+            <div class="timeline-name">🚗 驅車即墨 · 與親戚</div>
+            <div class="timeline-desc">市北→即墨約 1 小時，抵達與親戚相聚。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot meal"></div><div class="timeline-time">6:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-meal">晚餐</span>
+            <div class="timeline-name">🍽️ 與親戚晚餐 · 即墨</div>
+            <div class="timeline-desc">和親戚一起吃晚餐。</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div><div class="timeline-time">8:30 PM</div>
+          <div class="timeline-content">
+            <span class="timeline-tag tag-move">回程</span>
+            <div class="timeline-name">🚗 返回酒店</div>
+            <div class="timeline-desc">即墨→酒店約 1 小時，回海邊休息。</div>
+          </div>
         </div>
       </div>
     </div>
@@ -479,7 +671,7 @@
       <div class="day-header-info">
         <div class="day-date">8月9日 · 週日</div>
         <div class="day-title">退房 · 返程</div>
-        <div class="day-subtitle">早餐 · 海邊最後一眼 · 退房 · 午後航班</div>
+        <div class="day-subtitle">海邊早晨 · 退房 · 午班機直飛返台</div>
       </div>
     </div>
 
@@ -499,7 +691,7 @@
         <div class="timeline-content">
           <span class="timeline-tag tag-hotel">退房</span>
           <div class="timeline-name">🧳 Check out · 前往機場</div>
-          <div class="timeline-desc">退房出發。膠東機場距東海岸約 1 小時，回程 13:25 起飛，抓 3 小時提前量，10:30 前務必上車。</div>
+          <div class="timeline-desc">退房出發。膠東機場距東海岸約 1 小時，回程 13:25 起飛，抓約 3 小時提前量，10:30 前務必上車。</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -507,8 +699,8 @@
         <div class="timeline-time">1:25 PM</div>
         <div class="timeline-content">
           <span class="timeline-tag tag-culture">起飛</span>
-          <div class="timeline-name">✈️ 返程 TAO → TPE</div>
-          <div class="timeline-desc">山東航空直達，13:25 起飛，15:45 落地桃園。</div>
+          <div class="timeline-name">✈️ 返程 TAO → TPE（SC4085）</div>
+          <div class="timeline-desc">山東航空直達，13:25 起飛、15:45 落地桃園。週日下午到家，隔天行程從容。</div>
         </div>
       </div>
     </div>
@@ -529,6 +721,12 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
+
+  // Saturday version switch
+  function setVer(v) {
+    document.querySelectorAll('.ver-btn').forEach(b => b.classList.toggle('active', b.dataset.v === v));
+    document.querySelectorAll('.ver-panel').forEach(p => { p.hidden = p.dataset.panel !== v; });
+  }
 
   // Nav scroll
   function scrollToDay(id) {
