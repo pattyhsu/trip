@@ -187,6 +187,11 @@
   .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
   .day-subtitle { font-size: 13px; color: rgba(22,50,79,0.5); letter-spacing: 1px; }
 
+  /* ── MAP ── */
+  .day-map { width: 100%; height: 220px; margin-bottom: 32px; border: 1px solid rgba(46,122,166,0.2); overflow: hidden; position: relative; }
+  .day-map iframe { width: 100%; height: 100%; border: none; }
+  .map-label { position: absolute; top: 10px; left: 10px; background: rgba(22,50,79,0.85); color: var(--gold-light); font-size: 9px; letter-spacing: 2px; padding: 4px 10px; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; pointer-events: none; z-index: 1; }
+
   /* ── DRIVE NOTE ── */
   .drive-note {
     display: flex; align-items: flex-start; gap: 8px;
@@ -253,6 +258,7 @@
     .day-number-num { font-size: 24px; }
     .day-title { font-size: 18px; }
     .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .day-map { height: 200px; margin-bottom: 20px; }
     .timeline { padding-left: 24px; }
     .timeline::before { left: 5px; }
     .timeline-item { gap: 12px; margin-bottom: 22px; }
@@ -311,7 +317,7 @@
 <section class="overview">
   <p class="section-label">行程概覽</p>
   <h2 class="overview-title">紅瓦綠樹·碧海藍天·三天兩夜</h2>
-  <p class="overview-desc">陪爸媽的慢節奏小旅行。直飛青島，落腳石老人海灘旁的鵬利凱悅，海景酒店住兩晚。週五抵達直奔市南老城，铭家食集（黑珍珠）晚餐；週六上午遊嶗山太清宮、看「海上第一名山」，午後北上即墨與親戚晚餐；週日午班機直飛返台，不趕。</p>
+  <p class="overview-desc">陪爸媽的慢節奏小旅行。直飛青島，落腳石老人海灘旁的鵬利凱悅，海景酒店住兩晚。週五抵達直奔市南老城，铭家食集（黑珍珠）晚餐；週六包車遊嶗山太清宮、看「海上第一名山」，午後北上即墨與親戚晚餐；週日午班機直飛返台，不趕。</p>
   <div class="info-cards">
     <div class="info-card">
       <div class="info-card-icon">✈️</div>
@@ -348,6 +354,10 @@
       <div class="confirmed-code pending">◻️ 待訂</div>
     </div>
     <div class="confirmed-row">
+      <div class="confirmed-name">嶗山包車一日遊 · 8/8（酒店↔嶗山↔即墨，含門票代訂）</div>
+      <div class="confirmed-code pending">◻️ 待訂</div>
+    </div>
+    <div class="confirmed-row">
       <div class="confirmed-name">铭家食集·院子餐廳（海青路店）· 8/7 週五 18:00（黑珍珠一鑽）</div>
       <div class="confirmed-code">✅ 確認</div>
     </div>
@@ -372,6 +382,11 @@
         <div class="day-title">抵達青島 · 老城晚餐</div>
         <div class="day-subtitle">午後抵達 · 直奔市南老城 · 铭家食集晚餐（黑珍珠）· 入住海景凱悅</div>
       </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Day 1 · 市南老城 · 铭家食集 & 前海</div>
+      <iframe src="https://maps.google.com/maps?q=青岛市南区海青路&z=14&output=embed&hl=zh-TW" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="timeline">
@@ -421,27 +436,32 @@
       <div class="day-header-info">
         <div class="day-date">8月8日 · 週六</div>
         <div class="day-title">嶗山山海 · 即墨晚餐</div>
-        <div class="day-subtitle">上午太清宮山海 · 午後北上即墨 · 與親戚晚餐</div>
+        <div class="day-subtitle">包車一日 · 太清宮山海 · 午後北上即墨晚餐</div>
       </div>
     </div>
 
-    <div class="drive-note">🚗 車程較多：嶗山在東南、即墨在北，午後那段約 1.5 小時。想看山海就值得，爸媽可在車上小憩。</div>
+    <div class="day-map">
+      <div class="map-label">Day 2 · 崂山太清宫 → 即墨</div>
+      <iframe src="https://maps.google.com/maps?q=崂山太清宫&z=11&output=embed&hl=zh-TW" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="drive-note">🚗 全日包車：司機一車到底（酒店→嶗山→即墨→酒店），代訂嶗山門票、免去園區換乘。午後嶗山→即墨約 1.5 小時，爸媽在車上小憩即可。</div>
 
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-dot"></div><div class="timeline-time">8:30 AM</div>
         <div class="timeline-content">
-          <span class="timeline-tag tag-move">出發</span>
-          <div class="timeline-name">🥐 早餐 · 出發嶗山</div>
-          <div class="timeline-desc">早點出門，酒店→嶗山太清約 40 分鐘沿海車程。</div>
+          <span class="timeline-tag tag-move">包車</span>
+          <div class="timeline-name">🚗 包車出發 · 司機到酒店接</div>
+          <div class="timeline-desc">早餐後司機到酒店接，直接載往嶗山。門票、園區換乘都交給司機，不必自己排隊轉車。</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot highlight"></div><div class="timeline-time">9:30 AM</div>
         <div class="timeline-content">
           <span class="timeline-tag tag-culture">山海</span>
-          <div class="timeline-name">⛰️ 嶗山 · 太清遊覽區</div>
-          <div class="timeline-desc">海邊的千年道觀太清宮，背山面海、古樹參天，園區多為平路。想看全景可搭太清索道上覽望台，不必爬山。慢逛 2–3 小時。</div>
+          <div class="timeline-name">⛰️ 嶗山 · 太清宮 + 太清索道</div>
+          <div class="timeline-desc">海邊千年道觀，園區平路好走；搭太清索道上覽望台看山海全景，不必爬山。慢逛約 2 小時，累了隨時回車上。</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -449,15 +469,15 @@
         <div class="timeline-content">
           <span class="timeline-tag tag-meal">午餐</span>
           <div class="timeline-name">🍲 嶗山農家宴 / 青山漁村</div>
-          <div class="timeline-desc">山腳農家菜（嶗山菇燉雞、海鮮、嶗山綠茶），或順路青山漁村看茶園臨海的漁村風景。</div>
+          <div class="timeline-desc">司機帶往山腳農家菜（嶗山菇燉雞、海鮮、嶗山綠茶），或臨海的青山漁村，一路沿海景觀大道看山海。</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div><div class="timeline-time">2:30 PM</div>
         <div class="timeline-content">
           <span class="timeline-tag tag-move">移動</span>
-          <div class="timeline-name">🚗 驅車北上即墨</div>
-          <div class="timeline-desc">嶗山南岸繞行北上即墨，約 1.5 小時。爸媽可在車上小憩。</div>
+          <div class="timeline-name">🚗 沿海北上即墨</div>
+          <div class="timeline-desc">包車沿海北上即墨，約 1.5 小時，爸媽在車上小憩。</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -480,13 +500,13 @@
         <div class="timeline-dot"></div><div class="timeline-time">8:30 PM</div>
         <div class="timeline-content">
           <span class="timeline-tag tag-move">回程</span>
-          <div class="timeline-name">🚗 返回酒店</div>
-          <div class="timeline-desc">即墨→酒店約 1 小時，回海邊休息。</div>
+          <div class="timeline-name">🚗 包車送回酒店</div>
+          <div class="timeline-desc">司機送回東岸酒店，約 1 小時，回海邊休息。</div>
         </div>
       </div>
     </div>
 
-    <div class="drive-note calm" style="margin-top:24px;">🎫 提醒：嶗山夏季門票需實名網路預約，車子停大河東換乘中心、轉園區觀光巴士進山。請酒店禮賓協助訂票。</div>
+    <div class="drive-note calm" style="margin-top:24px;">🚗 包車一日遊可透過酒店禮賓或旅遊平台預訂（含嶗山門票代訂）。想更輕鬆，可請司機略過登山、直接走沿海景觀大道（雕龍嘴、青山漁村）看山海，零門票零步行。</div>
   </div>
 
   <!-- ═══ DAY 3 ═══ -->
@@ -498,6 +518,11 @@
         <div class="day-title">退房 · 返程</div>
         <div class="day-subtitle">海邊早晨 · 退房 · 午班機直飛返台</div>
       </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Day 3 · 石老人 → 膠東機場</div>
+      <iframe src="https://maps.google.com/maps?q=青岛胶东国际机场&z=10&output=embed&hl=zh-TW" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="timeline">
