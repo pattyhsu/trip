@@ -7,6 +7,7 @@
 <meta name="googlebot" content="noindex, nofollow">
 <title>青島之旅 · 8月7日–9日</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
   :root {
     --ink: #16324f;
@@ -190,7 +191,8 @@
   /* ── MAP ── */
   .day-map { width: 100%; height: 220px; margin-bottom: 32px; border: 1px solid rgba(46,122,166,0.2); overflow: hidden; position: relative; }
   .day-map iframe { width: 100%; height: 100%; border: none; }
-  .map-label { position: absolute; top: 10px; left: 10px; background: rgba(22,50,79,0.85); color: var(--gold-light); font-size: 9px; letter-spacing: 2px; padding: 4px 10px; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; pointer-events: none; z-index: 1; }
+  .map-label { position: absolute; top: 10px; left: 10px; background: rgba(22,50,79,0.85); color: var(--gold-light); font-size: 9px; letter-spacing: 2px; padding: 4px 10px; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; pointer-events: none; z-index: 1000; }
+  .map-canvas { width: 100%; height: 100%; background: #dfe8ec; }
 
   /* ── DRIVE NOTE ── */
   .drive-note {
@@ -386,7 +388,7 @@
 
     <div class="day-map">
       <div class="map-label">Day 1 · 膠東機場 → 石老人凱悅 → 铭家食集</div>
-      <iframe src="https://maps.google.com/maps?saddr=青岛胶东国际机场&daddr=青岛鹏利凯悦酒店+to:青岛崂山区海青路1-2号铭家食集&output=embed&hl=zh-TW" allowfullscreen loading="lazy"></iframe>
+      <div class="map-canvas" id="map1"></div>
     </div>
 
     <div class="timeline">
@@ -442,7 +444,7 @@
 
     <div class="day-map">
       <div class="map-label">Day 2 · 崂山太清宫 → 即墨</div>
-      <iframe src="https://maps.google.com/maps?q=崂山太清宫&z=11&output=embed&hl=zh-TW" allowfullscreen loading="lazy"></iframe>
+      <div class="map-canvas" id="map2"></div>
     </div>
 
     <div class="drive-note">🚗 全日包車：司機一車到底（酒店→嶗山→即墨→酒店），代訂嶗山門票、免去園區換乘。午後嶗山→即墨約 1.5 小時，爸媽在車上小憩即可。</div>
@@ -522,7 +524,7 @@
 
     <div class="day-map">
       <div class="map-label">Day 3 · 石老人 → 膠東機場</div>
-      <iframe src="https://maps.google.com/maps?q=青岛胶东国际机场&z=10&output=embed&hl=zh-TW" allowfullscreen loading="lazy"></iframe>
+      <div class="map-canvas" id="map3"></div>
     </div>
 
     <div class="timeline">
@@ -563,11 +565,48 @@
   <p class="footer-text">Red roofs · Blue sea · A summer by the coast</p>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+  // ── Maps (Leaflet + OpenStreetMap) ──
+  const _maps = [];
+  function makeMap(id, points, opts) {
+    opts = opts || {};
+    if (!document.getElementById(id) || typeof L === 'undefined') return;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
+    });
+    const map = L.map(id, { scrollWheelZoom: false, zoomControl: false });
+    L.control.zoom({ position: 'topright' }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(map);
+    const pts = points.map(p => { L.marker([p.lat, p.lng]).addTo(map).bindPopup(p.label); return [p.lat, p.lng]; });
+    if (opts.line && pts.length > 1) L.polyline(pts, { color: '#2e7aa6', weight: 2, dashArray: '5,6', opacity: 0.85 }).addTo(map);
+    if (pts.length > 1) map.fitBounds(pts, { padding: [38, 38] }); else map.setView(pts[0], opts.zoom || 13);
+    _maps.push(map);
+  }
+  makeMap('map1', [
+    { lat: 36.367,  lng: 120.083,  label: '膠東國際機場 TAO' },
+    { lat: 36.0975, lng: 120.4655, label: '青島鵬利凱悅酒店' },
+    { lat: 36.1005, lng: 120.4600, label: '铭家食集 · 海青路店' }
+  ], { line: true });
+  makeMap('map2', [
+    { lat: 36.0975, lng: 120.4655, label: '凱悅酒店（出發）' },
+    { lat: 36.1516, lng: 120.6839, label: '嶗山 · 太清宮' },
+    { lat: 36.3897, lng: 120.4470, label: '即墨 · 親戚晚餐' }
+  ], { line: true });
+  makeMap('map3', [
+    { lat: 36.0925, lng: 120.4665, label: '石老人 · 凱悅酒店' },
+    { lat: 36.367,  lng: 120.083,  label: '膠東國際機場 TAO' }
+  ], { line: true });
+
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        _maps.forEach(m => m.invalidateSize());
+      }
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
