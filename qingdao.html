@@ -7,7 +7,6 @@
 <meta name="googlebot" content="noindex, nofollow">
 <title>青島 · 北京 · 8月7日–10日</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
   :root {
     --ink: #16324f;
@@ -192,7 +191,6 @@
   .day-map { width: 100%; height: 220px; margin-bottom: 32px; border: 1px solid rgba(46,122,166,0.2); overflow: hidden; position: relative; }
   .day-map iframe { width: 100%; height: 100%; border: none; }
   .map-label { position: absolute; top: 10px; left: 10px; background: rgba(22,50,79,0.85); color: var(--gold-light); font-size: 9px; letter-spacing: 2px; padding: 4px 10px; font-family: 'Cormorant Garamond', serif; text-transform: uppercase; pointer-events: none; z-index: 1000; }
-  .map-canvas { width: 100%; height: 100%; background: #dfe8ec; }
 
   /* ── DRIVE NOTE ── */
   .drive-note {
@@ -401,7 +399,7 @@
 
     <div class="day-map">
       <div class="map-label">Day 1 · 膠東機場 → 石老人凱悅 → 铭家食集</div>
-      <div class="map-canvas" id="map1"></div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m34!1m12!1m3!1d180000!2d120.27!3d36.23!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m19!3e0!4m5!1s0x0%3A0x0!2sQingdao+Jiaodong+International+Airport!3m2!1d36.367!2d120.083!4m5!1s0x0%3A0x1!2sHyatt+Regency+Qingdao!3m2!1d36.0975!2d120.4655!4m5!1s0x0%3A0x2!2sMingjia+Shiji+Haiqing+Road+Qingdao!3m2!1d36.1005!2d120.46!5e0!3m2!1szh-TW!2scn!4v1" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="timeline">
@@ -457,26 +455,18 @@
 
     <div class="day-map">
       <div class="map-label">Day 2 · 崂山太清宫 → 即墨</div>
-      <div class="map-canvas" id="map2"></div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m34!1m12!1m3!1d260000!2d120.53!3d36.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m19!3e0!4m5!1s0x0%3A0x0!2sHyatt+Regency+Qingdao!3m2!1d36.0975!2d120.4655!4m5!1s0x0%3A0x1!2sLaoshan+Taiqing+Palace!3m2!1d36.1516!2d120.6839!4m5!1s0x0%3A0x2!2sJimo+Qingdao!3m2!1d36.3897!2d120.447!5e0!3m2!1szh-TW!2scn!4v1" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="drive-note">🚗 全日包車：司機一車到底（酒店→嶗山→即墨→酒店），代訂嶗山門票、免去園區換乘。午後嶗山→即墨約 1.5 小時，爸媽在車上小憩即可。</div>
 
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-dot"></div><div class="timeline-time">8:30 AM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-move">包車</span>
-          <div class="timeline-name">🚗 包車出發 · 司機到酒店接</div>
-          <div class="timeline-desc">早餐後司機到酒店接，直接載往嶗山。門票、園區換乘都交給司機，不必自己排隊轉車。</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot highlight"></div><div class="timeline-time">9:30 AM</div>
+        <div class="timeline-dot highlight"></div><div class="timeline-time">9:00 AM</div>
         <div class="timeline-content">
           <span class="timeline-tag tag-culture">山海</span>
-          <div class="timeline-name">⛰️ 嶗山 · 太清宮 + 太清索道</div>
-          <div class="timeline-desc">海邊千年道觀，園區平路好走；搭太清索道上覽望台看山海全景，不必爬山。慢逛約 2 小時，累了隨時回車上。</div>
+          <div class="timeline-name">🚗 包車出發 → 嶗山 · 太清宮</div>
+          <div class="timeline-desc">早餐後司機到酒店接，直接載往嶗山（門票、園區換乘都交給司機）。海邊千年道觀太清宮，園區平路好走；搭太清索道上覽望台看山海全景，不必爬山。慢逛約 2 小時。</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -488,27 +478,19 @@
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot"></div><div class="timeline-time">2:30 PM</div>
+        <div class="timeline-dot"></div><div class="timeline-time">3:30 PM</div>
         <div class="timeline-content">
           <span class="timeline-tag tag-move">移動</span>
           <div class="timeline-name">🚗 沿海北上即墨</div>
-          <div class="timeline-desc">包車沿海北上即墨，約 1.5 小時，爸媽在車上小憩。</div>
+          <div class="timeline-desc">午餐後在嶗山、海邊悠閒一下，3:30 再包車北上即墨，約 1.5 小時，爸媽在車上小憩。</div>
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-dot confirmed"></div><div class="timeline-time">5:00 PM</div>
+        <div class="timeline-dot meal"></div><div class="timeline-time">5:00 PM</div>
         <div class="timeline-content">
-          <span class="timeline-tag tag-family">家人</span>
-          <div class="timeline-name">👨‍👩‍👧 與親戚相聚 · 即墨</div>
-          <div class="timeline-desc">抵達即墨，先到親戚家坐坐。</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot meal"></div><div class="timeline-time">6:30 PM</div>
-        <div class="timeline-content">
-          <span class="timeline-tag tag-meal">晚餐</span>
-          <div class="timeline-name">🍽️ 與親戚晚餐 · 即墨</div>
-          <div class="timeline-desc">和親戚一起吃晚餐。今晚的重頭戲。</div>
+          <span class="timeline-tag tag-meal">家人 · 晚餐</span>
+          <div class="timeline-name">👨‍👩‍👧 與親戚相聚 · 即墨晚餐</div>
+          <div class="timeline-desc">抵達即墨，與親戚相聚、一起吃晚餐。今晚的重頭戲。</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -537,7 +519,7 @@
 
     <div class="day-map">
       <div class="map-label">Day 3 · 石老人 → 青島北 → 北京南（高鐵）</div>
-      <div class="map-canvas" id="map3"></div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m34!1m12!1m3!1d4500000!2d118.4!3d38.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m19!3e0!4m5!1s0x0%3A0x0!2sShilaoren+Qingdao!3m2!1d36.0925!2d120.4665!4m5!1s0x0%3A0x1!2sQingdao+North+Railway+Station!3m2!1d36.1758!2d120.374!4m5!1s0x0%3A0x2!2sBeijingnan+Railway+Station!3m2!1d39.865!2d116.3786!5e0!3m2!1szh-TW!2scn!4v1" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="timeline">
@@ -552,11 +534,11 @@
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
-        <div class="timeline-time">7:30 AM</div>
+        <div class="timeline-time">7:45 AM</div>
         <div class="timeline-content">
           <span class="timeline-tag tag-move">移動</span>
           <div class="timeline-name">🚗 出發前往青島北站</div>
-          <div class="timeline-desc">週日早上車少、順暢（早高峰是平日現象、週末塞的是午後海邊），石老人→青島北站約 40 分鐘，約 8:10 到站。刷證進站、安檢，8:49 前上車即可。</div>
+          <div class="timeline-desc">週日早上車少、順暢，石老人→青島北站約 40 分鐘，約 8:25 到站。刷證進站、安檢後 8:49 上車——留約 20 分鐘，別晚於 8:00 出發（台胞證過閘＋安檢要時間）。</div>
         </div>
       </div>
       <div class="timeline-item">
@@ -611,7 +593,7 @@
 
     <div class="day-map">
       <div class="map-label">Day 4 · 北京 → 首都機場 → 台北</div>
-      <div class="map-canvas" id="map4"></div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d130000!2d116.51!3d40.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x0%3A0x0!2sWaldorf+Astoria+Beijing!3m2!1d39.9146!2d116.4106!4m5!1s0x0%3A0x1!2sBeijing+Capital+International+Airport!3m2!1d40.0799!2d116.6031!5e0!3m2!1szh-TW!2scn!4v1" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="drive-note">🚗 早班機提醒：PEK 08:25 起飛，清晨路空、市區→首都機場約 50 分鐘，國際線抓 2 小時提前量——約 5:15 出發、5:00 前起床。住東邊離機場更近。</div>
@@ -654,54 +636,11 @@
   <p class="footer-text">Red roofs · Blue sea · A summer by the coast</p>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-  // ── Maps (Leaflet + OpenStreetMap) ──
-  const _maps = [];
-  function makeMap(id, points, opts) {
-    opts = opts || {};
-    if (!document.getElementById(id) || typeof L === 'undefined') return;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png'
-    });
-    const map = L.map(id, { scrollWheelZoom: false, zoomControl: false });
-    L.control.zoom({ position: 'topright' }).addTo(map);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap' }).addTo(map);
-    const pts = points.map(p => { L.marker([p.lat, p.lng]).addTo(map).bindPopup(p.label); return [p.lat, p.lng]; });
-    if (opts.line && pts.length > 1) L.polyline(pts, { color: '#2e7aa6', weight: 2, dashArray: '5,6', opacity: 0.85 }).addTo(map);
-    if (pts.length > 1) map.fitBounds(pts, { padding: [38, 38] }); else map.setView(pts[0], opts.zoom || 13);
-    _maps.push(map);
-  }
-  makeMap('map1', [
-    { lat: 36.367,  lng: 120.083,  label: '膠東國際機場 TAO' },
-    { lat: 36.0975, lng: 120.4655, label: '青島山港凱悅酒店' },
-    { lat: 36.1005, lng: 120.4600, label: '铭家食集 · 海青路店' }
-  ], { line: true });
-  makeMap('map2', [
-    { lat: 36.0975, lng: 120.4655, label: '凱悅酒店（出發）' },
-    { lat: 36.1516, lng: 120.6839, label: '嶗山 · 太清宮' },
-    { lat: 36.3897, lng: 120.4470, label: '即墨 · 親戚晚餐' }
-  ], { line: true });
-  makeMap('map3', [
-    { lat: 36.0925, lng: 120.4665, label: '石老人 · 凱悅酒店' },
-    { lat: 36.1758, lng: 120.3740, label: '青島北站' },
-    { lat: 39.8650, lng: 116.3786, label: '北京南站' }
-  ], { line: true });
-  makeMap('map4', [
-    { lat: 39.9146, lng: 116.4106, label: '王府井 · 華爾道夫' },
-    { lat: 40.0799, lng: 116.6031, label: '首都國際機場 PEK' },
-    { lat: 25.0777, lng: 121.2328, label: '桃園機場 TPE' }
-  ], { line: true });
-
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        _maps.forEach(m => m.invalidateSize());
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
