@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>夏威夷 · 10月15日–18日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #12343b;
+    --sepia: #24505a;
+    --gold: #1f8a8a;
+    --gold-light: #8fcfc9;
+    --cream: #f6f1e7;
+    --paper: #f8f5ef;
+    --blush: #ead9c6;
+    --moss: #2f6f5e;
+    --red: #e0705a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid rgba(31,138,138,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    letter-spacing: 3px;
+  }
+  .nav-days {
+    display: flex;
+    gap: 6px;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(31,138,138,0.25);
+    color: rgba(247,241,232,0.5);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 1px;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(165deg, #f9f5ec 0%, #eaf3f1 55%, #dcecea 100%);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(31,138,138,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(224,112,90,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(47,111,94,0.1) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    display: flex; gap: 20px; opacity: 0.15;
+  }
+  .hero-lines span { width: 1px; background: var(--gold); display: block; }
+  .hero-lines span:nth-child(1) { height: 280px; }
+  .hero-lines span:nth-child(2) { height: 200px; }
+  .hero-lines span:nth-child(3) { height: 320px; }
+  .hero-circle {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(31,138,138,0.15);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+  }
+  .hero-circle:nth-child(2) { width: 700px; height: 700px; border-color: rgba(31,138,138,0.08); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: 40px 20px; }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; letter-spacing: 4px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+  }
+  .hero-title {
+    font-size: clamp(52px, 8vw, 88px); font-weight: 300;
+    color: var(--ink); letter-spacing: -1px; line-height: 1; margin-bottom: 8px;
+    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title-en {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic; font-weight: 300; color: rgba(18,52,59,0.45);
+    letter-spacing: 6px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-dates {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
+  }
+  .hero-dates-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-dates-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; color: var(--gold); }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: 3px; color: rgba(18,52,59,0.4); text-transform: uppercase; }
+  .scroll-hint-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+
+  /* ── OVERVIEW ── */
+  .overview { padding: 80px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .overview-title { font-size: 28px; font-weight: 300; color: var(--sepia); margin-bottom: 24px; line-height: 1.6; }
+  .overview-desc { font-size: 15px; line-height: 2; color: rgba(18,52,59,0.65); max-width: 560px; margin: 0 auto 48px; }
+  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .info-card { background: white; border: 1px solid rgba(31,138,138,0.2); padding: 24px 16px; text-align: center; }
+  .info-card-icon { font-size: 24px; margin-bottom: 10px; }
+  .info-card-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .info-card-value { font-size: 14px; color: var(--sepia); line-height: 1.5; }
+
+  /* ── CONFIRMED BOOKINGS ── */
+  .confirmed-section { max-width: 800px; margin: 0 auto; padding: 0 24px 40px; }
+  .confirmed-inner { background: white; border: 1px solid rgba(47,111,94,0.25); }
+  .confirmed-header { background: rgba(47,111,94,0.08); padding: 14px 20px; border-bottom: 1px solid rgba(47,111,94,0.15); }
+  .confirmed-header h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--moss); }
+  .confirmed-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(47,111,94,0.08); gap: 12px; }
+  .confirmed-row:last-child { border-bottom: none; }
+  .confirmed-name { font-size: 14px; color: var(--ink); }
+  .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
+  .confirmed-code.pending { color: var(--red); }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(31,138,138,0.3), transparent); }
+  .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  /* ── DAYS ── */
+  .days-container { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+  .day-block { margin-bottom: 80px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .day-block.visible { opacity: 1; transform: translateY(0); }
+
+  .day-header {
+    display: flex; align-items: flex-start; gap: 24px;
+    margin-bottom: 32px; padding-bottom: 24px;
+    border-bottom: 1px solid rgba(31,138,138,0.2);
+  }
+  .day-number {
+    flex-shrink: 0; width: 64px; height: 64px; background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .day-number-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .day-number-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .day-header-info { flex: 1; padding-top: 4px; }
+  .day-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
+  .day-subtitle { font-size: 13px; color: rgba(18,52,59,0.5); letter-spacing: 1px; }
+
+  /* ── MAP ── */
+  .day-map {
+    width: 100%; height: 220px; margin-bottom: 32px;
+    border: 1px solid rgba(31,138,138,0.2); overflow: hidden; position: relative;
+  }
+  .day-map iframe { width: 100%; height: 100%; border: none; }
+  .map-label {
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(18,52,59,0.85); color: var(--gold);
+    font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
+    font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px;
+    background: linear-gradient(to bottom, rgba(31,138,138,0.4), rgba(31,138,138,0.1));
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; display: flex; gap: 20px; }
+  .timeline-dot {
+    position: absolute; left: -29px; top: 6px; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--cream); border: 1.5px solid var(--gold); flex-shrink: 0;
+  }
+  .timeline-dot.meal { background: var(--gold); border-color: var(--gold); }
+  .timeline-dot.highlight { background: var(--red); border-color: var(--red); }
+  .timeline-dot.confirmed { background: var(--moss); border-color: var(--moss); }
+  .timeline-time { flex-shrink: 0; width: 72px; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); padding-top: 2px; letter-spacing: 0.5px; }
+  .timeline-content { flex: 1; }
+  .timeline-name { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+  .timeline-desc { font-size: 13px; color: rgba(18,52,59,0.55); line-height: 1.7; }
+  .timeline-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; border-radius: 0;
+  }
+  .tag-meal { background: rgba(31,138,138,0.12); color: var(--sepia); }
+  .tag-garden { background: rgba(47,111,94,0.12); color: var(--moss); }
+  .tag-culture { background: rgba(224,112,90,0.1); color: var(--red); }
+  .tag-shopping { background: rgba(36,80,90,0.1); color: var(--sepia); }
+  .tag-hotel { background: rgba(18,52,59,0.06); color: rgba(18,52,59,0.6); }
+  .timeline-warning { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; letter-spacing: 0.5px; }
+  .warn-red { color: var(--red); }
+  .warn-green { color: var(--moss); }
+  .warn-gold { color: var(--gold); }
+
+  /* ── HOTELS ── */
+  .hotels { background: var(--ink); padding: 64px 24px; }
+  .hotels-inner { max-width: 800px; margin: 0 auto; }
+  .hotels-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; text-align: center; }
+  .hotel-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hotel-card { border: 1px solid rgba(31,138,138,0.2); padding: 28px 24px; }
+  .hotel-nights { font-size: 11px; letter-spacing: 2px; color: rgba(31,138,138,0.6); text-transform: uppercase; margin-bottom: 8px; }
+  .hotel-name { font-size: 18px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+  .hotel-note { font-size: 13px; color: rgba(247,241,232,0.4); line-height: 1.7; }
+
+  /* ── MUST DO ── */
+  .mustdo { padding: 64px 24px; max-width: 800px; margin: 0 auto; }
+  .mustdo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .mustdo-item { background: white; border: 1px solid rgba(31,138,138,0.15); padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .mustdo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: rgba(31,138,138,0.3); line-height: 1; flex-shrink: 0; }
+  .mustdo-text { font-size: 14px; color: var(--sepia); line-height: 1.7; }
+  .mustdo-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); padding: 48px 24px; text-align: center; }
+  .footer-kanji { font-size: 48px; font-weight: 300; color: rgba(31,138,138,0.15); margin-bottom: 16px; }
+  .footer-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(247,241,232,0.3); letter-spacing: 2px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { min-height: 100svh; }
+    .hero-lines { display: none; }
+    .hero-circle { width: 280px; height: 280px; }
+    .hero-circle:nth-child(2) { width: 380px; height: 380px; }
+    .hero-title { font-size: clamp(64px, 18vw, 88px); }
+    .overview { padding: 48px 20px; }
+    .overview-title { font-size: 22px; }
+    .overview-desc { font-size: 14px; }
+    .info-cards { grid-template-columns: 1fr; gap: 10px; }
+    .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
+    .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
+    .confirmed-section { padding: 0 16px 32px; }
+    .days-container { padding: 40px 16px; }
+    .day-block { margin-bottom: 56px; }
+    .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
+    .day-number { width: 56px; height: 56px; }
+    .day-number-num { font-size: 24px; }
+    .day-title { font-size: 18px; }
+    .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .day-map { height: 200px; margin-bottom: 20px; }
+    .timeline { padding-left: 24px; }
+    .timeline::before { left: 5px; }
+    .timeline-item { gap: 12px; margin-bottom: 22px; }
+    .timeline-dot { left: -21px; }
+    .timeline-time { width: 62px; font-size: 12px; }
+    .timeline-name { font-size: 14px; }
+    .timeline-desc { font-size: 12px; line-height: 1.75; }
+    .timeline-warning { font-size: 11px; }
+    .hotels { padding: 48px 16px; }
+    .hotel-cards { grid-template-columns: 1fr; gap: 12px; }
+    .hotel-card { padding: 22px 18px; }
+    .mustdo { padding: 48px 16px; }
+    .mustdo-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+    .mustdo-item { padding: 20px; }
+    .divider { padding: 0 16px; }
+    footer { padding: 40px 16px; }
+    .sticky-nav { padding: 0 16px; }
+    .nav-logo { font-size: 16px; }
+  }
+  @media (max-width: 380px) {
+    .hero-title { font-size: 58px; }
+    .timeline-time { width: 56px; font-size: 11px; }
+    .timeline-name { font-size: 13px; }
+    .nav-btn { padding: 4px 8px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">夏威夷 · 跳島</div>
+  <div class="nav-days">
+    <button class="nav-btn" onclick="scrollToDay('day1')">15</button>
+    <button class="nav-btn" onclick="scrollToDay('day2')">16</button>
+    <button class="nav-btn" onclick="scrollToDay('day3')">17</button>
+    <button class="nav-btn" onclick="scrollToDay('day4')">18</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-lines"><span></span><span></span><span></span></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Island Hop · Hawaiʻi</p>
+    <h1 class="hero-title">夏威夷</h1>
+    <p class="hero-title-en">Kauaʻi · Oʻahu</p>
+    <div class="hero-dates">
+      <div class="hero-dates-line"></div>
+      <span class="hero-dates-text">10月15日 — 18日</span>
+      <div class="hero-dates-line"></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <p class="section-label">行程概覽</p>
+  <h2 class="overview-title">Kauaʻi＋Oʻahu 跳島·四天三夜</h2>
+  <p class="overview-desc">LAX 直飛 Kauaʻi，Poipu 住兩晚：Waimea 峽谷、Nā Pali 海岸。第三天跳島到檀香山，珍珠港、Waikīkī、鑽石頭，週日從 HNL 飛回。夏威夷比洛杉磯慢 3 小時。</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="info-card-icon">✈️</div>
+      <div class="info-card-label">航班</div>
+      <div class="info-card-value">LAX → LIH<br>LIH → HNL<br>HNL → LAX</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🏨</div>
+      <div class="info-card-label">住宿</div>
+      <div class="info-card-value">Poipu（2晚）<br>Waikīkī（1晚）</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">👥</div>
+      <div class="info-card-label">人數</div>
+      <div class="info-card-value">2人<br>Patty · Donald</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMED BOOKINGS -->
+<div class="confirmed-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>✅ 訂位狀態</h3></div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LAX → LIH · 10/15 早班（2人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Kauaʻi 租車 · 10/15–10/17（LIH 取還）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Poipu 住宿 · 10/15–10/17（2晚）· Grand Hyatt Kauaʻi / Koa Kea</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">The Beach House · 晚餐（10/15 日落）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">直升機 · Nā Pali／Waimea（10/16 下午）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Nā Pali 夕陽遊船 · Port Allen（10/16，直升機替代）</div>
+      <div class="confirmed-code pending">◻️ 候選</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Eating House 1849 · 晚餐（10/16）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LIH → HNL · 10/17 上午（2人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Pearl Harbor · USS Arizona（10/17 午後，recreation.gov）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Waikīkī 住宿 · 10/17–10/18（1晚）· Moana Surfrider / Halekulani</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Duke's Waikīkī · 晚餐（10/17）</div>
+      <div class="confirmed-code pending">◻️ 候選</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Diamond Head · 10/18 6:00 入場（gostateparks.hawaii.gov）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">HNL → LAX · 10/18 下午（2人）· 或紅眼 10/19 早抵</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<!-- DAYS -->
+<div class="days-container">
+
+  <!-- ═══ DAY 1 ═══ -->
+  <div class="day-block" id="day1">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月15日 · 週四</div>
+        <div class="day-title">LAX → Kauaʻi · Poipu</div>
+        <div class="day-subtitle">直飛 LIH · Hamura Saimin · Poipu Beach · Spouting Horn · The Beach House</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Līhuʻe → Poipu</div>
+      <iframe src="https://maps.google.com/maps?q=Poipu+Beach+Park,+Koloa,+HI&z=11&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">~8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">起飛</span>
+          <div class="timeline-name">✈️ LAX → LIH</div>
+          <div class="timeline-desc">直飛約 6 小時，當地 ~11:00 抵達 Līhuʻe。機場取車。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">11:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🍜 Hamura Saimin</div>
+          <div class="timeline-desc">Līhuʻe 老字號 saimin 麵＋lilikoʻi 派，離機場 5 分鐘。只收現金。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">1:00 PM</div>
+        <div class="timeline-content">
+          <div class="timeline-name">🚗 開往 Poipu</div>
+          <div class="timeline-desc">約 30 分鐘，經 Tree Tunnel 進 Kōloa。南岸，Kauaʻi 最晴的一區。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">3:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 Poipu（2晚）</div>
+          <div class="timeline-desc">候選：Grand Hyatt Kauaʻi、Koa Kea。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">3:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">海灘</span>
+          <div class="timeline-name">🐢 Poipu Beach Park</div>
+          <div class="timeline-desc">淺灘浮潛，常見海龜和夏威夷僧海豹。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-content">
+          <div class="timeline-name">🌊 Spouting Horn</div>
+          <div class="timeline-desc">熔岩管噴泉，車程 5 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍽️ The Beach House</div>
+          <div class="timeline-desc">海邊日落晚餐，日落約 6:10。訂靠窗。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 2 ═══ -->
+  <div class="day-block" id="day2">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月16日 · 週五</div>
+        <div class="day-title">Waimea 峽谷 · Nā Pali 海岸</div>
+        <div class="day-subtitle">Waimea Canyon · Kalalau Lookout · Shrimp Station · 直升機 · Eating House 1849</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Waimea Canyon · Kōkeʻe</div>
+      <iframe src="https://maps.google.com/maps?q=Waimea+Canyon+State+Park,+HI&z=10&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">7:00 AM</div>
+        <div class="timeline-content">
+          <div class="timeline-name">🚗 出發 · Waimea Canyon Drive</div>
+          <div class="timeline-desc">Poipu → 峽谷約 1 小時。10 點後山頂易起雲，早出發。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">峽谷</span>
+          <div class="timeline-name">🏞️ Waimea Canyon Lookout · Puʻu Hinahina</div>
+          <div class="timeline-desc">「太平洋大峽谷」。非居民現場付入場＋停車費。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">9:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">峽谷</span>
+          <div class="timeline-name">⛰️ Kalalau Lookout · Puʻu o Kila</div>
+          <div class="timeline-desc">路的盡頭，俯瞰 Kalalau 山谷和 Nā Pali 海岸。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">11:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🦐 Shrimp Station · JoJo's Shave Ice</div>
+          <div class="timeline-desc">下山到 Waimea 鎮。蒜味蝦，飯後剉冰。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">直升機</span>
+          <div class="timeline-name">🚁 直升機環島 · Līhuʻe</div>
+          <div class="timeline-desc">約 50 分鐘：Nā Pali、Waimea 峽谷、Manawaiopuna（侏羅紀公園瀑布）。Waimea → Līhuʻe 約 40 分鐘。</div>
+          <div class="timeline-warning warn-gold">替代：Port Allen 出發 Nā Pali 夕陽遊船（~3:30–7:30 PM）</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍽️ Eating House 1849</div>
+          <div class="timeline-desc">Roy Yamaguchi，Kukuiʻula 購物村，飯店車程 5 分鐘。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 3 ═══ -->
+  <div class="day-block" id="day3">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月17日 · 週六</div>
+        <div class="day-title">跳島 · 珍珠港 · Waikīkī</div>
+        <div class="day-subtitle">Wailua Falls · LIH → HNL · USS Arizona · Waikīkī 日落 · Duke's</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">HNL · Pearl Harbor · Waikīkī</div>
+      <iframe src="https://maps.google.com/maps?q=Pearl+Harbor+National+Memorial,+Honolulu,+HI&z=11&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">退房</span>
+          <div class="timeline-name">🧳 Check out · Wailua Falls</div>
+          <div class="timeline-desc">往機場順路繞 Wailua Falls，路邊即可看，離 LIH 10 分鐘。還車。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">~10:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">跳島</span>
+          <div class="timeline-name">✈️ LIH → HNL</div>
+          <div class="timeline-desc">約 40 分鐘。Oʻahu 不租車，Uber 移動。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">歷史</span>
+          <div class="timeline-name">⚓ Pearl Harbor · USS Arizona Memorial</div>
+          <div class="timeline-desc">機場 Uber 15 分鐘。園區禁帶包，行李寄存在入口（付費）。紀錄片＋接駁船上紀念館約 75 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">3:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 Waikīkī（1晚）</div>
+          <div class="timeline-desc">Uber 約 30 分鐘。候選：Moana Surfrider、Halekulani。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">海灘</span>
+          <div class="timeline-name">🍹 Waikīkī Beach · Mai Tai Bar</div>
+          <div class="timeline-desc">沙灘散步，Royal Hawaiian 粉紅飯店 Mai Tai Bar 看日落。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">7:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍽️ Duke's Waikīkī</div>
+          <div class="timeline-desc">海灘邊經典，Hula Pie 甜點。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 4 ═══ -->
+  <div class="day-block" id="day4">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月18日 · 週日</div>
+        <div class="day-title">鑽石頭 · 返程</div>
+        <div class="day-subtitle">Diamond Head 日出健行 · Leonard's · Waikīkī · HNL → LAX</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Diamond Head</div>
+      <iframe src="https://maps.google.com/maps?q=Diamond+Head+State+Monument,+Honolulu,+HI&z=13&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">6:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">健行</span>
+          <div class="timeline-name">🌋 Diamond Head 日出</div>
+          <div class="timeline-desc">首場入場，來回約 1.5 小時，山頂看 Waikīkī 全景。Uber 10 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">8:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早餐</span>
+          <div class="timeline-name">🍩 Leonard's Bakery</div>
+          <div class="timeline-desc">Kapahulu 路上，現炸 malasada。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">海灘</span>
+          <div class="timeline-name">🏖️ Waikīkī · 最後的海</div>
+          <div class="timeline-desc">回飯店游泳、退房。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">~2:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">起飛</span>
+          <div class="timeline-name">✈️ HNL → LAX</div>
+          <div class="timeline-desc">Waikīkī → 機場 Uber 約 25 分鐘，12:00 出發。飛行約 5.5 小時，LA 時間 ~10:30 PM 抵達。</div>
+          <div class="timeline-warning warn-gold">紅眼選項：~10 PM 起飛、週一早抵 LAX，下午可多走 North Shore（Haleʻiwa、蒜蝦車、Laniakea 海龜）。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TIPS -->
+<section class="mustdo">
+  <p class="section-label" style="text-align:center">出發前</p>
+  <div class="mustdo-grid">
+    <div class="mustdo-item">
+      <div class="mustdo-num">01</div>
+      <div class="mustdo-text"><strong>Diamond Head</strong>非居民需預約時段，最早 30 天前開放。</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">02</div>
+      <div class="mustdo-text"><strong>USS Arizona</strong>recreation.gov 免費票；售完的話，前一天 3 PM（夏威夷時間）釋出隔日票。</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">03</div>
+      <div class="mustdo-text"><strong>時差</strong>夏威夷比洛杉磯慢 3 小時，日落約 6:10 PM。</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">04</div>
+      <div class="mustdo-text"><strong>Kauaʻi 北岸</strong>Hanalei、Keʻe Beach 這次不排；Keʻe 需 Hāʻena 州立公園預約，通常 30 天前就滿。</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-kanji">島</div>
+  <p class="footer-text">Kauaʻi · Oʻahu</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
+
+  // Nav scroll
+  function scrollToDay(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 60;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Highlight active nav btn on scroll
+  const dayIds = ['day1','day2','day3','day4'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    dayIds.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 120) current = i;
+    });
+    navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
+  });
+</script>
+</body>
+</html>
