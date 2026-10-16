@@ -53,107 +53,82 @@
   }
 
   /* ── HEADER ── */
-  .site-header {
-    text-align: center;
-    padding: 96px 24px 56px;
-  }
+  .site-header { text-align: center; padding: 40px 24px 24px; }
   .site-eyebrow {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 14px; letter-spacing: 5px; color: var(--muted);
-    text-transform: uppercase; margin-bottom: 20px;
+    font-size: 12px; letter-spacing: 5px; color: var(--muted);
+    text-transform: uppercase; margin-bottom: 10px;
   }
-  .site-title {
-    font-size: clamp(44px, 9vw, 76px); font-weight: 300;
-    letter-spacing: 6px; line-height: 1; margin-bottom: 16px;
-  }
+  .site-title { font-size: 44px; font-weight: 300; letter-spacing: 6px; line-height: 1; margin-bottom: 6px; }
   .site-title-en {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: clamp(15px, 2.4vw, 20px); letter-spacing: 6px; color: var(--muted);
-  }
-  .header-rule {
-    width: 48px; height: 1px; background: var(--ink); opacity: 0.25;
-    margin: 32px auto 0;
+    font-size: 15px; letter-spacing: 6px; color: var(--muted);
   }
 
   /* ── GROUPS ── */
-  .journeys { flex: 1; max-width: 860px; width: 100%; margin: 0 auto; padding: 0 24px 32px; }
-  .group { margin-bottom: 64px; }
+  .journeys { flex: 1; max-width: 980px; width: 100%; margin: 0 auto; padding: 0 24px 16px; }
+  .group { margin-bottom: 28px; }
   .group-head {
-    display: flex; align-items: baseline; gap: 14px;
-    padding-bottom: 14px; margin-bottom: 28px;
+    display: flex; align-items: baseline; gap: 12px;
+    padding-bottom: 8px; margin-bottom: 14px;
     border-bottom: 1px solid rgba(31,26,20,0.15);
   }
   .group-year {
     font-family: 'Cormorant Garamond', 'Noto Serif TC', serif; font-weight: 300;
-    font-size: 34px; letter-spacing: 3px; line-height: 1;
+    font-size: 24px; letter-spacing: 3px; line-height: 1;
   }
   .group-en {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 15px; letter-spacing: 3px; color: var(--muted);
+    font-size: 13px; letter-spacing: 3px; color: var(--muted);
   }
+  .group-body { display: grid; grid-template-columns: 3fr 1fr; gap: 20px; }
   .continent {
-    font-size: 15px; font-weight: 400; letter-spacing: 4px;
-    margin: 0 0 16px; color: var(--ink);
+    font-size: 13px; font-weight: 400; letter-spacing: 3px; margin: 0 0 10px;
   }
   .continent span {
     font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
-    font-size: 14px; letter-spacing: 2px; color: var(--muted); margin-left: 6px;
+    font-size: 13px; letter-spacing: 2px; color: var(--muted); margin-left: 4px;
   }
-  .continent:not(:first-of-type) { margin-top: 36px; }
 
   /* ── TRIP GRID ── */
-  .trips { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .trip-card.is-planning { border-style: dashed; background: transparent; }
-  .trip-card.is-planning::before { opacity: 0.45; }
-  .badge {
-    display: inline-block; margin-right: 10px; padding: 2px 8px;
-    font-family: 'Noto Serif TC', serif; font-size: 11px; letter-spacing: 2px;
-    border: 1px solid var(--accent); color: var(--accent);
-  }
+  .trips { display: grid; grid-template-columns: repeat(var(--cols, 4), 1fr); gap: 14px; }
   .trip-card {
-    position: relative; display: block; text-decoration: none;
-    color: inherit; overflow: hidden;
+    position: relative; display: block; text-decoration: none; color: inherit; overflow: hidden;
     background: var(--card-bg, #fff);
     border: 1px solid rgba(31,26,20,0.12);
-    padding: 40px 32px 36px;
-    min-height: 280px;
-    display: flex; flex-direction: column; justify-content: space-between;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    padding: 18px 18px 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
   .trip-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: var(--accent);
   }
   .trip-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 40px -18px rgba(31,26,20,0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px -16px rgba(31,26,20,0.35);
     border-color: var(--accent);
   }
   .trip-index {
-    font-family: 'Cormorant Garamond', serif; font-size: 13px;
-    letter-spacing: 3px; color: var(--accent); text-transform: uppercase;
+    font-family: 'Cormorant Garamond', serif; font-size: 11px;
+    letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 6px;
   }
-  .trip-body { margin-top: auto; }
-  .trip-kanji {
-    font-size: 52px; font-weight: 300; letter-spacing: 4px;
-    color: var(--card-ink); line-height: 1; margin-bottom: 8px;
-  }
+  .trip-kanji { font-size: 28px; font-weight: 300; letter-spacing: 3px; color: var(--card-ink); line-height: 1.1; }
   .trip-en {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 16px; letter-spacing: 4px; color: var(--accent); margin-bottom: 18px;
+    font-size: 13px; letter-spacing: 2px; color: var(--accent); margin: 2px 0 8px;
   }
   .trip-dates {
-    font-family: 'Cormorant Garamond', serif; font-size: 15px;
-    letter-spacing: 1.5px; color: var(--card-ink); opacity: 0.75; margin-bottom: 6px;
+    font-family: 'Cormorant Garamond', serif; font-size: 13px;
+    letter-spacing: 1px; color: var(--card-ink); opacity: 0.75;
   }
-  .trip-desc { font-size: 13px; line-height: 1.7; color: rgba(31,26,20,0.55); }
-  .trip-cta {
-    margin-top: 20px; display: inline-flex; align-items: center; gap: 8px;
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 14px; letter-spacing: 2px; color: var(--accent);
+  .trip-desc, .trip-cta { display: none; }
+  .trip-card.is-planning { border-style: dashed; background: transparent; }
+  .trip-card.is-planning::before { opacity: 0.45; }
+  .badge {
+    display: inline-block; margin-right: 8px; padding: 1px 6px;
+    font-family: 'Noto Serif TC', serif; font-size: 10px; letter-spacing: 1px;
+    border: 1px solid var(--accent); color: var(--accent);
   }
-  .trip-cta .arrow { transition: transform 0.3s ease; }
-  .trip-card:hover .trip-cta .arrow { transform: translateX(5px); }
 
   .card-kyoto { --accent: var(--kyoto-gold); --card-ink: var(--kyoto-ink); --card-bg: #fffdf8; }
   .card-taichung { --accent: var(--tc-sage); --card-ink: var(--tc-ink); --card-bg: #fbfcf7; }
@@ -163,19 +138,22 @@
   .card-hawaii { --accent: var(--hi-teal); --card-ink: var(--hi-ink); --card-bg: #f7fbfa; }
 
   /* ── FOOTER ── */
-  footer { text-align: center; padding: 32px 24px 48px; }
+  footer { text-align: center; padding: 8px 24px 24px; }
   .footer-text {
     font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 13px; letter-spacing: 2px; color: var(--muted);
+    font-size: 12px; letter-spacing: 2px; color: var(--muted);
   }
 
   @media (max-width: 700px) {
-    .site-header { padding: 64px 20px 40px; }
-    .journeys { padding: 0 16px 24px; }
-    .group { margin-bottom: 48px; }
-    .trips { grid-template-columns: 1fr; gap: 16px; }
-    .trip-card { min-height: 220px; padding: 32px 24px 28px; }
-    .trip-kanji { font-size: 44px; }
+    .site-header { padding: 28px 16px 16px; }
+    .site-title { font-size: 36px; }
+    .journeys { padding: 0 16px 12px; }
+    .group { margin-bottom: 20px; }
+    .group-body { grid-template-columns: 1fr; gap: 14px; }
+    .trips { --cols: 2 !important; gap: 10px; }
+    .trip-card { padding: 14px 14px 12px; }
+    .trip-kanji { font-size: 24px; }
+    .trip-index { font-size: 10px; letter-spacing: 1px; }
   }
 </style>
 </head>
@@ -185,7 +163,6 @@
   <p class="site-eyebrow">Patty's Travels</p>
   <h1 class="site-title">旅程</h1>
   <p class="site-title-en">Journeys</p>
-  <div class="header-rule"></div>
 </header>
 
 <main class="journeys">
@@ -197,7 +174,7 @@
     </div>
     <div class="trips">
     <a class="trip-card is-planning card-swiss" href="switzerland.html">
-      <div class="trip-index"><span class="badge">規劃中</span>Europe · Switzerland</div>
+      <div class="trip-index"><span class="badge">規劃中</span>Switzerland</div>
       <div class="trip-body">
         <div class="trip-kanji">瑞士</div>
         <div class="trip-en">Switzerland</div>
@@ -207,7 +184,7 @@
       </div>
     </a>
     <a class="trip-card is-planning card-hawaii" href="hawaii.html">
-      <div class="trip-index"><span class="badge">規劃中</span>North America · Hawaiʻi</div>
+      <div class="trip-index"><span class="badge">規劃中</span>Hawaiʻi</div>
       <div class="trip-body">
         <div class="trip-kanji">夏威夷</div>
         <div class="trip-en">Kauaʻi · Oʻahu</div>
@@ -224,8 +201,10 @@
       <h2 class="group-year">2026</h2>
     </div>
 
+    <div class="group-body">
+    <div>
     <h3 class="continent">亞洲 <span>Asia</span></h3>
-    <div class="trips">
+    <div class="trips" style="--cols:3">
     <a class="trip-card card-kyoto" href="kyoto.html">
       <div class="trip-index">Japan</div>
       <div class="trip-body">
@@ -257,9 +236,10 @@
       </div>
     </a>
     </div>
-
+    </div>
+    <div>
     <h3 class="continent">北美 <span>North America</span></h3>
-    <div class="trips">
+    <div class="trips" style="--cols:1">
     <a class="trip-card card-sandiego" href="sandiego.html">
       <div class="trip-index">California</div>
       <div class="trip-body">
@@ -270,6 +250,8 @@
         <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
       </div>
     </a>
+    </div>
+    </div>
     </div>
   </section>
 
