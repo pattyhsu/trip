@@ -75,12 +75,40 @@
     margin: 32px auto 0;
   }
 
+  /* ── GROUPS ── */
+  .journeys { flex: 1; max-width: 860px; width: 100%; margin: 0 auto; padding: 0 24px 32px; }
+  .group { margin-bottom: 64px; }
+  .group-head {
+    display: flex; align-items: baseline; gap: 14px;
+    padding-bottom: 14px; margin-bottom: 28px;
+    border-bottom: 1px solid rgba(31,26,20,0.15);
+  }
+  .group-year {
+    font-family: 'Cormorant Garamond', 'Noto Serif TC', serif; font-weight: 300;
+    font-size: 34px; letter-spacing: 3px; line-height: 1;
+  }
+  .group-en {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 15px; letter-spacing: 3px; color: var(--muted);
+  }
+  .continent {
+    font-size: 15px; font-weight: 400; letter-spacing: 4px;
+    margin: 0 0 16px; color: var(--ink);
+  }
+  .continent span {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: 14px; letter-spacing: 2px; color: var(--muted); margin-left: 6px;
+  }
+  .continent:not(:first-of-type) { margin-top: 36px; }
+
   /* ── TRIP GRID ── */
-  .trips {
-    flex: 1;
-    max-width: 860px; width: 100%;
-    margin: 0 auto; padding: 0 24px 64px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  .trips { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .trip-card.is-planning { border-style: dashed; background: transparent; }
+  .trip-card.is-planning::before { opacity: 0.45; }
+  .badge {
+    display: inline-block; margin-right: 10px; padding: 2px 8px;
+    font-family: 'Noto Serif TC', serif; font-size: 11px; letter-spacing: 2px;
+    border: 1px solid var(--accent); color: var(--accent);
   }
   .trip-card {
     position: relative; display: block; text-decoration: none;
@@ -143,7 +171,9 @@
 
   @media (max-width: 700px) {
     .site-header { padding: 64px 20px 40px; }
-    .trips { grid-template-columns: 1fr; gap: 16px; padding: 0 16px 48px; }
+    .journeys { padding: 0 16px 24px; }
+    .group { margin-bottom: 48px; }
+    .trips { grid-template-columns: 1fr; gap: 16px; }
     .trip-card { min-height: 220px; padding: 32px 24px 28px; }
     .trip-kanji { font-size: 44px; }
   }
@@ -158,73 +188,90 @@
   <div class="header-rule"></div>
 </header>
 
-<main class="trips">
+<main class="journeys">
 
-  <a class="trip-card card-kyoto" href="kyoto.html">
-    <div class="trip-index">01 · Japan</div>
-    <div class="trip-body">
-      <div class="trip-kanji">京都</div>
-      <div class="trip-en">Kyoto</div>
-      <div class="trip-dates">5月22日 — 25日</div>
-      <div class="trip-desc">慢活京都·四天三夜。美食、庭院、茶室為主軸。</div>
-      <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-year">規劃中</h2>
+      <span class="group-en">In Planning</span>
     </div>
-  </a>
+    <div class="trips">
+    <a class="trip-card is-planning card-swiss" href="switzerland.html">
+      <div class="trip-index"><span class="badge">規劃中</span>Europe · Switzerland</div>
+      <div class="trip-body">
+        <div class="trip-kanji">瑞士</div>
+        <div class="trip-en">Switzerland</div>
+        <div class="trip-dates">9月5日 — 15日</div>
+        <div class="trip-desc">爸媽的第一次歐洲·十天十晚。湖、雪山、火車與美食，三種路線可切換。</div>
+        <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+      </div>
+    </a>
+    <a class="trip-card is-planning card-hawaii" href="hawaii.html">
+      <div class="trip-index"><span class="badge">規劃中</span>North America · Hawaiʻi</div>
+      <div class="trip-body">
+        <div class="trip-kanji">夏威夷</div>
+        <div class="trip-en">Kauaʻi · Oʻahu</div>
+        <div class="trip-dates">10月15日 — 18日</div>
+        <div class="trip-desc">跳島·四天三夜。直升機、Hanalei、Waikīkī 衝浪、鑽石頭。</div>
+        <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+      </div>
+    </a>
+    </div>
+  </section>
 
-  <a class="trip-card card-taichung" href="taichung.html">
-    <div class="trip-index">02 · Taiwan</div>
-    <div class="trip-body">
-      <div class="trip-kanji">台中</div>
-      <div class="trip-en">Taichung</div>
-      <div class="trip-dates">7月31日 — 8月2日</div>
-      <div class="trip-desc">草悟道慢遊·三天兩夜。美食、甜點、散步為主軸。</div>
-      <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-year">2026</h2>
     </div>
-  </a>
 
-  <a class="trip-card card-qingdao" href="qingdao.html">
-    <div class="trip-index">03 · China</div>
-    <div class="trip-body">
-      <div class="trip-kanji">青島</div>
-      <div class="trip-en">Qingdao</div>
-      <div class="trip-dates">8月7日 — 10日</div>
-      <div class="trip-desc">青島＋北京·四天三夜。陪爸媽、即墨探親，海景凱悅，高鐵轉北京返台。</div>
-      <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+    <h3 class="continent">亞洲 <span>Asia</span></h3>
+    <div class="trips">
+    <a class="trip-card card-kyoto" href="kyoto.html">
+      <div class="trip-index">Japan</div>
+      <div class="trip-body">
+        <div class="trip-kanji">京都</div>
+        <div class="trip-en">Kyoto</div>
+        <div class="trip-dates">5月22日 — 25日</div>
+        <div class="trip-desc">慢活京都·四天三夜。美食、庭院、茶室為主軸。</div>
+        <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+      </div>
+    </a>
+    <a class="trip-card card-taichung" href="taichung.html">
+      <div class="trip-index">Taiwan</div>
+      <div class="trip-body">
+        <div class="trip-kanji">台中</div>
+        <div class="trip-en">Taichung</div>
+        <div class="trip-dates">7月31日 — 8月2日</div>
+        <div class="trip-desc">草悟道慢遊·三天兩夜。美食、甜點、散步為主軸。</div>
+        <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+      </div>
+    </a>
+    <a class="trip-card card-qingdao" href="qingdao.html">
+      <div class="trip-index">China</div>
+      <div class="trip-body">
+        <div class="trip-kanji">青島</div>
+        <div class="trip-en">Qingdao</div>
+        <div class="trip-dates">8月7日 — 10日</div>
+        <div class="trip-desc">青島＋北京·四天三夜。陪爸媽、即墨探親，海景凱悅，高鐵轉北京返台。</div>
+        <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+      </div>
+    </a>
     </div>
-  </a>
 
-  <a class="trip-card card-swiss" href="switzerland.html">
-    <div class="trip-index">04 · Switzerland</div>
-    <div class="trip-body">
-      <div class="trip-kanji">瑞士</div>
-      <div class="trip-en">Switzerland</div>
-      <div class="trip-dates">9月5日 — 15日</div>
-      <div class="trip-desc">爸媽的第一次歐洲·十天十晚。湖、雪山、火車與美食，三種路線可切換。</div>
-      <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+    <h3 class="continent">北美 <span>North America</span></h3>
+    <div class="trips">
+    <a class="trip-card card-sandiego" href="sandiego.html">
+      <div class="trip-index">California</div>
+      <div class="trip-body">
+        <div class="trip-kanji">聖地牙哥</div>
+        <div class="trip-en">San Diego · La Jolla</div>
+        <div class="trip-dates">10月17日 — 18日</div>
+        <div class="trip-desc">兩天一夜·四人自駕。Safari Park、La Jolla 海邊、UCSD。</div>
+        <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
+      </div>
+    </a>
     </div>
-  </a>
-
-  <a class="trip-card card-hawaii" href="hawaii.html">
-    <div class="trip-index">05 · Hawaiʻi</div>
-    <div class="trip-body">
-      <div class="trip-kanji">夏威夷</div>
-      <div class="trip-en">Kauaʻi · Oʻahu</div>
-      <div class="trip-dates">10月15日 — 18日</div>
-      <div class="trip-desc">跳島·四天三夜。直升機、Hanalei、Waikīkī 衝浪、鑽石頭。</div>
-      <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
-    </div>
-  </a>
-
-  <a class="trip-card card-sandiego" href="sandiego.html">
-    <div class="trip-index">06 · California</div>
-    <div class="trip-body">
-      <div class="trip-kanji">聖地牙哥</div>
-      <div class="trip-en">San Diego · La Jolla</div>
-      <div class="trip-dates">10月17日 — 18日</div>
-      <div class="trip-desc">兩天一夜·四人自駕。Safari Park、La Jolla 海邊、UCSD。</div>
-      <span class="trip-cta">開啟行程 <span class="arrow">→</span></span>
-    </div>
-  </a>
+  </section>
 
 </main>
 
