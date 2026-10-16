@@ -189,12 +189,12 @@
 
   /* ── MAP ── */
   .day-map {
-    width: 100%; height: 220px; margin-bottom: 32px;
+    width: 100%; height: 320px; margin-bottom: 32px;
     border: 1px solid rgba(217,119,63,0.2); overflow: hidden; position: relative;
   }
   .day-map iframe { width: 100%; height: 100%; border: none; }
   .map-label {
-    position: absolute; top: 10px; left: 10px;
+    position: absolute; bottom: 10px; left: 10px;
     background: rgba(29,43,58,0.85); color: var(--gold);
     font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
     font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
@@ -281,7 +281,7 @@
     .day-number-num { font-size: 24px; }
     .day-title { font-size: 18px; }
     .day-subtitle { font-size: 12px; line-height: 1.5; }
-    .day-map { height: 200px; margin-bottom: 20px; }
+    .day-map { height: 280px; margin-bottom: 20px; }
     .timeline { padding-left: 24px; }
     .timeline::before { left: 5px; }
     .timeline-item { gap: 12px; margin-bottom: 22px; }
@@ -405,13 +405,13 @@
       <div class="day-header-info">
         <div class="day-date">10月17日 · 週六</div>
         <div class="day-title">Cerritos → Safari Park → La Jolla</div>
-        <div class="day-subtitle">Cerritos 集合 · San Diego Zoo Safari Park · Tu Grill · Hyatt Regency La Jolla · Chef Fei · Extraordinary Desserts</div>
+        <div class="day-subtitle">Cerritos 集合 · San Diego Zoo Safari Park · Tu Grill · Hyatt Regency La Jolla · Chef Fei · La Jolla 海灘夜走 · Extraordinary Desserts</div>
       </div>
     </div>
 
     <div class="day-map">
-      <div class="map-label">Safari Park · Escondido</div>
-      <iframe src="https://maps.google.com/maps?q=San+Diego+Zoo+Safari+Park,+Escondido,+CA&z=11&output=embed" allowfullscreen loading="lazy"></iframe>
+      <div class="map-label">Cerritos → Safari Park → La Jolla</div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m52!1m12!1m3!1d300000!2d-117.6!3d33.29!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m37!3e0!4m5!1s0x0%3A0x1!2s18907+Alexander+Ave+Cerritos+CA!3m2!1d33.859394!2d-118.04461!4m5!1s0x0%3A0x2!2sSan+Diego+Zoo+Safari+Park!3m2!1d33.098118!2d-116.99653!4m5!1s0x0%3A0x3!2sHyatt+Regency+La+Jolla+at+Aventine!3m2!1d32.870793!2d-117.22548!4m5!1s0x0%3A0x4!2sChef+Fei+Westfield+UTC!3m2!1d32.871252!2d-117.21163!4m5!1s0x0%3A0x5!2sLa+Jolla+Shores+Beach!3m2!1d32.861436!2d-117.25531!4m5!1s0x0%3A0x6!2sExtraordinary+Desserts+Little+Italy!3m2!1d32.720247!2d-117.16569!5e0!3m2!1szh-TW!2sus!4v1" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="timeline">
@@ -478,12 +478,21 @@
         </div>
       </div>
       <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">9:15 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">散步</span>
+          <div class="timeline-name">🌊 La Jolla 海灘夜走（可選）</div>
+          <div class="timeline-desc">La Jolla Shores 沙灘，飯店車程 10 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
         <div class="timeline-dot meal"></div>
-        <div class="timeline-time">9:30 PM</div>
+        <div class="timeline-time">10:00 PM</div>
         <div class="timeline-content">
           <span class="timeline-tag tag-meal">甜點</span>
-          <div class="timeline-name">🍰 Extraordinary Desserts</div>
-          <div class="timeline-desc">Little Italy（1430 Union St），車程約 20 分鐘。11 PM 打烊。</div>
+          <div class="timeline-name">🍰 Extraordinary Desserts（可選）</div>
+          <div class="timeline-desc">Little Italy（1430 Union St），La Jolla 車程約 25 分鐘。11 PM 打烊。</div>
         </div>
       </div>
     </div>
@@ -501,8 +510,8 @@
     </div>
 
     <div class="day-map">
-      <div class="map-label">La Jolla</div>
-      <iframe src="https://maps.google.com/maps?q=La+Jolla+Cove,+La+Jolla,+CA&z=13&output=embed" allowfullscreen loading="lazy"></iframe>
+      <div class="map-label">La Jolla Cove → UCSD</div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d20000!2d-117.25!3d32.86!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x0%3A0x1!2sHyatt+Regency+La+Jolla+at+Aventine!3m2!1d32.870793!2d-117.22548!4m5!1s0x0%3A0x2!2sMuseum+of+Contemporary+Art+San+Diego+La+Jolla!3m2!1d32.844554!2d-117.27799!4m5!1s0x0%3A0x3!2sLa+Jolla+Cove!3m2!1d32.850446!2d-117.27298!4m5!1s0x0%3A0x4!2sGeisel+Library+UC+San+Diego!3m2!1d32.881139!2d-117.23757!5e0!3m2!1szh-TW!2sus!4v1" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="timeline">
