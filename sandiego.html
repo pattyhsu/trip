@@ -160,6 +160,11 @@
   .confirmed-name { font-size: 14px; color: var(--ink); }
   .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
   .confirmed-code.pending { color: var(--red); }
+  .split-section { padding-top: 40px; }
+  .split-group { background: rgba(217,119,63,0.06); padding: 10px 20px; font-size: 13px; letter-spacing: 1px; color: var(--sepia); font-weight: 600; border-bottom: 1px solid rgba(62,111,142,0.08); }
+  .confirmed-row.subtotal .confirmed-name, .confirmed-row.subtotal .confirmed-code { font-weight: 600; }
+  .confirmed-row.settle { background: rgba(194,81,58,0.07); }
+  .confirmed-row.settle .confirmed-name, .confirmed-row.settle .confirmed-code { color: var(--red); font-weight: 600; font-size: 15px; }
 
   /* ── DIVIDER ── */
   .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
@@ -563,6 +568,34 @@
     </div>
   </div>
 
+</div>
+
+<!-- EXPENSE SPLIT -->
+<div class="confirmed-section split-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>💰 分帳</h3></div>
+    <div class="split-group">Moon + Jason</div>
+    <div class="confirmed-row"><div class="confirmed-name">San Diego Zoo Safari Park</div><div class="confirmed-code">$259.96</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Thorntree Terrace</div><div class="confirmed-code">$3.22</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Thorntree Terrace</div><div class="confirmed-code">$24.76</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Qin West Noodle</div><div class="confirmed-code">$14.86</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Chagee</div><div class="confirmed-code">$32.65</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Safari Park Excursion</div><div class="confirmed-code">$600.00</div></div>
+    <div class="confirmed-row subtotal"><div class="confirmed-name">小計</div><div class="confirmed-code">$935.45</div></div>
+    <div class="split-group">Donald + Patty</div>
+    <div class="confirmed-row"><div class="confirmed-name">Hotel</div><div class="confirmed-code">$300.00</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Starbucks</div><div class="confirmed-code">$16.65</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Chef Fei</div><div class="confirmed-code">$195.25</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">UTC Parking</div><div class="confirmed-code">$6.00</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">The Kitchen at MCASD</div><div class="confirmed-code">$155.22</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">UCSD HDH Canyon Vista</div><div class="confirmed-code">$7.60</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Safari Park Parking</div><div class="confirmed-code">$20.00</div></div>
+    <div class="confirmed-row subtotal"><div class="confirmed-name">小計</div><div class="confirmed-code">$700.72</div></div>
+    <div class="split-group">結算</div>
+    <div class="confirmed-row"><div class="confirmed-name">總計</div><div class="confirmed-code">$1,636.17</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">每對應付（÷2）</div><div class="confirmed-code">$818.09</div></div>
+    <div class="confirmed-row settle"><div class="confirmed-name">Donald + Patty → Moon + Jason</div><div class="confirmed-code">$117.37</div></div>
+  </div>
 </div>
 
 <footer>
