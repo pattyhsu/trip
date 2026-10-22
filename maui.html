@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>茂宜島 · 10月28日–11月1日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2a2a35;
+    --sepia: #4a3f4f;
+    --gold: #d99a3a;
+    --gold-light: #f2cf8f;
+    --cream: #f8f2e8;
+    --paper: #faf6f0;
+    --blush: #f0dccf;
+    --moss: #4a7c59;
+    --red: #c8553d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid rgba(217,154,58,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    letter-spacing: 3px;
+  }
+  .nav-days {
+    display: flex;
+    gap: 6px;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(217,154,58,0.25);
+    color: rgba(247,241,232,0.5);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 1px;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(165deg, #fdf6e9 0%, #f7e3cf 55%, #efe0e6 100%);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(217,154,58,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(200,85,61,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(74,124,89,0.1) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    display: flex; gap: 20px; opacity: 0.15;
+  }
+  .hero-lines span { width: 1px; background: var(--gold); display: block; }
+  .hero-lines span:nth-child(1) { height: 280px; }
+  .hero-lines span:nth-child(2) { height: 200px; }
+  .hero-lines span:nth-child(3) { height: 320px; }
+  .hero-circle {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(217,154,58,0.15);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+  }
+  .hero-circle:nth-child(2) { width: 700px; height: 700px; border-color: rgba(217,154,58,0.08); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: 40px 20px; }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; letter-spacing: 4px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+  }
+  .hero-title {
+    font-size: clamp(52px, 8vw, 88px); font-weight: 300;
+    color: var(--ink); letter-spacing: -1px; line-height: 1; margin-bottom: 8px;
+    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title-en {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic; font-weight: 300; color: rgba(42,42,53,0.45);
+    letter-spacing: 6px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-dates {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
+  }
+  .hero-dates-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-dates-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; color: var(--gold); }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 0; right: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: 3px; padding-left: 3px; color: rgba(42,42,53,0.4); text-transform: uppercase; }
+  .scroll-hint-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+
+  /* ── OVERVIEW ── */
+  .overview { padding: 80px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .overview-title { font-size: 28px; font-weight: 300; color: var(--sepia); margin-bottom: 24px; line-height: 1.6; }
+  .overview-desc { font-size: 15px; line-height: 2; color: rgba(42,42,53,0.65); max-width: 560px; margin: 0 auto 48px; }
+  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .info-card { background: white; border: 1px solid rgba(217,154,58,0.2); padding: 24px 16px; text-align: center; }
+  .info-card-icon { font-size: 24px; margin-bottom: 10px; }
+  .info-card-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .info-card-value { font-size: 14px; color: var(--sepia); line-height: 1.5; }
+
+  /* ── CONFIRMED BOOKINGS ── */
+  .confirmed-section { max-width: 800px; margin: 0 auto; padding: 0 24px 40px; }
+  .confirmed-inner { background: white; border: 1px solid rgba(74,124,89,0.25); }
+  .confirmed-header { background: rgba(74,124,89,0.08); padding: 14px 20px; border-bottom: 1px solid rgba(74,124,89,0.15); }
+  .confirmed-header h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--moss); }
+  .confirmed-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(74,124,89,0.08); gap: 12px; }
+  .confirmed-row:last-child { border-bottom: none; }
+  .confirmed-name { font-size: 14px; color: var(--ink); }
+  .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
+  .confirmed-code.pending { color: var(--red); }
+  .split-section { padding-top: 40px; }
+  .split-group { background: rgba(217,154,58,0.06); padding: 10px 20px; font-size: 13px; letter-spacing: 1px; color: var(--sepia); font-weight: 600; border-bottom: 1px solid rgba(74,124,89,0.08); }
+  .confirmed-row.subtotal .confirmed-name, .confirmed-row.subtotal .confirmed-code { font-weight: 600; }
+  .confirmed-row.settle { background: rgba(200,85,61,0.07); }
+  .confirmed-row.settle .confirmed-name, .confirmed-row.settle .confirmed-code { color: var(--red); font-weight: 600; font-size: 15px; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(217,154,58,0.3), transparent); }
+  .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  /* ── DAYS ── */
+  .days-container { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+  .day-block { margin-bottom: 80px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .day-block.visible { opacity: 1; transform: translateY(0); }
+
+  .day-header {
+    display: flex; align-items: flex-start; gap: 24px;
+    margin-bottom: 32px; padding-bottom: 24px;
+    border-bottom: 1px solid rgba(217,154,58,0.2);
+  }
+  .day-number {
+    flex-shrink: 0; width: 64px; height: 64px; background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .day-number-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .day-number-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .day-header-info { flex: 1; padding-top: 4px; }
+  .day-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
+  .day-subtitle { font-size: 13px; color: rgba(42,42,53,0.5); letter-spacing: 1px; }
+
+  /* ── MAP ── */
+  .day-map {
+    width: 100%; height: 320px; margin-bottom: 32px;
+    border: 1px solid rgba(217,154,58,0.2); overflow: hidden; position: relative;
+  }
+  .day-map iframe { width: 100%; height: 100%; border: none; }
+  .map-label {
+    position: absolute; bottom: 10px; left: 10px;
+    background: rgba(42,42,53,0.85); color: var(--gold);
+    font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
+    font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px;
+    background: linear-gradient(to bottom, rgba(217,154,58,0.4), rgba(217,154,58,0.1));
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; display: flex; gap: 20px; }
+  .timeline-dot {
+    position: absolute; left: -29px; top: 6px; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--cream); border: 1.5px solid var(--gold); flex-shrink: 0;
+  }
+  .timeline-dot.meal { background: var(--gold); border-color: var(--gold); }
+  .timeline-dot.highlight { background: var(--red); border-color: var(--red); }
+  .timeline-dot.confirmed { background: var(--moss); border-color: var(--moss); }
+  .timeline-time { flex-shrink: 0; width: 72px; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); padding-top: 2px; letter-spacing: 0.5px; }
+  .timeline-content { flex: 1; }
+  .timeline-name { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+  .timeline-desc { font-size: 13px; color: rgba(42,42,53,0.55); line-height: 1.7; }
+  .timeline-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; border-radius: 0;
+  }
+  .tag-meal { background: rgba(217,154,58,0.12); color: var(--sepia); }
+  .tag-garden { background: rgba(74,124,89,0.12); color: var(--moss); }
+  .tag-culture { background: rgba(200,85,61,0.1); color: var(--red); }
+  .tag-shopping { background: rgba(74,63,79,0.1); color: var(--sepia); }
+  .tag-hotel { background: rgba(42,42,53,0.06); color: rgba(42,42,53,0.6); }
+  .timeline-warning { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; letter-spacing: 0.5px; }
+  .warn-red { color: var(--red); }
+  .warn-green { color: var(--moss); }
+  .warn-gold { color: var(--gold); }
+
+  /* ── HOTELS ── */
+  .hotels { background: var(--ink); padding: 64px 24px; }
+  .hotels-inner { max-width: 800px; margin: 0 auto; }
+  .hotels-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; text-align: center; }
+  .hotel-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hotel-card { border: 1px solid rgba(217,154,58,0.2); padding: 28px 24px; }
+  .hotel-nights { font-size: 11px; letter-spacing: 2px; color: rgba(217,154,58,0.6); text-transform: uppercase; margin-bottom: 8px; }
+  .hotel-name { font-size: 18px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+  .hotel-note { font-size: 13px; color: rgba(247,241,232,0.4); line-height: 1.7; }
+
+  /* ── MUST DO ── */
+  .mustdo { padding: 64px 24px; max-width: 800px; margin: 0 auto; }
+  .mustdo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .mustdo-item { background: white; border: 1px solid rgba(217,154,58,0.15); padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .mustdo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: rgba(217,154,58,0.3); line-height: 1; flex-shrink: 0; }
+  .mustdo-text { font-size: 14px; color: var(--sepia); line-height: 1.7; }
+  .mustdo-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); padding: 48px 24px; text-align: center; }
+  .footer-kanji { font-size: 48px; font-weight: 300; color: rgba(217,154,58,0.15); margin-bottom: 16px; }
+  .footer-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(247,241,232,0.3); letter-spacing: 2px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { min-height: 100svh; }
+    .hero-lines { display: none; }
+    .hero-circle { width: 280px; height: 280px; }
+    .hero-circle:nth-child(2) { width: 380px; height: 380px; }
+    .hero-title { font-size: clamp(64px, 18vw, 88px); }
+    .overview { padding: 48px 20px; }
+    .overview-title { font-size: 22px; }
+    .overview-desc { font-size: 14px; }
+    .info-cards { grid-template-columns: 1fr; gap: 10px; }
+    .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
+    .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
+    .confirmed-section { padding: 0 16px 32px; }
+    .days-container { padding: 40px 16px; }
+    .day-block { margin-bottom: 56px; }
+    .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
+    .day-number { width: 56px; height: 56px; }
+    .day-number-num { font-size: 24px; }
+    .day-title { font-size: 18px; }
+    .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .day-map { height: 280px; margin-bottom: 20px; }
+    .timeline { padding-left: 24px; }
+    .timeline::before { left: 5px; }
+    .timeline-item { gap: 12px; margin-bottom: 22px; }
+    .timeline-dot { left: -21px; }
+    .timeline-time { width: 62px; font-size: 12px; }
+    .timeline-name { font-size: 14px; }
+    .timeline-desc { font-size: 12px; line-height: 1.75; }
+    .timeline-warning { font-size: 11px; }
+    .hotels { padding: 48px 16px; }
+    .hotel-cards { grid-template-columns: 1fr; gap: 12px; }
+    .hotel-card { padding: 22px 18px; }
+    .mustdo { padding: 48px 16px; }
+    .mustdo-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+    .mustdo-item { padding: 20px; }
+    .divider { padding: 0 16px; }
+    footer { padding: 40px 16px; }
+    .sticky-nav { padding: 0 16px; }
+    .nav-logo { font-size: 16px; }
+  }
+  @media (max-width: 380px) {
+    .hero-title { font-size: 58px; }
+    .timeline-time { width: 56px; font-size: 11px; }
+    .timeline-name { font-size: 13px; }
+    .nav-btn { padding: 4px 8px; font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">茂宜島</div>
+  <div class="nav-days">
+    <button class="nav-btn" onclick="scrollToDay('day1')">28</button>
+    <button class="nav-btn" onclick="scrollToDay('day2')">29</button>
+    <button class="nav-btn" onclick="scrollToDay('day3')">30</button>
+    <button class="nav-btn" onclick="scrollToDay('day4')">31</button>
+    <button class="nav-btn" onclick="scrollToDay('day5')">1</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-lines"><span></span><span></span><span></span></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Family Trip · Hawaiʻi</p>
+    <h1 class="hero-title">茂宜島</h1>
+    <p class="hero-title-en">Maui · Wailea · Oʻahu</p>
+    <div class="hero-dates">
+      <div class="hero-dates-line"></div>
+      <span class="hero-dates-text">10月28日 — 11月1日</span>
+      <div class="hero-dates-line"></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <p class="section-label">行程概覽</p>
+  <h2 class="overview-title">茂宜島三晚＋歐胡島一晚</h2>
+  <p class="overview-desc">Wailea 住 Four Seasons 海景房三晚。Mākena 划獨木舟看海龜、Upcountry 與 Pāʻia、Mama's Fish House。第四天飛 Oʻahu，住 Halekulani 一晚，11/1 從 HNL 回家。</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="info-card-icon">✈️</div>
+      <div class="info-card-label">交通</div>
+      <div class="info-card-value">OGG 會合 · 7 人座<br>10/31 OGG → HNL</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🏨</div>
+      <div class="info-card-label">住宿</div>
+      <div class="info-card-value">Four Seasons Wailea（3晚）<br>Halekulani（1晚）</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">👥</div>
+      <div class="info-card-label">人數</div>
+      <div class="info-card-value">6人<br>Patty · Donald · Alice · MJ · 爸 · 媽</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMED BOOKINGS -->
+<div class="confirmed-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>✅ 訂位狀態</h3></div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LAX → OGG · 10/28 早班（Patty · Donald）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">SFO／SJC → OGG · 10/28 早班（Alice · MJ）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">TPE → HNL → OGG · 10/28（爸 · 媽）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">OGG 會合 · 10/28 下午 · 取車處</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Maui 租車 · 7 人座 · 10/28–10/31（OGG 取還）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Four Seasons Resort Maui at Wailea · 3 間 Ocean View · 10/28–10/31（3晚）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Monkeypod Kitchen Wailea · 晚餐（10/28，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Mākena 獨木舟＋浮潛 · Turtle Town（10/29 早上，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Kaʻana Kitchen · 晚餐（10/29，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Mama's Fish House · 晚餐（10/30，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">OGG → HNL · 10/31 上午（6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Halekulani · 3 間 Ocean View · 10/31–11/1（1晚）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Michel's at the Colony Surf · 晚餐 5:30 PM（10/31，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Orchids · 週日早午餐（11/1，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">HNL → LAX · 11/1 下午（Patty · Donald）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">HNL → SFO／SJC · 11/1 下午（Alice · MJ）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">HNL → TPE · 11/1（爸 · 媽）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<!-- DAYS -->
+<div class="days-container">
+
+  <!-- ═══ DAY 1 ═══ -->
+  <div class="day-block" id="day1">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月28日 · 週三</div>
+        <div class="day-title">抵達 · Wailea</div>
+        <div class="day-subtitle">OGG 會合 · Four Seasons Wailea · Wailea Beach Path · Monkeypod Kitchen</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">OGG → Wailea</div>
+      <iframe src="https://www.google.com/maps?q=Four+Seasons+Resort+Maui+at+Wailea&z=12&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">中午前</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">抵達</span>
+          <div class="timeline-name">✈️ 各自飛抵 OGG</div>
+          <div class="timeline-desc">Patty · Donald 從 LAX；Alice · MJ 從 SFO／SJC；爸媽 TPE 經 HNL 轉機。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">1:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">會合</span>
+          <div class="timeline-name">📍 OGG 會合 · 取車</div>
+          <div class="timeline-desc">取 7 人座，開往 Wailea 約 30 分鐘。路上 Kīhei 簡單吃。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">3:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 Four Seasons Wailea（3晚）</div>
+          <div class="timeline-desc">Wailea Beach 正前方，海景房。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">散步</span>
+          <div class="timeline-name">🌅 Wailea Beach Path</div>
+          <div class="timeline-desc">海岸步道，平坦好走，沿途看日落。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🥥 Monkeypod Kitchen · Wailea</div>
+          <div class="timeline-desc">Wailea Gateway，在地食材，Mai Tai、奶油派。飯店車程 5 分鐘。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 2 ═══ -->
+  <div class="day-block" id="day2">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月29日 · 週四</div>
+        <div class="day-title">Mākena · 獨木舟 · 海龜</div>
+        <div class="day-subtitle">Mākena Landing · Turtle Town 獨木舟＋浮潛 · Big Beach · Coconut's Fish Cafe · 泳池 · Kaʻana Kitchen</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Wailea → Mākena</div>
+      <iframe src="https://www.google.com/maps?q=Makena+Landing+Park+Maui&z=13&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">7:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">獨木舟</span>
+          <div class="timeline-name">🛶 Turtle Town 獨木舟＋浮潛</div>
+          <div class="timeline-desc">Mākena Landing 下水，早上風小。雙人舟，約 3 小時，海龜、珊瑚礁。飯店車程 10 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">10:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">海灘</span>
+          <div class="timeline-name">🏖️ Big Beach · Mākena State Park</div>
+          <div class="timeline-desc">長金沙灘，散步。浪大時不下水。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🐟 Coconut's Fish Cafe · Kīhei</div>
+          <div class="timeline-desc">魚 taco。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">1:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">休息</span>
+          <div class="timeline-name">🏊 飯店泳池 · 海灘</div>
+          <div class="timeline-desc">午睡、看書。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍽️ Kaʻana Kitchen · Andaz Maui</div>
+          <div class="timeline-desc">Wailea，在地農場食材，面海。飯店車程 5 分鐘。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 3 ═══ -->
+  <div class="day-block" id="day3">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月30日 · 週五</div>
+        <div class="day-title">Upcountry · Pāʻia</div>
+        <div class="day-subtitle">Kula Lodge · Aliʻi Kula Lavender · Makawao · Hoʻokipa 海龜 · Pāʻia · Mama's Fish House</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Wailea → Kula → Pāʻia</div>
+      <iframe src="https://www.google.com/maps?q=Kula+Maui&z=11&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">9:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早餐</span>
+          <div class="timeline-name">🌋 Kula Lodge</div>
+          <div class="timeline-desc">Haleakalā 山腰，俯瞰中央谷地與海。飯店車程約 45 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">10:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">花園</span>
+          <div class="timeline-name">💜 Aliʻi Kula Lavender</div>
+          <div class="timeline-desc">薰衣草農場，步道散步，薰衣草司康。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-shopping">小鎮</span>
+          <div class="timeline-name">🤠 Makawao</div>
+          <div class="timeline-desc">牛仔小鎮，藝廊。Komoda Store 奶油泡芙。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">海景</span>
+          <div class="timeline-name">🐢 Hoʻokipa Lookout</div>
+          <div class="timeline-desc">午後海龜上岸休息，看衝浪。保持距離。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">3:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-shopping">小鎮</span>
+          <div class="timeline-name">🏄 Pāʻia</div>
+          <div class="timeline-desc">衝浪小鎮，逛街、咖啡。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🐠 Mama's Fish House</div>
+          <div class="timeline-desc">799 Poho Pl，海灣旁，菜單寫當日漁夫與漁場。訂不到備選：Paia Fish Market、Hāliʻimaile General Store。回 Wailea 約 35 分鐘。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 4 ═══ -->
+  <div class="day-block" id="day4">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月31日 · 週六</div>
+        <div class="day-title">飛 Oʻahu · Waikīkī</div>
+        <div class="day-subtitle">OGG → HNL · Nico's Pier 38 · Halekulani · Waikīkī 海灘 · Michel's</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">HNL → Waikīkī</div>
+      <iframe src="https://www.google.com/maps?q=Halekulani+2199+Kalia+Rd+Honolulu&z=13&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">7:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">散步</span>
+          <div class="timeline-name">🏖️ Wailea 晨間海灘</div>
+          <div class="timeline-desc">最後下水。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">9:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">退房</span>
+          <div class="timeline-name">🧳 Check out · OGG 還車</div>
+          <div class="timeline-desc">Wailea 開往 OGG 約 30 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">10:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">飛行</span>
+          <div class="timeline-name">✈️ OGG → HNL</div>
+          <div class="timeline-desc">約 40 分鐘。HNL 叫兩台車到 Waikīkī，不租車。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">12:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🐟 Nico's Pier 38</div>
+          <div class="timeline-desc">漁港旁，魚拍賣場的當日魚。順路往 Waikīkī。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 Halekulani（1晚）</div>
+          <div class="timeline-desc">Waikīkī 海邊，海景房，正對 Diamond Head。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">3:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">散步</span>
+          <div class="timeline-name">🏖️ Waikīkī 海灘</div>
+          <div class="timeline-desc">飯店前下水，或沿海走到 Duke Kahanamoku 雕像。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">5:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🌅 Michel's at the Colony Surf</div>
+          <div class="timeline-desc">貼著沙灘的法式餐廳，看日落。飯店車程 5 分鐘。萬聖節晚上 Kalākaua 人潮多，飯後直接回飯店。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 5 ═══ -->
+  <div class="day-block" id="day5">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">05</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月1日 · 週日</div>
+        <div class="day-title">早午餐 · 返程</div>
+        <div class="day-subtitle">Orchids 週日早午餐 · Check out · HNL</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">10:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早午餐</span>
+          <div class="timeline-name">🥂 Orchids · Sunday Brunch</div>
+          <div class="timeline-desc">Halekulani，海邊座位。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">退房</span>
+          <div class="timeline-name">🧳 Check out</div>
+          <div class="timeline-desc">叫車往 HNL，約 25 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">下午</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">返程</span>
+          <div class="timeline-name">✈️ 各自返程</div>
+          <div class="timeline-desc">Patty · Donald 回 LAX；Alice · MJ 回 SFO／SJC；爸媽回 TPE。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOTELS -->
+<section class="hotels">
+  <div class="hotels-inner">
+    <p class="hotels-title">住宿 · 海景五星</p>
+    <div class="hotel-cards">
+      <div class="hotel-card">
+        <div class="hotel-nights">10/28–10/31 · 3晚</div>
+        <div class="hotel-name">Four Seasons Resort Maui at Wailea</div>
+        <div class="hotel-note">Forbes 五星，Wailea Beach 正前方。訂 Ocean View 以上，入門 Mountain-Side 不面海。備選：Montage Kapalua Bay（西北岸，較遠）。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">10/31–11/1 · 1晚</div>
+        <div class="hotel-name">Halekulani</div>
+        <div class="hotel-note">Waikīkī 海邊，房間多數面海。只住一晚，不租車，走路到海灘與餐廳最方便。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-kanji">海</div>
+  <p class="footer-text">Maui · Wailea · Oʻahu</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
+
+  // Nav scroll
+  function scrollToDay(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 60;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Highlight active nav btn on scroll
+  const dayIds = ['day1','day2','day3','day4','day5'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    dayIds.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 120) current = i;
+    });
+    navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
+  });
+</script>
+</body>
+</html>
