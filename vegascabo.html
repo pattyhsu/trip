@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>拉斯維加斯＋洛斯卡沃斯 · 10月28日–11月1日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2b2030;
+    --sepia: #4d3a4a;
+    --gold: #b8657a;
+    --gold-light: #e8b3c0;
+    --cream: #f8f1ec;
+    --paper: #faf6f2;
+    --blush: #efd9d6;
+    --moss: #3f7f86;
+    --red: #c4553a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid rgba(184,101,122,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    letter-spacing: 3px;
+  }
+  .nav-days {
+    display: flex;
+    gap: 6px;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(184,101,122,0.25);
+    color: rgba(247,241,232,0.5);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 1px;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(165deg, #fbf3ec 0%, #f4dcd6 55%, #dcebec 100%);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(184,101,122,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(196,85,58,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(63,127,134,0.1) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    display: flex; gap: 20px; opacity: 0.15;
+  }
+  .hero-lines span { width: 1px; background: var(--gold); display: block; }
+  .hero-lines span:nth-child(1) { height: 280px; }
+  .hero-lines span:nth-child(2) { height: 200px; }
+  .hero-lines span:nth-child(3) { height: 320px; }
+  .hero-circle {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(184,101,122,0.15);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+  }
+  .hero-circle:nth-child(2) { width: 700px; height: 700px; border-color: rgba(184,101,122,0.08); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: 40px 20px; }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; letter-spacing: 4px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+  }
+  .hero-title {
+    font-size: clamp(52px, 8vw, 88px); font-weight: 300;
+    color: var(--ink); letter-spacing: -1px; line-height: 1; margin-bottom: 8px;
+    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title-en {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic; font-weight: 300; color: rgba(43,32,48,0.45);
+    letter-spacing: 6px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-dates {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
+  }
+  .hero-dates-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-dates-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; color: var(--gold); }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 0; right: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: 3px; padding-left: 3px; color: rgba(43,32,48,0.4); text-transform: uppercase; }
+  .scroll-hint-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+
+  /* ── OVERVIEW ── */
+  .overview { padding: 80px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .overview-title { font-size: 28px; font-weight: 300; color: var(--sepia); margin-bottom: 24px; line-height: 1.6; }
+  .overview-desc { font-size: 15px; line-height: 2; color: rgba(43,32,48,0.65); max-width: 560px; margin: 0 auto 48px; }
+  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .info-card { background: white; border: 1px solid rgba(184,101,122,0.2); padding: 24px 16px; text-align: center; }
+  .info-card-icon { font-size: 24px; margin-bottom: 10px; }
+  .info-card-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .info-card-value { font-size: 14px; color: var(--sepia); line-height: 1.5; }
+
+  /* ── CONFIRMED BOOKINGS ── */
+  .confirmed-section { max-width: 800px; margin: 0 auto; padding: 0 24px 40px; }
+  .confirmed-inner { background: white; border: 1px solid rgba(63,127,134,0.25); }
+  .confirmed-header { background: rgba(63,127,134,0.08); padding: 14px 20px; border-bottom: 1px solid rgba(63,127,134,0.15); }
+  .confirmed-header h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--moss); }
+  .confirmed-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(63,127,134,0.08); gap: 12px; }
+  .confirmed-row:last-child { border-bottom: none; }
+  .confirmed-name { font-size: 14px; color: var(--ink); }
+  .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
+  .confirmed-code.pending { color: var(--red); }
+  .split-section { padding-top: 40px; }
+  .split-group { background: rgba(184,101,122,0.06); padding: 10px 20px; font-size: 13px; letter-spacing: 1px; color: var(--sepia); font-weight: 600; border-bottom: 1px solid rgba(63,127,134,0.08); }
+  .confirmed-row.subtotal .confirmed-name, .confirmed-row.subtotal .confirmed-code { font-weight: 600; }
+  .confirmed-row.settle { background: rgba(196,85,58,0.07); }
+  .confirmed-row.settle .confirmed-name, .confirmed-row.settle .confirmed-code { color: var(--red); font-weight: 600; font-size: 15px; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(184,101,122,0.3), transparent); }
+  .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  /* ── DAYS ── */
+  .days-container { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+  .day-block { margin-bottom: 80px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .day-block.visible { opacity: 1; transform: translateY(0); }
+
+  .day-header {
+    display: flex; align-items: flex-start; gap: 24px;
+    margin-bottom: 32px; padding-bottom: 24px;
+    border-bottom: 1px solid rgba(184,101,122,0.2);
+  }
+  .day-number {
+    flex-shrink: 0; width: 64px; height: 64px; background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .day-number-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .day-number-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .day-header-info { flex: 1; padding-top: 4px; }
+  .day-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
+  .day-subtitle { font-size: 13px; color: rgba(43,32,48,0.5); letter-spacing: 1px; }
+
+  /* ── MAP ── */
+  .day-map {
+    width: 100%; height: 320px; margin-bottom: 32px;
+    border: 1px solid rgba(184,101,122,0.2); overflow: hidden; position: relative;
+  }
+  .day-map iframe { width: 100%; height: 100%; border: none; }
+  .map-label {
+    position: absolute; bottom: 10px; left: 10px;
+    background: rgba(43,32,48,0.85); color: var(--gold);
+    font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
+    font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px;
+    background: linear-gradient(to bottom, rgba(184,101,122,0.4), rgba(184,101,122,0.1));
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; display: flex; gap: 20px; }
+  .timeline-dot {
+    position: absolute; left: -29px; top: 6px; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--cream); border: 1.5px solid var(--gold); flex-shrink: 0;
+  }
+  .timeline-dot.meal { background: var(--gold); border-color: var(--gold); }
+  .timeline-dot.highlight { background: var(--red); border-color: var(--red); }
+  .timeline-dot.confirmed { background: var(--moss); border-color: var(--moss); }
+  .timeline-time { flex-shrink: 0; width: 72px; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); padding-top: 2px; letter-spacing: 0.5px; }
+  .timeline-content { flex: 1; }
+  .timeline-name { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+  .timeline-desc { font-size: 13px; color: rgba(43,32,48,0.55); line-height: 1.7; }
+  .timeline-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; border-radius: 0;
+  }
+  .tag-meal { background: rgba(184,101,122,0.12); color: var(--sepia); }
+  .tag-garden { background: rgba(63,127,134,0.12); color: var(--moss); }
+  .tag-culture { background: rgba(196,85,58,0.1); color: var(--red); }
+  .tag-shopping { background: rgba(77,58,74,0.1); color: var(--sepia); }
+  .tag-hotel { background: rgba(43,32,48,0.06); color: rgba(43,32,48,0.6); }
+  .timeline-warning { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; letter-spacing: 0.5px; }
+  .warn-red { color: var(--red); }
+  .warn-green { color: var(--moss); }
+  .warn-gold { color: var(--gold); }
+
+  /* ── HOTELS ── */
+  .hotels { background: var(--ink); padding: 64px 24px; }
+  .hotels-inner { max-width: 800px; margin: 0 auto; }
+  .hotels-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; text-align: center; }
+  .hotel-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hotel-card { border: 1px solid rgba(184,101,122,0.2); padding: 28px 24px; }
+  .hotel-nights { font-size: 11px; letter-spacing: 2px; color: rgba(184,101,122,0.6); text-transform: uppercase; margin-bottom: 8px; }
+  .hotel-name { font-size: 18px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+  .hotel-note { font-size: 13px; color: rgba(247,241,232,0.4); line-height: 1.7; }
+
+  /* ── MUST DO ── */
+  .mustdo { padding: 64px 24px; max-width: 800px; margin: 0 auto; }
+  .mustdo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .mustdo-item { background: white; border: 1px solid rgba(184,101,122,0.15); padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .mustdo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: rgba(184,101,122,0.3); line-height: 1; flex-shrink: 0; }
+  .mustdo-text { font-size: 14px; color: var(--sepia); line-height: 1.7; }
+  .mustdo-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); padding: 48px 24px; text-align: center; }
+  .footer-kanji { font-size: 48px; font-weight: 300; color: rgba(184,101,122,0.15); margin-bottom: 16px; }
+  .footer-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(247,241,232,0.3); letter-spacing: 2px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { min-height: 100svh; }
+    .hero-lines { display: none; }
+    .hero-circle { width: 280px; height: 280px; }
+    .hero-circle:nth-child(2) { width: 380px; height: 380px; }
+    .hero-title { font-size: clamp(64px, 18vw, 88px); }
+    .overview { padding: 48px 20px; }
+    .overview-title { font-size: 22px; }
+    .overview-desc { font-size: 14px; }
+    .info-cards { grid-template-columns: 1fr; gap: 10px; }
+    .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
+    .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
+    .confirmed-section { padding: 0 16px 32px; }
+    .days-container { padding: 40px 16px; }
+    .day-block { margin-bottom: 56px; }
+    .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
+    .day-number { width: 56px; height: 56px; }
+    .day-number-num { font-size: 24px; }
+    .day-title { font-size: 18px; }
+    .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .day-map { height: 280px; margin-bottom: 20px; }
+    .timeline { padding-left: 24px; }
+    .timeline::before { left: 5px; }
+    .timeline-item { gap: 12px; margin-bottom: 22px; }
+    .timeline-dot { left: -21px; }
+    .timeline-time { width: 62px; font-size: 12px; }
+    .timeline-name { font-size: 14px; }
+    .timeline-desc { font-size: 12px; line-height: 1.75; }
+    .timeline-warning { font-size: 11px; }
+    .hotels { padding: 48px 16px; }
+    .hotel-cards { grid-template-columns: 1fr; gap: 12px; }
+    .hotel-card { padding: 22px 18px; }
+    .mustdo { padding: 48px 16px; }
+    .mustdo-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+    .mustdo-item { padding: 20px; }
+    .divider { padding: 0 16px; }
+    footer { padding: 40px 16px; }
+    .sticky-nav { padding: 0 16px; }
+    .nav-logo { font-size: 16px; }
+  }
+  @media (max-width: 380px) {
+    .hero-title { font-size: 58px; }
+    .timeline-time { width: 56px; font-size: 11px; }
+    .timeline-name { font-size: 13px; }
+    .nav-btn { padding: 4px 8px; font-size: 10px; }
+  }
+  .hero-title { font-size: clamp(44px, 7vw, 80px); }
+  @media (max-width: 768px) { .hero-title { font-size: 12vw; } }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">維加斯·卡沃</div>
+  <div class="nav-days">
+    <button class="nav-btn" onclick="scrollToDay('day1')">28</button>
+    <button class="nav-btn" onclick="scrollToDay('day2')">29</button>
+    <button class="nav-btn" onclick="scrollToDay('day3')">30</button>
+    <button class="nav-btn" onclick="scrollToDay('day4')">31</button>
+    <button class="nav-btn" onclick="scrollToDay('day5')">1</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-lines"><span></span><span></span><span></span></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Family Trip · Desert &amp; Sea</p>
+    <h1 class="hero-title">維加斯·卡沃</h1>
+    <p class="hero-title-en">Las Vegas · Los Cabos</p>
+    <div class="hero-dates">
+      <div class="hero-dates-line"></div>
+      <span class="hero-dates-text">10月28日 — 11月1日</span>
+      <div class="hero-dates-line"></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <p class="section-label">行程概覽</p>
+  <h2 class="overview-title">拉斯維加斯兩晚＋洛斯卡沃斯兩晚</h2>
+  <p class="overview-desc">Vegas 住 Wynn：Black Canyon 划獨木舟到 Emerald Cave、Red Rock 峽谷、O 秀。10/30 飛 Los Cabos，住 One&amp;Only Palmilla 海景房：El Arco 海上、懸崖晚餐、Flora Farms 早午餐。</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="info-card-icon">✈️</div>
+      <div class="info-card-label">交通</div>
+      <div class="info-card-value">LAS 會合 · 租車<br>10/30 LAS → SJD</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🏨</div>
+      <div class="info-card-label">住宿</div>
+      <div class="info-card-value">Wynn Las Vegas（2晚）<br>One&amp;Only Palmilla（2晚）</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">👥</div>
+      <div class="info-card-label">人數</div>
+      <div class="info-card-value">6人<br>Patty · Donald · Alice · MJ · 爸 · 媽</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMED BOOKINGS -->
+<div class="confirmed-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>✅ 訂位狀態</h3></div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">爸媽墨西哥入境 · 有效美國簽證（ESTA 不算）或墨西哥簽證</div>
+      <div class="confirmed-code pending">⚠️ 待確認</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LAX → LAS · 10/28 早班（Patty · Donald）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">SFO／SJC → LAS · 10/28 早班（Alice · MJ）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">TPE → LAX → LAS · 10/28（爸 · 媽）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LAS 會合 · 10/28 中午 · 取車處</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Vegas 租車 · 7 人座 · 10/28–10/30（LAS 取還）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Wynn Las Vegas · 3 間 · 10/28–10/30（2晚）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Wakuda · 晚餐（10/28，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Emerald Cave 獨木舟導覽 · Willow Beach（10/29 早上，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Raku · 晚餐（10/29，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">O by Cirque du Soleil · Bellagio（10/29 9:30 PM，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Red Rock Canyon Scenic Drive · 10/30 6:30 入場（8 AM 前免預約）</div>
+      <div class="confirmed-code">◻️ 候選</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LAS → SJD · 10/30 中午（6人，Southwest 直飛）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">SJD 機場接送 · 10/30（6人＋行李）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">One&amp;Only Palmilla · 3 間 Ocean View · 10/30–11/1（2晚）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">El Arco 包船 · Cabo Marina（10/31 上午，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">El Farallón · 晚餐（10/31，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Flora's Field Kitchen · 週日早午餐（11/1，6人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">SJD → LAX · 11/1 下午（Patty · Donald · 爸 · 媽）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">SJD → SFO／SJC · 11/1 下午（Alice · MJ）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LAX → TPE · 11/1 深夜（爸 · 媽）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<!-- DAYS -->
+<div class="days-container">
+
+  <!-- ═══ DAY 1 ═══ -->
+  <div class="day-block" id="day1">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月28日 · 週三</div>
+        <div class="day-title">抵達 · Las Vegas</div>
+        <div class="day-subtitle">LAS 會合 · Wynn · Bellagio 噴泉 · Wakuda</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">LAS → The Strip</div>
+      <iframe src="https://www.google.com/maps?q=Wynn+Las+Vegas&z=14&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">上午</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">抵達</span>
+          <div class="timeline-name">✈️ 各自飛抵 LAS</div>
+          <div class="timeline-desc">Patty · Donald 從 LAX；Alice · MJ 從 SFO／SJC；爸媽 TPE 經 LAX 轉機。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">會合</span>
+          <div class="timeline-name">📍 LAS 會合 · 取車</div>
+          <div class="timeline-desc">取 7 人座，開往 Strip 約 15 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">1:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 Wynn Las Vegas（2晚）</div>
+          <div class="timeline-desc">Forbes 五星。房間落地窗看 Strip 或高爾夫球場。午餐飯店內簡單吃，休息。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">散步</span>
+          <div class="timeline-name">⛲ Bellagio 噴泉 · 溫室花園</div>
+          <div class="timeline-desc">Strip 南走，噴泉每 15–30 分鐘一場。Conservatory 秋季花展。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">7:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍣 Wakuda</div>
+          <div class="timeline-desc">Venetian，Tetsuya Wakuda 日式料理。Wynn 對面，走路 10 分鐘。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 2 ═══ -->
+  <div class="day-block" id="day2">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月29日 · 週四</div>
+        <div class="day-title">Black Canyon · 獨木舟 · O 秀</div>
+        <div class="day-subtitle">Willow Beach · Emerald Cave 獨木舟 · Hoover Dam · 泳池 · Raku · O by Cirque du Soleil</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Strip → Willow Beach</div>
+      <iframe src="https://www.google.com/maps?q=Willow+Beach+Marina+Arizona&z=10&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">7:00 AM</div>
+        <div class="timeline-content">
+          <div class="timeline-name">🚗 開往 Willow Beach</div>
+          <div class="timeline-desc">約 50 分鐘，經 Hoover Dam 橋。Lake Mead 國家遊憩區入園費每車 $25。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">獨木舟</span>
+          <div class="timeline-name">🛶 Emerald Cave 獨木舟導覽</div>
+          <div class="timeline-desc">Colorado River，Black Canyon 峽谷間來回約 6 公里、3 小時。河水平靜，洞內水色翠綠。可能看到大角羊。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">11:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">景點</span>
+          <div class="timeline-name">🌉 Hoover Dam</div>
+          <div class="timeline-desc">回程停 Memorial Bridge 步道，俯瞰水壩。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">1:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">休息</span>
+          <div class="timeline-name">🏊 飯店泳池 · 午睡</div>
+          <div class="timeline-desc">午餐池畔。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🔥 Raku</div>
+          <div class="timeline-desc">Spring Mountain Rd，炭火爐端燒、自家豆腐。小店，車程 10 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">9:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">表演</span>
+          <div class="timeline-name">🎭 O · Bellagio</div>
+          <div class="timeline-desc">Cirque du Soleil 水上秀，看不懂英文也沒關係。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 3 ═══ -->
+  <div class="day-block" id="day3">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月30日 · 週五</div>
+        <div class="day-title">Red Rock · 飛 Los Cabos</div>
+        <div class="day-subtitle">Red Rock Canyon · LAS → SJD · One&amp;Only Palmilla · 飯店晚餐</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Red Rock Canyon</div>
+      <iframe src="https://www.google.com/maps?q=Red+Rock+Canyon+Scenic+Drive&z=12&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">6:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">峽谷</span>
+          <div class="timeline-name">🏜️ Red Rock Canyon Scenic Drive（可選）</div>
+          <div class="timeline-desc">車程 30 分鐘。13 英里環線，紅色砂岩。Calico Hills 短步道。8 AM 前入場不需預約，之後要 recreation.gov 時段票。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">退房</span>
+          <div class="timeline-name">🧳 Check out · LAS 還車</div>
+          <div class="timeline-desc">國際線，提早 2.5 小時到。帶護照。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">中午</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">飛行</span>
+          <div class="timeline-name">✈️ LAS → SJD</div>
+          <div class="timeline-desc">約 2.5 小時。出關後坐預約的接送，到 Palmilla 約 20 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">4:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 One&amp;Only Palmilla（2晚）</div>
+          <div class="timeline-desc">海灣旁，Cabo 少數可游泳的海灘。房間面海。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">7:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🌮 飯店晚餐</div>
+          <div class="timeline-desc">飛行日，留在飯店。Larbi 或海邊 Mexican 餐廳。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 4 ═══ -->
+  <div class="day-block" id="day4">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
+      <div class="day-header-info">
+        <div class="day-date">10月31日 · 週六</div>
+        <div class="day-title">El Arco · 慢活 · 懸崖晚餐</div>
+        <div class="day-subtitle">El Arco 包船 · Lover's Beach · 泳池 · Spa · El Farallón</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Palmilla → Cabo San Lucas</div>
+      <iframe src="https://www.google.com/maps?q=El+Arco+de+Cabo+San+Lucas&z=13&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早餐</span>
+          <div class="timeline-name">☕ 飯店早餐</div>
+          <div class="timeline-desc">海景露台。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">海上</span>
+          <div class="timeline-name">⛵ El Arco 包船 · Lover's Beach</div>
+          <div class="timeline-desc">Cabo Marina 出發，約 2 小時。看拱門與海獅，Lover's Beach 上岸。到 Marina 車程 30 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">12:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🌮 Cabo San Lucas 塔可</div>
+          <div class="timeline-desc">Marina 附近。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">休息</span>
+          <div class="timeline-name">🏖️ 泳池 · 海灘 · Spa（可選）</div>
+          <div class="timeline-desc">飯店前海灣游泳、浮潛。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">5:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🦞 El Farallón · Waldorf Astoria Pedregal</div>
+          <div class="timeline-desc">建在懸崖上，浪就在腳下。當日海鮮秤重，日落時段。車程約 35 分鐘。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 5 ═══ -->
+  <div class="day-block" id="day5">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">05</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月1日 · 週日</div>
+        <div class="day-title">Flora Farms · 返程</div>
+        <div class="day-subtitle">Check out · Flora's Field Kitchen 早午餐 · SJD</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">7:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">散步</span>
+          <div class="timeline-name">🏖️ Palmilla 晨間海灘</div>
+          <div class="timeline-desc">最後下水。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">退房</span>
+          <div class="timeline-name">🧳 Check out</div>
+          <div class="timeline-desc">接送車帶行李，往 San José del Cabo 山邊約 20 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">10:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早午餐</span>
+          <div class="timeline-name">🌿 Flora's Field Kitchen · Flora Farms</div>
+          <div class="timeline-desc">有機農場裡的餐廳，週日 10–2 早午餐。飯後農場散步。到 SJD 約 15 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">下午</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">返程</span>
+          <div class="timeline-name">✈️ 各自返程</div>
+          <div class="timeline-desc">Patty · Donald · 爸媽飛 LAX，爸媽深夜轉 TPE；Alice · MJ 回 SFO／SJC。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOTELS -->
+<section class="hotels">
+  <div class="hotels-inner">
+    <p class="hotels-title">住宿 · 五星</p>
+    <div class="hotel-cards">
+      <div class="hotel-card">
+        <div class="hotel-nights">10/28–10/30 · 2晚</div>
+        <div class="hotel-name">Wynn Las Vegas</div>
+        <div class="hotel-note">Forbes 五星。Vegas 沒有海，房間看 Strip。備選：Waldorf Astoria（無賭場，安靜）。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">10/30–11/1 · 2晚</div>
+        <div class="hotel-name">One&amp;Only Palmilla</div>
+        <div class="hotel-note">海灣旁，可游泳的海灘，房間面海，離 SJD 近。備選：Las Ventanas al Paraíso、Waldorf Astoria Pedregal。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-kanji">漠·海</div>
+  <p class="footer-text">Las Vegas · Los Cabos</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
+
+  // Nav scroll
+  function scrollToDay(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 60;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Highlight active nav btn on scroll
+  const dayIds = ['day1','day2','day3','day4','day5'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    dayIds.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 120) current = i;
+    });
+    navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
+  });
+</script>
+</body>
+</html>
