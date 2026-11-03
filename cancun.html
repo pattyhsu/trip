@@ -161,6 +161,11 @@
   .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
   .confirmed-code.pending { color: var(--red); }
   .split-section { padding-top: 40px; }
+  .cost-fold > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .cost-fold > summary::-webkit-details-marker { display: none; }
+  .cost-fold > summary::after { content: '▾'; color: var(--moss); font-size: 14px; transition: transform 0.2s; }
+  .cost-fold:not([open]) > summary { border-bottom: none; }
+  .cost-fold:not([open]) > summary::after { transform: rotate(-90deg); }
   .split-group { background: rgba(181,118,42,0.06); padding: 10px 20px; font-size: 13px; letter-spacing: 1px; color: var(--sepia); font-weight: 600; border-bottom: 1px solid rgba(47,125,116,0.08); }
   .confirmed-row.subtotal .confirmed-name, .confirmed-row.subtotal .confirmed-code { font-weight: 600; }
   .confirmed-row.settle { background: rgba(196,85,58,0.07); }
@@ -790,7 +795,8 @@
 <!-- TRIP COST -->
 <div class="confirmed-section split-section">
   <div class="confirmed-inner">
-    <div class="confirmed-header"><h3>💰 Trip cost</h3></div>
+    <details class="cost-fold">
+    <summary class="confirmed-header"><h3>💰 Trip cost</h3></summary>
     <div class="split-group">Flights & hotel</div>
     <div class="confirmed-row"><div class="confirmed-name">United LAX → CUN · UA1075, Patty · Donald (40,000 miles + taxes)</div><div class="confirmed-code">$125.70</div></div>
     <div class="confirmed-row"><div class="confirmed-name">United Economy Plus seats · UA1075 (2 × $69.99)</div><div class="confirmed-code">$139.98</div></div>
@@ -821,6 +827,7 @@
     <div class="confirmed-row"><div class="confirmed-name">Paid 10/31 · Absolute Adventure balance</div><div class="confirmed-code">$678.40</div></div>
     <div class="confirmed-row"><div class="confirmed-name">Paid 11/1 · Playacht balance + dock tax</div><div class="confirmed-code">$939.00</div></div>
     <div class="confirmed-row subtotal"><div class="confirmed-name">All paid</div><div class="confirmed-code">$2,887.75</div></div>
+    </details>
   </div>
 </div>
 <footer>
