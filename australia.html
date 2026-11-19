@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>澳洲 · 11月29日–12月5日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1f2b2b;
+    --sepia: #3b4a45;
+    --gold: #b9794a;
+    --gold-light: #e6c39c;
+    --cream: #f5efe3;
+    --paper: #f8f5ee;
+    --blush: #e4ddcc;
+    --moss: #2f7a74;
+    --red: #b4512e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid rgba(185,121,74,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    letter-spacing: 3px;
+  }
+  .nav-days {
+    display: flex;
+    gap: 6px;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(185,121,74,0.25);
+    color: rgba(245,239,227,0.5);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 1px;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(165deg, #f8f2e6 0%, #e9dcc4 50%, #d3e6e2 100%);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(185,121,74,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(180,81,46,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(47,122,116,0.1) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    display: flex; gap: 20px; opacity: 0.15;
+  }
+  .hero-lines span { width: 1px; background: var(--gold); display: block; }
+  .hero-lines span:nth-child(1) { height: 280px; }
+  .hero-lines span:nth-child(2) { height: 200px; }
+  .hero-lines span:nth-child(3) { height: 320px; }
+  .hero-circle {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(185,121,74,0.15);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+  }
+  .hero-circle:nth-child(2) { width: 700px; height: 700px; border-color: rgba(185,121,74,0.08); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: 40px 20px; }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; letter-spacing: 4px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+  }
+  .hero-title {
+    font-size: clamp(52px, 8vw, 88px); font-weight: 300;
+    color: var(--ink); letter-spacing: -1px; line-height: 1; margin-bottom: 8px;
+    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title-en {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic; font-weight: 300; color: rgba(31,43,43,0.45);
+    letter-spacing: 6px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-dates {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
+  }
+  .hero-dates-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-dates-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; color: var(--gold); }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 0; right: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: 3px; padding-left: 3px; color: rgba(31,43,43,0.4); text-transform: uppercase; }
+  .scroll-hint-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+
+  /* ── OVERVIEW ── */
+  .overview { padding: 80px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .overview-title { font-size: 28px; font-weight: 300; color: var(--sepia); margin-bottom: 24px; line-height: 1.6; }
+  .overview-desc { font-size: 15px; line-height: 2; color: rgba(31,43,43,0.65); max-width: 560px; margin: 0 auto 48px; }
+  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .info-card { background: white; border: 1px solid rgba(185,121,74,0.2); padding: 24px 16px; text-align: center; }
+  .info-card-icon { font-size: 24px; margin-bottom: 10px; }
+  .info-card-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .info-card-value { font-size: 14px; color: var(--sepia); line-height: 1.5; }
+
+  /* ── CONFIRMED BOOKINGS ── */
+  .confirmed-section { max-width: 800px; margin: 0 auto; padding: 0 24px 40px; }
+  .confirmed-inner { background: white; border: 1px solid rgba(47,122,116,0.25); }
+  .confirmed-header { background: rgba(47,122,116,0.08); padding: 14px 20px; border-bottom: 1px solid rgba(47,122,116,0.15); }
+  .confirmed-header h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--moss); }
+  .confirmed-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(47,122,116,0.08); gap: 12px; }
+  .confirmed-row:last-child { border-bottom: none; }
+  .confirmed-name { font-size: 14px; color: var(--ink); }
+  .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
+  .confirmed-code.pending { color: var(--red); }
+  .split-section { padding-top: 40px; }
+  .split-group { background: rgba(185,121,74,0.06); padding: 10px 20px; font-size: 13px; letter-spacing: 1px; color: var(--sepia); font-weight: 600; border-bottom: 1px solid rgba(47,122,116,0.08); }
+  .confirmed-row.subtotal .confirmed-name, .confirmed-row.subtotal .confirmed-code { font-weight: 600; }
+  .confirmed-row.settle { background: rgba(180,81,46,0.07); }
+  .confirmed-row.settle .confirmed-name, .confirmed-row.settle .confirmed-code { color: var(--red); font-weight: 600; font-size: 15px; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(185,121,74,0.3), transparent); }
+  .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  /* ── DAYS ── */
+  .days-container { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+  .day-block { margin-bottom: 80px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .day-block.visible { opacity: 1; transform: translateY(0); }
+
+  .day-header {
+    display: flex; align-items: flex-start; gap: 24px;
+    margin-bottom: 32px; padding-bottom: 24px;
+    border-bottom: 1px solid rgba(185,121,74,0.2);
+  }
+  .day-number {
+    flex-shrink: 0; width: 64px; height: 64px; background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .day-number-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .day-number-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .day-header-info { flex: 1; padding-top: 4px; }
+  .day-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
+  .day-subtitle { font-size: 13px; color: rgba(31,43,43,0.5); letter-spacing: 1px; }
+
+  /* ── MAP ── */
+  .day-map {
+    width: 100%; height: 320px; margin-bottom: 32px;
+    border: 1px solid rgba(185,121,74,0.2); overflow: hidden; position: relative;
+  }
+  .day-map iframe { width: 100%; height: 100%; border: none; }
+  .map-label {
+    position: absolute; bottom: 10px; left: 10px;
+    background: rgba(31,43,43,0.85); color: var(--gold);
+    font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
+    font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px;
+    background: linear-gradient(to bottom, rgba(185,121,74,0.4), rgba(185,121,74,0.1));
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; display: flex; gap: 20px; }
+  .timeline-dot {
+    position: absolute; left: -29px; top: 6px; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--cream); border: 1.5px solid var(--gold); flex-shrink: 0;
+  }
+  .timeline-dot.meal { background: var(--gold); border-color: var(--gold); }
+  .timeline-dot.highlight { background: var(--red); border-color: var(--red); }
+  .timeline-dot.confirmed { background: var(--moss); border-color: var(--moss); }
+  .timeline-time { flex-shrink: 0; width: 72px; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); padding-top: 2px; letter-spacing: 0.5px; }
+  .timeline-content { flex: 1; }
+  .timeline-name { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+  .timeline-desc { font-size: 13px; color: rgba(31,43,43,0.55); line-height: 1.7; }
+  .timeline-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; border-radius: 0;
+  }
+  .tag-meal { background: rgba(185,121,74,0.12); color: var(--sepia); }
+  .tag-garden { background: rgba(47,122,116,0.12); color: var(--moss); }
+  .tag-culture { background: rgba(180,81,46,0.1); color: var(--red); }
+  .tag-shopping { background: rgba(59,74,69,0.1); color: var(--sepia); }
+  .tag-hotel { background: rgba(31,43,43,0.06); color: rgba(31,43,43,0.6); }
+  .timeline-warning { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; letter-spacing: 0.5px; }
+  .warn-red { color: var(--red); }
+  .warn-green { color: var(--moss); }
+  .warn-gold { color: var(--gold); }
+
+  /* ── HOTELS ── */
+  .hotels { background: var(--ink); padding: 64px 24px; }
+  .hotels-inner { max-width: 800px; margin: 0 auto; }
+  .hotels-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; text-align: center; }
+  .hotel-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hotel-card { border: 1px solid rgba(185,121,74,0.2); padding: 28px 24px; }
+  .hotel-nights { font-size: 11px; letter-spacing: 2px; color: rgba(185,121,74,0.6); text-transform: uppercase; margin-bottom: 8px; }
+  .hotel-name { font-size: 18px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+  .hotel-note { font-size: 13px; color: rgba(245,239,227,0.4); line-height: 1.7; }
+
+  /* ── MUST DO ── */
+  .mustdo { padding: 64px 24px; max-width: 800px; margin: 0 auto; }
+  .mustdo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .mustdo-item { background: white; border: 1px solid rgba(185,121,74,0.15); padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .mustdo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: rgba(185,121,74,0.3); line-height: 1; flex-shrink: 0; }
+  .mustdo-text { font-size: 14px; color: var(--sepia); line-height: 1.7; }
+  .mustdo-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); padding: 48px 24px; text-align: center; }
+  .footer-kanji { font-size: 48px; font-weight: 300; color: rgba(185,121,74,0.15); margin-bottom: 16px; }
+  .footer-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(245,239,227,0.3); letter-spacing: 2px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { min-height: 100svh; }
+    .hero-lines { display: none; }
+    .hero-circle { width: 280px; height: 280px; }
+    .hero-circle:nth-child(2) { width: 380px; height: 380px; }
+    .hero-title { font-size: clamp(64px, 18vw, 88px); }
+    .overview { padding: 48px 20px; }
+    .overview-title { font-size: 22px; }
+    .overview-desc { font-size: 14px; }
+    .info-cards { grid-template-columns: 1fr; gap: 10px; }
+    .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
+    .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
+    .confirmed-section { padding: 0 16px 32px; }
+    .days-container { padding: 40px 16px; }
+    .day-block { margin-bottom: 56px; }
+    .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
+    .day-number { width: 56px; height: 56px; }
+    .day-number-num { font-size: 24px; }
+    .day-title { font-size: 18px; }
+    .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .day-map { height: 280px; margin-bottom: 20px; }
+    .timeline { padding-left: 24px; }
+    .timeline::before { left: 5px; }
+    .timeline-item { gap: 12px; margin-bottom: 22px; }
+    .timeline-dot { left: -21px; }
+    .timeline-time { width: 62px; font-size: 12px; }
+    .timeline-name { font-size: 14px; }
+    .timeline-desc { font-size: 12px; line-height: 1.75; }
+    .timeline-warning { font-size: 11px; }
+    .hotels { padding: 48px 16px; }
+    .hotel-cards { grid-template-columns: 1fr; gap: 12px; }
+    .hotel-card { padding: 22px 18px; }
+    .mustdo { padding: 48px 16px; }
+    .mustdo-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+    .mustdo-item { padding: 20px; }
+    .divider { padding: 0 16px; }
+    footer { padding: 40px 16px; }
+    .sticky-nav { padding: 0 16px; }
+    .nav-logo { font-size: 16px; }
+  }
+  @media (max-width: 380px) {
+    .hero-title { font-size: 58px; }
+    .timeline-time { width: 56px; font-size: 11px; }
+    .timeline-name { font-size: 13px; }
+    .nav-btn { padding: 4px 8px; font-size: 10px; }
+  }
+  @media (max-width: 768px) { .hero-title { font-size: 14vw; } }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">澳洲</div>
+  <div class="nav-days">
+    <button class="nav-btn" onclick="scrollToDay('day1')">29</button>
+    <button class="nav-btn" onclick="scrollToDay('day2')">30</button>
+    <button class="nav-btn" onclick="scrollToDay('day3')">1</button>
+    <button class="nav-btn" onclick="scrollToDay('day4')">2</button>
+    <button class="nav-btn" onclick="scrollToDay('day5')">3</button>
+    <button class="nav-btn" onclick="scrollToDay('day6')">4</button>
+    <button class="nav-btn" onclick="scrollToDay('day7')">5</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-lines"><span></span><span></span><span></span></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Family Trip · Queensland</p>
+    <h1 class="hero-title">澳洲</h1>
+    <p class="hero-title-en">Hinterland · Noosa · Whitsundays</p>
+    <div class="hero-dates">
+      <div class="hero-dates-line"></div>
+      <span class="hero-dates-text">11月29日 — 12月5日</span>
+      <div class="hero-dates-line"></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <p class="section-label">行程概覽</p>
+  <h2 class="overview-title">布里斯本出發 · 一路往北 · 六晚</h2>
+  <p class="overview-desc">不逛城市。山區一晚：綠丘、牧場、Glass House 山。Noosa 三晚：海岸步道、河上遊船、海灘。最後飛 Hamilton Island 兩晚：Whitehaven 白沙灘、大堡礁。</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="info-card-icon">✈️</div>
+      <div class="info-card-label">交通</div>
+      <div class="info-card-value">BNE 會合 · 租 7 人座<br>BNE ⇄ Hamilton Island 飛</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🏨</div>
+      <div class="info-card-label">住宿</div>
+      <div class="info-card-value">Maleny 1晚 · Noosa 3晚<br>Hamilton Island 2晚</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">👥</div>
+      <div class="info-card-label">人數</div>
+      <div class="info-card-value">5人<br>Patty · Donald · Alice · 爸 · 媽</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMED BOOKINGS -->
+<div class="confirmed-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>✅ 訂位狀態</h3></div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">澳洲 ETA 電子簽證 · 全員（Australian ETA app）</div>
+      <div class="confirmed-code pending">⚠️ 待辦</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">TPE → HKG · 11/28（爸 · 媽）接 CX153</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">HKG → BNE · CX153 · 11/28 11:55 PM → 11/29 10:45 AM（Patty · 爸 · 媽）</div>
+      <div class="confirmed-code">✅ 確認</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LAX → BNE · 11/29 上午到（Donald）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">SFO → BNE · 11/29 上午到（Alice）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">租車 · 7 人座 · BNE 機場 11/29 取 → 12/3 還</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Spicers Tamarind Retreat · 3 間 · 11/29（1晚）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">The Tamarind · 晚餐（11/29，5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Netanya Noosa · 三房海景公寓 · 11/30–12/3（3晚）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Sails · 晚餐（11/30，5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Bistro C · 晚餐（12/1，5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Noosa Everglades 遊船 · 12/2 上午（5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">K'gari 一日遊 · Noosa 接送（12/2，取代 Everglades）</div>
+      <div class="confirmed-code">◻️ 候選</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Rickys River Bar · 晚餐（12/2，5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">BNE → HTI · 12/3 中午（5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">qualia · 3 間 · 12/3–12/5（2晚）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Bommie · 晚餐（12/3，5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Whitehaven Beach · Hill Inlet 半日遊（12/4 上午，5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Heart Reef 直升機（12/4）</div>
+      <div class="confirmed-code">◻️ 候選</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Long Pavilion · 晚餐（12/4，5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">HTI → BNE · 12/5 中午（5人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">包車 · BNE 國內線 → Howard Smith Wharves → BNE 國際線（12/5）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">BNE → HKG · CX156 · 12/5 11:55 PM（Patty · 爸 · 媽）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">HKG → TPE · 12/6（爸 · 媽）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">BNE → LAX／SFO · 12/5（Donald · Alice）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<!-- DAYS -->
+<div class="days-container">
+
+  <!-- ═══ DAY 1 ═══ -->
+  <div class="day-block" id="day1">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月29日 · 週日</div>
+        <div class="day-title">抵達 · 往北進山</div>
+        <div class="day-subtitle">BNE 會合 · Glass House Mountains · Maleny · Spicers Tamarind · The Tamarind</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">BNE → Maleny</div>
+      <iframe src="https://www.google.com/maps?q=Spicers+Tamarind+Retreat+Maleny&z=9&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">10:45 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">抵達</span>
+          <div class="timeline-name">✈️ CX153 抵達 BNE</div>
+          <div class="timeline-desc">Patty · 爸 · 媽從香港；Donald 從 LAX、Alice 從 SFO，同一個上午到。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">會合</span>
+          <div class="timeline-name">📍 BNE 會合 · 取車</div>
+          <div class="timeline-desc">7 人座。澳洲靠左開。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">1:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">風景</span>
+          <div class="timeline-name">⛰️ Glass House Mountains Lookout</div>
+          <div class="timeline-desc">火山岩峰立在平原上。停車即看。車程約 1 小時。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">1:45 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🥪 Maleny 小鎮午餐</div>
+          <div class="timeline-desc">山上酪農小鎮。車程約 25 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">3:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 Spicers Tamarind Retreat（1晚）</div>
+          <div class="timeline-desc">雨林裡的獨棟木屋。補眠。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍛 The Tamarind</div>
+          <div class="timeline-desc">度假村內，東南亞菜。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 2 ═══ -->
+  <div class="day-block" id="day2">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月30日 · 週一</div>
+        <div class="day-title">山區雨林 · 下山到 Noosa</div>
+        <div class="day-subtitle">Mary Cairncross 雨林 · Montville · Noosa · Sails</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Maleny → Montville → Noosa</div>
+      <iframe src="https://www.google.com/maps?q=Mary+Cairncross+Scenic+Reserve&z=10&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早餐</span>
+          <div class="timeline-name">☕ 飯店早餐</div>
+          <div class="timeline-desc">Check out。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">步道</span>
+          <div class="timeline-name">🌿 Mary Cairncross Scenic Reserve</div>
+          <div class="timeline-desc">雨林木棧道，平路約 45 分鐘。草坪正對 Glass House 群峰。車程 10 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">11:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🏡 Montville · 午餐</div>
+          <div class="timeline-desc">山脊上的小鎮，往下看綠丘和海岸線。車程 15 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">2:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 Netanya Noosa（3晚）</div>
+          <div class="timeline-desc">Main Beach 正前方，三房公寓。車程約 50 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">4:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">休息</span>
+          <div class="timeline-name">🏖️ Main Beach · Hastings Street</div>
+          <div class="timeline-desc">海灣朝北，浪小。有救生員的區域內下水。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🌊 Sails</div>
+          <div class="timeline-desc">Main Beach 上，海鮮。走路即到。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 3 ═══ -->
+  <div class="day-block" id="day3">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+      <div class="day-header-info">
+        <div class="day-date">12月1日 · 週二</div>
+        <div class="day-title">海岸步道 · 海灘一下午</div>
+        <div class="day-subtitle">Noosa National Park · 海灘 · Bistro C</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Noosa National Park</div>
+      <iframe src="https://www.google.com/maps?q=Noosa+National+Park+Coastal+Walk&z=14&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">7:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">步道</span>
+          <div class="timeline-name">🐨 Noosa National Park 海岸步道</div>
+          <div class="timeline-desc">Boiling Pot → Tea Tree Bay → Dolphin Point，來回約 1.5 小時。看海豚、海龜，樹上常有無尾熊。趁涼走。從公寓走路進園區。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早餐</span>
+          <div class="timeline-name">☕ Hastings Street 早午餐</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">11:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">休息</span>
+          <div class="timeline-name">🏖️ 海灘 · 泳池 · 午睡</div>
+          <div class="timeline-desc">不安排。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍽️ Bistro C</div>
+          <div class="timeline-desc">Main Beach 上，看海。走路即到。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 4 ═══ -->
+  <div class="day-block" id="day4">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
+      <div class="day-header-info">
+        <div class="day-date">12月2日 · 週三</div>
+        <div class="day-title">鏡面河 · Noosa Everglades</div>
+        <div class="day-subtitle">Everglades 遊船 · 海灘 · Rickys River Bar</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Noosa → Everglades</div>
+      <iframe src="https://www.google.com/maps?q=Noosa+Everglades+Boreen+Point&z=10&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">9:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">遊船</span>
+          <div class="timeline-name">🛥️ Noosa Everglades 遊船</div>
+          <div class="timeline-desc">「River of Mirrors」，黑水河面倒映樹林。坐船不用走，約半天，含午餐。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">2:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">休息</span>
+          <div class="timeline-name">🏖️ 回公寓 · 海灘</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">6:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🌅 Rickys River Bar</div>
+          <div class="timeline-desc">Noosa River 邊，看日落。車程 10 分鐘。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">候選</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">一日遊</span>
+          <div class="timeline-name">🚙 改去 K'gari（Fraser Island）</div>
+          <div class="timeline-desc">世界最大沙島：Lake McKenzie 白沙湖、75 Mile Beach、Eli Creek。5:30 AM 接，7 PM 回。四驅車走沙路很顛，腰背不好不建議。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 5 ═══ -->
+  <div class="day-block" id="day5">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">05</span></div>
+      <div class="day-header-info">
+        <div class="day-date">12月3日 · 週四</div>
+        <div class="day-title">飛 Whitsundays</div>
+        <div class="day-subtitle">開回 BNE · 飛 Hamilton Island · qualia · One Tree Hill 日落 · Bommie</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Hamilton Island</div>
+      <iframe src="https://www.google.com/maps?q=qualia+Hamilton+Island&z=12&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">8:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">退房</span>
+          <div class="timeline-name">🚗 Check out · 開回 BNE</div>
+          <div class="timeline-desc">約 1 小時 45 分。國內線航廈還車。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">中午</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">飛行</span>
+          <div class="timeline-name">✈️ BNE → Hamilton Island</div>
+          <div class="timeline-desc">直飛約 1 小時 50 分，Qantas 或 Virgin。飯店高爾夫車接。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">3:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 入住 qualia（2晚）</div>
+          <div class="timeline-desc">島北端，每間獨棟看海。泳池。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">6:15 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">日落</span>
+          <div class="timeline-name">🌅 One Tree Hill</div>
+          <div class="timeline-desc">全島最高的觀景點，看群島日落。高爾夫車上去。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">7:15 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍽️ Bommie</div>
+          <div class="timeline-desc">遊艇俱樂部內，看港灣。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 6 ═══ -->
+  <div class="day-block" id="day6">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">06</span></div>
+      <div class="day-header-info">
+        <div class="day-date">12月4日 · 週五</div>
+        <div class="day-title">Whitehaven 白沙灘</div>
+        <div class="day-subtitle">Hill Inlet 觀景台 · Whitehaven Beach · 泳池 · Long Pavilion</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Hamilton Island → Whitehaven</div>
+      <iframe src="https://www.google.com/maps?q=Hill+Inlet+Lookout+Whitsunday+Island&z=10&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">海上</span>
+          <div class="timeline-name">🏝️ Hill Inlet · Whitehaven Beach</div>
+          <div class="timeline-desc">Hamilton 碼頭出發，半日。上 Hill Inlet 觀景台看白沙和潮水紋路（短坡步道），下到 Whitehaven 玩水。12 月有水母，下水穿防護衣（船上提供）。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">1:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">休息</span>
+          <div class="timeline-name">🏊 回 qualia · 午餐 · 泳池</div>
+          <div class="timeline-desc">午後常有短暫雷陣雨。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">候選</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">直升機</span>
+          <div class="timeline-name">🚁 Heart Reef 直升機</div>
+          <div class="timeline-desc">從空中看心形礁和外堡礁，約 1 小時。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">7:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍽️ Long Pavilion</div>
+          <div class="timeline-desc">qualia 住客餐廳，看海。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 7 ═══ -->
+  <div class="day-block" id="day7">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">07</span></div>
+      <div class="day-header-info">
+        <div class="day-date">12月5日 · 週六</div>
+        <div class="day-title">最後的早晨 · 返程</div>
+        <div class="day-subtitle">泳池 · 飛回 BNE · Howard Smith Wharves · CX156</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早餐</span>
+          <div class="timeline-name">☕ 早餐 · 最後一次泳池</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">中午</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">飛行</span>
+          <div class="timeline-name">✈️ Hamilton Island → BNE</div>
+          <div class="timeline-desc">約 1 小時 40 分。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">5:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🌉 Howard Smith Wharves</div>
+          <div class="timeline-desc">Story Bridge 下的河邊碼頭。包車載行李，國內線接、吃完送國際線。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">11:55 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">返程</span>
+          <div class="timeline-name">✈️ 各自返程</div>
+          <div class="timeline-desc">Patty · 爸 · 媽 CX156 回香港（12/6 清晨到），爸媽轉 TPE；Donald · Alice 回 LAX／SFO。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOTELS -->
+<section class="hotels">
+  <div class="hotels-inner">
+    <p class="hotels-title">住宿 · 山 · 海 · 島</p>
+    <div class="hotel-cards">
+      <div class="hotel-card">
+        <div class="hotel-nights">Maleny · 1晚</div>
+        <div class="hotel-name">Spicers Tamarind Retreat</div>
+        <div class="hotel-note">雨林中的獨棟木屋，餐廳 The Tamarind 在園區內。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">Noosa · 3晚</div>
+        <div class="hotel-name">Netanya Noosa</div>
+        <div class="hotel-note">Main Beach 正前方，三房公寓五人一起住。走路到國家公園入口和 Hastings Street。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">Hamilton Island · 2晚</div>
+        <div class="hotel-name">qualia</div>
+        <div class="hotel-note">島北端獨棟海景，最安靜。住客專屬餐廳 Long Pavilion。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">備選 · Hamilton Island</div>
+        <div class="hotel-name">Beach Club</div>
+        <div class="hotel-note">成人限定，在 Catseye Beach 上，離碼頭和餐廳近，價位較低。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-kanji">南</div>
+  <p class="footer-text">Queensland · Noosa · Whitsundays</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
+
+  // Nav scroll
+  function scrollToDay(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 60;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Highlight active nav btn on scroll
+  const dayIds = ['day1','day2','day3','day4','day5','day6','day7'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    dayIds.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 120) current = i;
+    });
+    navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
+  });
+</script>
+</body>
+</html>
