@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>巴塞隆納 · 11月25日–12月1日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2a1f1a;
+    --sepia: #4a3a30;
+    --gold: #c2703d;
+    --gold-light: #e8c4a0;
+    --cream: #f7efe4;
+    --paper: #faf6ef;
+    --blush: #e7dccb;
+    --moss: #2b6f8f;
+    --red: #b03a2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 300;
+  }
+
+  /* ── STICKY NAV ── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid rgba(194,112,61,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--cream);
+    letter-spacing: 3px;
+  }
+  .nav-days {
+    display: flex;
+    gap: 6px;
+  }
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(194,112,61,0.25);
+    color: rgba(247,239,228,0.5);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 1px;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(165deg, #faf3e8 0%, #f0ddc4 48%, #cfe0ea 100%);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(194,112,61,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(176,58,46,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 40% at 50% 100%, rgba(43,111,143,0.1) 0%, transparent 50%);
+  }
+  .hero-lines {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    display: flex; gap: 20px; opacity: 0.15;
+  }
+  .hero-lines span { width: 1px; background: var(--gold); display: block; }
+  .hero-lines span:nth-child(1) { height: 280px; }
+  .hero-lines span:nth-child(2) { height: 200px; }
+  .hero-lines span:nth-child(3) { height: 320px; }
+  .hero-circle {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(194,112,61,0.15);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+  }
+  .hero-circle:nth-child(2) { width: 700px; height: 700px; border-color: rgba(194,112,61,0.08); }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: 40px 20px; }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; letter-spacing: 4px; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s ease 0.3s forwards;
+  }
+  .hero-title {
+    font-size: clamp(52px, 8vw, 88px); font-weight: 300;
+    color: var(--ink); letter-spacing: -1px; line-height: 1; margin-bottom: 8px;
+    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title-en {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 22px);
+    font-style: italic; font-weight: 300; color: rgba(42,31,26,0.45);
+    letter-spacing: 6px; margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-dates {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    opacity: 0; animation: fadeUp 1s ease 0.9s forwards;
+  }
+  .hero-dates-line { width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .hero-dates-text { font-family: 'Cormorant Garamond', serif; font-size: 16px; letter-spacing: 3px; color: var(--gold); }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 0; right: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeUp 1s ease 1.5s forwards;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: 3px; padding-left: 3px; color: rgba(42,31,26,0.4); text-transform: uppercase; }
+  .scroll-hint-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+
+  /* ── OVERVIEW ── */
+  .overview { padding: 80px 24px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .section-label {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .overview-title { font-size: 28px; font-weight: 300; color: var(--sepia); margin-bottom: 24px; line-height: 1.6; }
+  .overview-desc { font-size: 15px; line-height: 2; color: rgba(42,31,26,0.65); max-width: 560px; margin: 0 auto 48px; }
+  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .info-card { background: white; border: 1px solid rgba(194,112,61,0.2); padding: 24px 16px; text-align: center; }
+  .info-card-icon { font-size: 24px; margin-bottom: 10px; }
+  .info-card-label { font-size: 11px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; }
+  .info-card-value { font-size: 14px; color: var(--sepia); line-height: 1.5; }
+
+  /* ── CONFIRMED BOOKINGS ── */
+  .confirmed-section { max-width: 800px; margin: 0 auto; padding: 0 24px 40px; }
+  .confirmed-inner { background: white; border: 1px solid rgba(43,111,143,0.25); }
+  .confirmed-header { background: rgba(43,111,143,0.08); padding: 14px 20px; border-bottom: 1px solid rgba(43,111,143,0.15); }
+  .confirmed-header h3 { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 3px; color: var(--moss); }
+  .confirmed-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid rgba(43,111,143,0.08); gap: 12px; }
+  .confirmed-row:last-child { border-bottom: none; }
+  .confirmed-name { font-size: 14px; color: var(--ink); }
+  .confirmed-code { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--moss); letter-spacing: 1px; flex-shrink: 0; }
+  .confirmed-code.pending { color: var(--red); }
+  .split-section { padding-top: 40px; }
+  .split-group { background: rgba(194,112,61,0.06); padding: 10px 20px; font-size: 13px; letter-spacing: 1px; color: var(--sepia); font-weight: 600; border-bottom: 1px solid rgba(43,111,143,0.08); }
+  .confirmed-row.subtotal .confirmed-name, .confirmed-row.subtotal .confirmed-code { font-weight: 600; }
+  .confirmed-row.settle { background: rgba(176,58,46,0.07); }
+  .confirmed-row.settle .confirmed-name, .confirmed-row.settle .confirmed-code { color: var(--red); font-weight: 600; font-size: 15px; }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(194,112,61,0.3), transparent); }
+  .divider-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  /* ── DAYS ── */
+  .days-container { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+  .day-block { margin-bottom: 80px; opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .day-block.visible { opacity: 1; transform: translateY(0); }
+
+  .day-header {
+    display: flex; align-items: flex-start; gap: 24px;
+    margin-bottom: 32px; padding-bottom: 24px;
+    border-bottom: 1px solid rgba(194,112,61,0.2);
+  }
+  .day-number {
+    flex-shrink: 0; width: 64px; height: 64px; background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .day-number-label { font-family: 'Cormorant Garamond', serif; font-size: 10px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+  .day-number-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--cream); line-height: 1; }
+  .day-header-info { flex: 1; padding-top: 4px; }
+  .day-date { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+  .day-title { font-size: 22px; font-weight: 400; color: var(--sepia); margin-bottom: 8px; line-height: 1.4; }
+  .day-subtitle { font-size: 13px; color: rgba(42,31,26,0.5); letter-spacing: 1px; }
+
+  /* ── MAP ── */
+  .day-map {
+    width: 100%; height: 320px; margin-bottom: 32px;
+    border: 1px solid rgba(194,112,61,0.2); overflow: hidden; position: relative;
+  }
+  .day-map iframe { width: 100%; height: 100%; border: none; }
+  .map-label {
+    position: absolute; bottom: 10px; left: 10px;
+    background: rgba(42,31,26,0.85); color: var(--gold);
+    font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
+    font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px;
+    background: linear-gradient(to bottom, rgba(194,112,61,0.4), rgba(194,112,61,0.1));
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; display: flex; gap: 20px; }
+  .timeline-dot {
+    position: absolute; left: -29px; top: 6px; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--cream); border: 1.5px solid var(--gold); flex-shrink: 0;
+  }
+  .timeline-dot.meal { background: var(--gold); border-color: var(--gold); }
+  .timeline-dot.highlight { background: var(--red); border-color: var(--red); }
+  .timeline-dot.confirmed { background: var(--moss); border-color: var(--moss); }
+  .timeline-time { flex-shrink: 0; width: 72px; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--gold); padding-top: 2px; letter-spacing: 0.5px; }
+  .timeline-content { flex: 1; }
+  .timeline-name { font-size: 15px; font-weight: 400; color: var(--ink); margin-bottom: 4px; line-height: 1.4; }
+  .timeline-desc { font-size: 13px; color: rgba(42,31,26,0.55); line-height: 1.7; }
+  .timeline-tag {
+    display: inline-block; font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 2px 8px; margin-bottom: 6px; border-radius: 0;
+  }
+  .tag-meal { background: rgba(194,112,61,0.12); color: var(--sepia); }
+  .tag-garden { background: rgba(43,111,143,0.12); color: var(--moss); }
+  .tag-culture { background: rgba(176,58,46,0.1); color: var(--red); }
+  .tag-shopping { background: rgba(74,58,48,0.1); color: var(--sepia); }
+  .tag-hotel { background: rgba(42,31,26,0.06); color: rgba(42,31,26,0.6); }
+  .timeline-warning { display: flex; align-items: center; gap: 6px; font-size: 11px; margin-top: 6px; letter-spacing: 0.5px; }
+  .warn-red { color: var(--red); }
+  .warn-green { color: var(--moss); }
+  .warn-gold { color: var(--gold); }
+
+  /* ── HOTELS ── */
+  .hotels { background: var(--ink); padding: 64px 24px; }
+  .hotels-inner { max-width: 800px; margin: 0 auto; }
+  .hotels-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 32px; text-align: center; }
+  .hotel-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hotel-card { border: 1px solid rgba(194,112,61,0.2); padding: 28px 24px; }
+  .hotel-nights { font-size: 11px; letter-spacing: 2px; color: rgba(194,112,61,0.6); text-transform: uppercase; margin-bottom: 8px; }
+  .hotel-name { font-size: 18px; font-weight: 300; color: var(--cream); margin-bottom: 8px; }
+  .hotel-note { font-size: 13px; color: rgba(247,239,228,0.4); line-height: 1.7; }
+
+  /* ── MUST DO ── */
+  .mustdo { padding: 64px 24px; max-width: 800px; margin: 0 auto; }
+  .mustdo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .mustdo-item { background: white; border: 1px solid rgba(194,112,61,0.15); padding: 24px; display: flex; gap: 16px; align-items: flex-start; }
+  .mustdo-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: rgba(194,112,61,0.3); line-height: 1; flex-shrink: 0; }
+  .mustdo-text { font-size: 14px; color: var(--sepia); line-height: 1.7; }
+  .mustdo-text strong { display: block; font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 13px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); padding: 48px 24px; text-align: center; }
+  .footer-kanji { font-size: 48px; font-weight: 300; color: rgba(194,112,61,0.15); margin-bottom: 16px; }
+  .footer-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: rgba(247,239,228,0.3); letter-spacing: 2px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .hero { min-height: 100svh; }
+    .hero-lines { display: none; }
+    .hero-circle { width: 280px; height: 280px; }
+    .hero-circle:nth-child(2) { width: 380px; height: 380px; }
+    .hero-title { font-size: clamp(64px, 18vw, 88px); }
+    .overview { padding: 48px 20px; }
+    .overview-title { font-size: 22px; }
+    .overview-desc { font-size: 14px; }
+    .info-cards { grid-template-columns: 1fr; gap: 10px; }
+    .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
+    .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
+    .confirmed-section { padding: 0 16px 32px; }
+    .days-container { padding: 40px 16px; }
+    .day-block { margin-bottom: 56px; }
+    .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
+    .day-number { width: 56px; height: 56px; }
+    .day-number-num { font-size: 24px; }
+    .day-title { font-size: 18px; }
+    .day-subtitle { font-size: 12px; line-height: 1.5; }
+    .day-map { height: 280px; margin-bottom: 20px; }
+    .timeline { padding-left: 24px; }
+    .timeline::before { left: 5px; }
+    .timeline-item { gap: 12px; margin-bottom: 22px; }
+    .timeline-dot { left: -21px; }
+    .timeline-time { width: 62px; font-size: 12px; }
+    .timeline-name { font-size: 14px; }
+    .timeline-desc { font-size: 12px; line-height: 1.75; }
+    .timeline-warning { font-size: 11px; }
+    .hotels { padding: 48px 16px; }
+    .hotel-cards { grid-template-columns: 1fr; gap: 12px; }
+    .hotel-card { padding: 22px 18px; }
+    .mustdo { padding: 48px 16px; }
+    .mustdo-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+    .mustdo-item { padding: 20px; }
+    .divider { padding: 0 16px; }
+    footer { padding: 40px 16px; }
+    .sticky-nav { padding: 0 16px; }
+    .nav-logo { font-size: 16px; }
+  }
+  @media (max-width: 380px) {
+    .hero-title { font-size: 58px; }
+    .timeline-time { width: 56px; font-size: 11px; }
+    .timeline-name { font-size: 13px; }
+    .nav-btn { padding: 4px 8px; font-size: 10px; }
+  }
+  @media (max-width: 768px) { .hero-title { font-size: 14vw; } }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-logo">巴塞隆納</div>
+  <div class="nav-days">
+    <button class="nav-btn" onclick="scrollToDay('day1')">25</button>
+    <button class="nav-btn" onclick="scrollToDay('day2')">26</button>
+    <button class="nav-btn" onclick="scrollToDay('day3')">27</button>
+    <button class="nav-btn" onclick="scrollToDay('day4')">28</button>
+    <button class="nav-btn" onclick="scrollToDay('day5')">29</button>
+    <button class="nav-btn" onclick="scrollToDay('day6')">30</button>
+    <button class="nav-btn" onclick="scrollToDay('day7')">1</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-lines"><span></span><span></span><span></span></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Family Trip · Catalonia</p>
+    <h1 class="hero-title">巴塞隆納</h1>
+    <p class="hero-title-en">Barcelona · Gaudí · Montserrat</p>
+    <div class="hero-dates">
+      <div class="hero-dates-line"></div>
+      <span class="hero-dates-text">11月25日 — 12月1日</span>
+      <div class="hero-dates-line"></div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <p class="section-label">行程概覽</p>
+  <h2 class="overview-title">台北經巴黎進 · 巴塞隆納五晚 · 三地各自返程</h2>
+  <p class="overview-desc">爸媽第一次來西班牙。一座城市住滿五晚，不換飯店、不趕車。高第四件代表作、哥德區和波恩區的巷子、Boqueria 市場、Montserrat 修道院一日，最後一天 Montjuïc 看港口日落。四個人的來回機票全部開完了，只有住宿和門票還沒訂。</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="info-card-icon">✈️</div>
+      <div class="info-card-label">交通</div>
+      <div class="info-card-value">爸媽和 Patty 走 TPE→CDG→BCN<br>Donald 走 LAX→CDG→BCN<br>11/26 下午在巴塞隆納會合</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🏨</div>
+      <div class="info-card-label">住宿</div>
+      <div class="info-card-value">巴塞隆納 5 晚<br>11/26 — 12/1（待訂）</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">👥</div>
+      <div class="info-card-label">人數</div>
+      <div class="info-card-value">4人<br>Patty · Donald · 爸 · 媽</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMED BOOKINGS -->
+<div class="confirmed-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>✅ 訂位狀態 · 機票</h3></div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">TPE → CDG · BR87（長榮，Air Canada 開票）· 11/25 11:30 PM → 11/26 6:50 AM · 商務艙<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">Patty · 爸 · 媽 ｜ 訂位代號 2C8RWF ｜ 桃園 T2 → 戴高樂 T1 ｜ 14 小時 20 分</span></div>
+      <div class="confirmed-code">✅ 已開票</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">CDG → BCN · VY8061（Vueling）· 11/26 9:50 AM → 11:45 AM<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">Patty · 爸 · 媽 ｜ 訂位代號 ZS7E3R ｜ 已加購托運 15kg（媽）＋ 20kg（Patty）</span></div>
+      <div class="confirmed-code">✅ 已付款</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">LAX → CDG → BCN · AF023／AF1648（法航）· 11/25 3:20 PM → 11/26 2:00 PM · 商務艙<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">Donald ｜ 同一張票 ｜ LAX T-B → 戴高樂 2E，轉 2F → BCN T1 ｜ 巴黎轉機 1 小時 ｜ 訂位代號待補</span></div>
+      <div class="confirmed-code">✅ 已開票</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">BCN → AMS → TPE · KL1514／KL807 · 12/1 1:10 PM → 12/2 3:55 PM · 商務艙<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">爸 · 媽 ｜ 維珍訂位代號 CPHJED ｜ 阿姆斯特丹轉機 4 小時 45 分</span></div>
+      <div class="confirmed-code">✅ 已開票</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">BCN → JFK → LAX · AA67／AA302 · 12/1 12:25 PM → 9:25 PM · 商務艙<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">Patty · Donald ｜ 訂位代號 FUYZGV（美航 GFODVN）｜ 紐約轉機 1 小時 55 分</span></div>
+      <div class="confirmed-code">✅ 已開票</div>
+    </div>
+  </div>
+</div>
+
+<div class="confirmed-section split-section">
+  <div class="confirmed-inner">
+    <div class="confirmed-header"><h3>📋 待辦 · 住宿 · 門票 · 證件</h3></div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">巴塞隆納住宿 · 5 晚（11/26 入住 — 12/1 退房）· 兩間房或一間兩房公寓</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">ETIAS 歐盟旅行授權 · 確認出發前是否已上路（台灣護照本身免簽）</div>
+      <div class="confirmed-code pending">⚠️ 待確認</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Sagrada Família 時段票 ＋ 導覽（4人，11/27 上午）· 一定要先買</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Park Güell 紀念區時段票（4人，11/28 上午）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Casa Batlló 或 La Pedrera 門票（4人，11/27 下午）· 選一個就好</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Montserrat 一日 · R5 火車＋齒軌或纜車聯票（4人，11/29）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">BCN 機場接送 · 11/26 11:45 到（3人）＋ 11/26 14:00 到（Donald）＋ 12/1 早上出發（4人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">晚餐訂位 · 11/27、11/28、11/30 三晚（4人）</div>
+      <div class="confirmed-code pending">⚠️ 待訂位</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Girona ／ Costa Brava 一日遊 · 若不去 Montserrat 的替代方案</div>
+      <div class="confirmed-code">◻️ 候選</div>
+    </div>
+    <div class="confirmed-row">
+      <div class="confirmed-name">Camp Nou 或 Palau de la Música 參觀</div>
+      <div class="confirmed-code">◻️ 候選</div>
+    </div>
+    <div class="confirmed-row settle">
+      <div class="confirmed-name">⚠️ CDG 轉機只有 3 小時，而且是兩張分開的票</div>
+      <div class="confirmed-code">提行李重掛</div>
+    </div>
+    <div class="confirmed-row settle">
+      <div class="confirmed-name">⚠️ JFK 轉機只有 1 小時 55 分，入境查驗＋海關＋重過安檢</div>
+      <div class="confirmed-code">風險偏高</div>
+    </div>
+    <div class="confirmed-row settle">
+      <div class="confirmed-name">⚠️ Donald 在 CDG 只有 1 小時，2E 到 2F 還要過申根查驗</div>
+      <div class="confirmed-code">法航保證</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+
+<!-- DAYS -->
+<div class="days-container">
+
+  <!-- ═══ DAY 1 ═══ -->
+  <div class="day-block" id="day1">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">01</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月25日 · 週三</div>
+        <div class="day-title">出發 · 兩邊同一天上飛機</div>
+        <div class="day-subtitle">Donald 洛杉磯下午起飛 · 爸媽和 Patty 桃園深夜起飛 · 都在巴黎轉</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">TPE → CDG</div>
+      <iframe src="https://www.google.com/maps?q=Taiwan+Taoyuan+International+Airport+Terminal+2&z=13&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">8:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">集合</span>
+          <div class="timeline-name">🚗 桃園機場 T2 報到</div>
+          <div class="timeline-desc">長榮商務艙櫃檯。行李直掛只到巴黎，不會掛到巴塞隆納——Vueling 是另一張票。</div>
+          <div class="timeline-warning warn-gold">⚠️ 提醒爸媽：行李要在戴高樂提出來重掛</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">11:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">爸 · 媽 · Patty</span>
+          <div class="timeline-name">✈️ BR87 起飛 · 777-300ER</div>
+          <div class="timeline-desc">14 小時 20 分。商務艙 I 艙。吃完第一餐就睡，巴黎是早上六點五十到。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">3:20 PM<br><span style="font-size:10px;opacity:0.65">洛杉磯</span></div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">Donald</span>
+          <div class="timeline-name">✈️ AF023 洛杉磯 → 巴黎 · 777-300</div>
+          <div class="timeline-desc">LAX Terminal B 出發，10 小時 55 分，法航商務艙。隔天上午 11:15 到戴高樂 2E。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 2 ═══ -->
+  <div class="day-block" id="day2">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">02</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月26日 · 週四</div>
+        <div class="day-title">兩班都經巴黎 · 下午四個人到齊</div>
+        <div class="day-subtitle">爸媽和 Patty 11:45 到 · Donald 2:00 PM 到 · 哥德區晚餐</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">CDG → BCN → 市區</div>
+      <iframe src="https://www.google.com/maps?q=Barri+Gotic+Barcelona&z=14&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">6:50 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">抵達</span>
+          <div class="timeline-name">🛬 戴高樂 T1 落地</div>
+          <div class="timeline-desc">這裡是第一個申根入境點，護照查驗在巴黎辦。清晨的查驗隊伍可能很長。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">7:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">轉機</span>
+          <div class="timeline-name">🧳 提行李 · 重新報到 Vueling</div>
+          <div class="timeline-desc">兩張分開的票，行李一定要自己提出來，再到 Vueling 櫃檯重掛。Vueling 在戴高樂也是 T1，不用換航廈，但出發前再確認一次。</div>
+          <div class="timeline-warning warn-red">⚠️ 落地到起飛只有 3 小時，沒有任何緩衝。班機延誤的話，Vueling 這段是另一張票，不會幫你改。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">9:50 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">飛行</span>
+          <div class="timeline-name">✈️ VY8061 巴黎 → 巴塞隆納</div>
+          <div class="timeline-desc">1 小時 55 分。11:45 到 El Prat。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">11:15 AM<br><span style="font-size:10px;opacity:0.65">巴黎</span></div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">Donald</span>
+          <div class="timeline-name">🛬 AF023 到戴高樂 2E · 轉 2F</div>
+          <div class="timeline-desc">只有 1 小時，而且要從 2E 走到 2F 並過申根查驗。好消息是同一張法航票，趕不上他們要負責改。兩邊在巴黎碰不到面——爸媽那班 9:50 就飛走了。</div>
+          <div class="timeline-warning warn-gold">⚠️ 下機就往前走，別逛免稅店</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">12:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">住宿</span>
+          <div class="timeline-name">🏨 爸媽和 Patty 進市區 · 放行李</div>
+          <div class="timeline-desc">機場到市區車程約 30 分鐘。飯店若還不能入住，先寄放行李出去走。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">Donald</span>
+          <div class="timeline-name">🛬 AF1648 到巴塞隆納 T1</div>
+          <div class="timeline-desc">比爸媽那班晚兩個多小時。自己進市區或請人接，約 2:45 PM 到飯店。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🥘 第一餐 · 海鮮飯或 tapas</div>
+          <div class="timeline-desc">西班牙午餐時間本來就晚，兩點正好。三個人先吃，Donald 下午才到。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">4:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">散步</span>
+          <div class="timeline-name">🚶 四個人會合 · 哥德區慢走</div>
+          <div class="timeline-desc">Donald 進市區後大家在飯店會合。第一天不排硬行程——石板巷子、主教橋、大教堂前廣場，走累就回去睡。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">7:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍷 飯店附近簡單吃</div>
+          <div class="timeline-desc">時差第一晚，別訂太遠太晚的餐廳。早點睡。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 3 ═══ -->
+  <div class="day-block" id="day3">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">03</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月27日 · 週五</div>
+        <div class="day-title">高第日 · 聖家堂與格拉西亞大道</div>
+        <div class="day-subtitle">Sagrada Família · Passeig de Gràcia · Casa Batlló</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Sagrada Família → Passeig de Gràcia</div>
+      <iframe src="https://www.google.com/maps?q=Sagrada+Familia+Barcelona&z=14&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">8:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">早餐</span>
+          <div class="timeline-name">☕ 咖啡配可頌</div>
+          <div class="timeline-desc">西班牙早餐很輕。吃完直接去聖家堂。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">必看</span>
+          <div class="timeline-name">⛪ 聖家堂 Sagrada Família</div>
+          <div class="timeline-desc">早上的光從東側彩繪玻璃進來，整個中殿是藍綠色；下午換成紅橘色。爸媽的話建議加導覽，不用爬塔也值得。</div>
+          <div class="timeline-warning warn-red">⚠️ 一定要先在官網買時段票，現場幾乎買不到</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">12:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🥗 Eixample 區午餐</div>
+          <div class="timeline-desc">走十分鐘離開教堂人群，找有 menú del día 的店，三道菜加飲料很划算。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">2:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">建築</span>
+          <div class="timeline-name">🏛️ 格拉西亞大道 · Casa Batlló／La Pedrera</div>
+          <div class="timeline-desc">兩棟高第的房子隔幾個街口。四個人只挑一棟進去就夠了——Casa Batlló 內部更華麗，La Pedrera 的屋頂煙囪更有名。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-shopping">逛街</span>
+          <div class="timeline-name">🛍️ 大道上走走</div>
+          <div class="timeline-desc">名店和百年建築混在一起。累了進 Casa Amatller 的咖啡廳坐著。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">8:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍤 正式一點的一餐</div>
+          <div class="timeline-desc">這晚值得訂位。海鮮、烤乳豬、或 Eixample 的現代加泰隆尼亞菜。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 4 ═══ -->
+  <div class="day-block" id="day4">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">04</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月28日 · 週六</div>
+        <div class="day-title">奎爾公園 · 格拉西亞老城區</div>
+        <div class="day-subtitle">Park Güell · Gràcia · Bunkers del Carmel 日落</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Park Güell → Gràcia → Bunkers</div>
+      <iframe src="https://www.google.com/maps?q=Park+Guell+Barcelona&z=14&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">必看</span>
+          <div class="timeline-name">🦎 奎爾公園 Park Güell</div>
+          <div class="timeline-desc">馬賽克蜥蜴、波浪長椅、俯瞰全城。紀念區要時段票，公園其他部分免費。</div>
+          <div class="timeline-warning warn-gold">⚠️ 在山坡上，入口到紀念區有一段上坡——爸媽的話走側門電扶梯那邊</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">12:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🍲 Gràcia 區午餐</div>
+          <div class="timeline-desc">下山走進老城區，一個個小廣場串起來。這區比市中心安靜，當地人吃飯的地方。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">2:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">休息</span>
+          <div class="timeline-name">😴 回飯店午休</div>
+          <div class="timeline-desc">西班牙人下午也休息。走了兩天，這天留一段空白。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">4:45 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">日落</span>
+          <div class="timeline-name">🌅 Bunkers del Carmel</div>
+          <div class="timeline-desc">西班牙內戰的舊防空砲台，現在是全城最好的觀景點，整個巴塞隆納和海一起看。十一月底天黑得早，五點半前要到。</div>
+          <div class="timeline-warning warn-gold">⚠️ 計程車上去，最後一段還是要走樓梯</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">8:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🍢 Tapas 一家接一家</div>
+          <div class="timeline-desc">不訂大餐，站著吃幾間。火腿、炸可樂餅、辣馬鈴薯、烤章魚。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 5 ═══ -->
+  <div class="day-block" id="day5">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">05</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月29日 · 週日</div>
+        <div class="day-title">蒙特塞拉特一日 · 山上的修道院</div>
+        <div class="day-subtitle">R5 火車 · Montserrat · 黑面聖母 · 山上步道</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">Barcelona → Montserrat</div>
+      <iframe src="https://www.google.com/maps?q=Montserrat+Monastery+Spain&z=11&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">8:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">交通</span>
+          <div class="timeline-name">🚆 Plaça Espanya 搭 R5</div>
+          <div class="timeline-desc">約 1 小時到山腳，再換齒軌火車或纜車上山。聯票一次買好來回和上山段。齒軌火車比纜車平穩，爸媽坐這個。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">10:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">必看</span>
+          <div class="timeline-name">⛰️ 蒙特塞拉特修道院</div>
+          <div class="timeline-desc">鋸齒狀的岩峰上一整座修道院。進聖殿看黑面聖母 La Moreneta，隊伍通常不短。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">12:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">音樂</span>
+          <div class="timeline-name">🎵 Escolania 少年合唱團</div>
+          <div class="timeline-desc">歐洲最古老的少年合唱團之一，在聖殿內唱。</div>
+          <div class="timeline-warning warn-red">⚠️ 演唱時間和休假週會變動，出發前上官網對一次當天的時刻</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">1:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🧺 山上簡餐</div>
+          <div class="timeline-desc">山上選擇不多，自助餐廳或小吃攤。市集買當地蜂蜜和 mel i mató 起司。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">2:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">步道</span>
+          <div class="timeline-name">🚡 Sant Joan 纜車 · 平路步道</div>
+          <div class="timeline-desc">再往上一段纜車，上面有幾條平緩步道看整片岩峰和山谷。不想走的人在修道院前曬太陽也很好。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">5:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">交通</span>
+          <div class="timeline-name">🚆 下山回巴塞隆納</div>
+          <div class="timeline-desc">約 6:30 PM 回到市區。晚餐就近吃。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 6 ═══ -->
+  <div class="day-block" id="day6">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">06</span></div>
+      <div class="day-header-info">
+        <div class="day-date">11月30日 · 週一</div>
+        <div class="day-title">市場 · 波恩區 · Montjuïc 看港口</div>
+        <div class="day-subtitle">La Boqueria · El Born · 纜車 · 最後一晚</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">La Boqueria → El Born → Montjuïc</div>
+      <iframe src="https://www.google.com/maps?q=Mercat+de+la+Boqueria+Barcelona&z=14&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">市場</span>
+          <div class="timeline-name">🍊 La Boqueria 市場早餐</div>
+          <div class="timeline-desc">在吧檯吃現煎海鮮和火腿，果汁一杯一歐。早上去才看得到真正在採買的人。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">11:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">散步</span>
+          <div class="timeline-name">🚶 波恩區 El Born</div>
+          <div class="timeline-desc">海洋聖母教堂、窄巷、小店。這區的巷子比哥德區更寬鬆好走。</div>
+          <div class="timeline-warning warn-gold">⚠️ 週一很多博物館休館（畢卡索、MNAC 都可能），今天就不排館內行程</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">1:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">午餐</span>
+          <div class="timeline-name">🥘 Barceloneta 海邊午餐</div>
+          <div class="timeline-desc">走到海灘那側吃海鮮飯。十一月底不游泳，但沙灘走一走很舒服。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">3:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-garden">風景</span>
+          <div class="timeline-name">🚠 Montjuïc 纜車 · 城堡</div>
+          <div class="timeline-desc">從港邊搭纜車上山，整個港口和貨櫃碼頭在腳下。城堡平台繞一圈。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot highlight"></div>
+        <div class="timeline-time">5:30 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">日落</span>
+          <div class="timeline-name">⛲ 國家宮階梯 · 魔幻噴泉</div>
+          <div class="timeline-desc">MNAC 前的大階梯看回市區。噴泉冬季場次不一定有，到了再看。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot meal"></div>
+        <div class="timeline-time">8:00 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-meal">晚餐</span>
+          <div class="timeline-name">🥂 最後一晚 · 四個人好好吃一餐</div>
+          <div class="timeline-desc">明天中午全部人都在飛機上，今晚訂一間像樣的。回去收行李早點睡。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DAY 7 ═══ -->
+  <div class="day-block" id="day7">
+    <div class="day-header">
+      <div class="day-number"><span class="day-number-label">DAY</span><span class="day-number-num">07</span></div>
+      <div class="day-header-info">
+        <div class="day-date">12月1日 · 週二</div>
+        <div class="day-title">分頭回家 · 兩班飛機差 45 分鐘</div>
+        <div class="day-subtitle">爸媽經阿姆斯特丹回台北 · Patty Donald 經紐約回洛杉磯</div>
+      </div>
+    </div>
+
+    <div class="day-map">
+      <div class="map-label">BCN El Prat</div>
+      <iframe src="https://www.google.com/maps?q=Barcelona+El+Prat+Airport+Terminal+1&z=14&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">8:00 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-hotel">退房</span>
+          <div class="timeline-name">🧳 退房 · 一起去機場</div>
+          <div class="timeline-desc">兩班飛機都在中午前後起飛，四個人同一趟車去。</div>
+          <div class="timeline-warning warn-gold">⚠️ 確認 KLM 和美航在 El Prat 是否同一航廈，不然要分兩個下車點</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">9:30 AM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">機場</span>
+          <div class="timeline-name">🛂 報到 · 退稅 · 道別</div>
+          <div class="timeline-desc">有買東西要退稅的先去辦。非申根出境查驗兩邊都要過。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">12:25 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">Patty · Donald</span>
+          <div class="timeline-name">✈️ AA67 巴塞隆納 → 紐約</div>
+          <div class="timeline-desc">4:05 PM 到 JFK。入境查驗、提行李過海關、再重新託運過安檢，接 6:00 PM 的 AA302。</div>
+          <div class="timeline-warning warn-red">⚠️ 只有 1 小時 55 分。入境隊伍一長就會趕不上，先查好 JFK 的轉機動線和備案班次</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">1:10 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">爸 · 媽</span>
+          <div class="timeline-name">✈️ KL1514 巴塞隆納 → 阿姆斯特丹</div>
+          <div class="timeline-desc">3:35 PM 到史基浦，轉機 4 小時 45 分，8:20 PM 接 KL807 直飛台北。兩段都是商務艙。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">9:25 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">抵達</span>
+          <div class="timeline-name">🛬 AA302 到洛杉磯</div>
+          <div class="timeline-desc">Patty 和 Donald 當天晚上就到家。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot confirmed"></div>
+        <div class="timeline-time">12/2 3:55 PM</div>
+        <div class="timeline-content">
+          <span class="timeline-tag tag-culture">抵達</span>
+          <div class="timeline-name">🛬 KL807 到桃園</div>
+          <div class="timeline-desc">爸媽隔天下午到。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOTELS -->
+<section class="hotels">
+  <div class="hotels-inner">
+    <p class="hotels-title">住宿 · 五晚不換飯店</p>
+    <div class="hotel-cards">
+      <div class="hotel-card">
+        <div class="hotel-nights">Eixample · 5晚（首選區域）</div>
+        <div class="hotel-name">格拉西亞大道一帶</div>
+        <div class="hotel-note">走路到聖家堂和高第的房子，街道寬、好推行李、晚上安靜。爸媽第一次來的最穩選擇。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">備選 · El Born／哥德區</div>
+        <div class="hotel-name">老城區</div>
+        <div class="hotel-note">巷子裡最有味道，走路到市場和海邊。但石板路拖行李辛苦，週末夜裡吵。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">房型</div>
+        <div class="hotel-name">兩間房 或 兩房公寓</div>
+        <div class="hotel-note">四個人。公寓有廚房和洗衣機，長住五晚比較舒服；飯店則有早餐和行李寄放。</div>
+      </div>
+      <div class="hotel-card">
+        <div class="hotel-nights">⚠️ 還沒訂</div>
+        <div class="hotel-name">五晚全空</div>
+        <div class="hotel-note">11/26 入住、12/1 退房。機票都開完了，住宿是現在最該補的一項。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUST DO -->
+<section class="mustdo">
+  <p class="section-label">出發前要處理</p>
+  <div class="mustdo-grid">
+    <div class="mustdo-item">
+      <div class="mustdo-num">01</div>
+      <div class="mustdo-text"><strong>訂巴塞隆納五晚住宿</strong>機票全開完了，住宿還是空的。11/26 入住、12/1 退房，四個人。</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">02</div>
+      <div class="mustdo-text"><strong>補上 Donald 的法航訂位代號</strong>AF023／AF1648 已開票，但代號還沒記進來。順便確認 1 小時的 CDG 轉機。</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">03</div>
+      <div class="mustdo-text"><strong>聖家堂和奎爾公園時段票</strong>兩個都要指定時段，臨櫃幾乎買不到。先鎖 11/27 和 11/28 上午。</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">04</div>
+      <div class="mustdo-text"><strong>CDG 轉機 3 小時的備案</strong>分開票、要提行李重掛。想清楚 BR87 延誤時怎麼辦。</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">05</div>
+      <div class="mustdo-text"><strong>JFK 轉機 1 小時 55 分</strong>入境加海關加重過安檢。查 AA67 的實際準點率，和當天後面還有哪些 JFK → LAX 班次。</div>
+    </div>
+    <div class="mustdo-item">
+      <div class="mustdo-num">06</div>
+      <div class="mustdo-text"><strong>確認 ETIAS 是否已上路</strong>台灣護照免簽，但若 ETIAS 已啟用就要線上先申請。</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-kanji">西</div>
+  <p class="footer-text">Barcelona · Catalonia · Montserrat</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.day-block').forEach(el => observer.observe(el));
+
+  // Nav scroll
+  function scrollToDay(id) {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 60;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+
+  // Highlight active nav btn on scroll
+  const dayIds = ['day1','day2','day3','day4','day5','day6','day7'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    dayIds.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top < 120) current = i;
+    });
+    navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
+  });
+</script>
+</body>
+</html>
