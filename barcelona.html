@@ -166,6 +166,26 @@
   .confirmed-row.settle { background: rgba(176,58,46,0.07); }
   .confirmed-row.settle .confirmed-name, .confirmed-row.settle .confirmed-code { color: var(--red); font-weight: 600; font-size: 15px; }
 
+  /* ── MEALS ── */
+  .meals { max-width: 800px; margin: 0 auto; padding: 40px 24px 48px; }
+  .meals .section-label { text-align: center; }
+  .meal-table { width: 100%; border-collapse: collapse; background: white; border: 1px solid rgba(194,112,61,0.25); table-layout: fixed; }
+  .meal-table th { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 13px; letter-spacing: 3px; color: var(--gold); background: rgba(194,112,61,0.06); padding: 12px 14px; text-align: left; border-bottom: 1px solid rgba(194,112,61,0.2); }
+  .meal-table th:first-child { width: 104px; }
+  .meal-table td { padding: 14px; vertical-align: top; border-bottom: 1px solid rgba(194,112,61,0.12); border-left: 1px solid rgba(194,112,61,0.08); }
+  .meal-table tr:last-child td { border-bottom: none; }
+  .meal-day { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--sepia); line-height: 1.2; border-left: none !important; }
+  .meal-day small { display: block; font-family: 'Noto Serif TC', serif; font-size: 11px; color: rgba(42,31,26,0.45); letter-spacing: 1px; margin-top: 4px; }
+  .meal-time { display: block; font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 1px; color: rgba(42,31,26,0.45); margin-bottom: 2px; }
+  .meal-name { font-size: 14px; color: var(--ink); line-height: 1.5; }
+  .meal-note { display: block; font-size: 12px; color: rgba(42,31,26,0.5); line-height: 1.6; margin-top: 2px; }
+  .meal-status { display: inline-block; font-family: 'Cormorant Garamond', serif; font-size: 13px; color: var(--moss); margin-top: 4px; }
+  .meal-status.pending { color: var(--red); }
+  .meal-status.maybe { color: rgba(42,31,26,0.5); }
+  .meal-table td.meal-none .meal-name { color: rgba(42,31,26,0.35); }
+  .meal-candidates { margin-top: 12px; font-size: 13px; color: rgba(42,31,26,0.6); line-height: 1.8; }
+  .meal-candidates strong { color: var(--sepia); font-weight: 600; }
+
   /* ── DIVIDER ── */
   .divider { display: flex; align-items: center; gap: 16px; padding: 0 24px; max-width: 800px; margin: 0 auto; }
   .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(194,112,61,0.3), transparent); }
@@ -279,6 +299,17 @@
     .info-card { padding: 18px 16px; display: flex; align-items: center; gap: 16px; text-align: left; }
     .info-card-icon { font-size: 28px; margin-bottom: 0; flex-shrink: 0; }
     .confirmed-section { padding: 0 16px 32px; }
+    .meals { padding: 32px 16px 40px; }
+    .meal-table, .meal-table tbody, .meal-table tr, .meal-table td { display: block; width: 100%; }
+    .meal-table thead { display: none; }
+    .meal-table tr { border-bottom: 1px solid rgba(194,112,61,0.2); }
+    .meal-table tr:last-child { border-bottom: none; }
+    .meal-table td { border: none; padding: 6px 16px 6px 64px; position: relative; }
+    .meal-table td::before { content: attr(data-meal); position: absolute; left: 16px; top: 8px; font-size: 11px; letter-spacing: 1px; color: var(--gold); }
+    .meal-table td.meal-day { padding: 14px 16px 6px; background: rgba(194,112,61,0.06); }
+    .meal-table td.meal-day::before { content: none; }
+    .meal-table td:last-child { padding-bottom: 14px; }
+    .meal-day small { display: inline; margin-left: 8px; }
     .days-container { padding: 40px 16px; }
     .day-block { margin-bottom: 56px; }
     .day-header { gap: 16px; padding-bottom: 20px; margin-bottom: 20px; }
@@ -483,6 +514,52 @@
     </div>
   </div>
 </div>
+
+<section class="meals">
+  <p class="section-label">三餐</p>
+  <table class="meal-table">
+    <thead><tr><th></th><th>早餐</th><th>午餐</th><th>晚餐</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="meal-day">11/26<small>週四 · 抵達</small></td>
+        <td data-meal="早餐" class="meal-none"><div class="meal-name">機上 · 戴高樂轉機</div></td>
+        <td data-meal="午餐"><span class="meal-time">2:00 PM</span><div class="meal-name">海鮮飯或 tapas</div><span class="meal-note">飯店附近，三個人先吃</span></td>
+        <td data-meal="晚餐"><span class="meal-time">7:00 PM</span><div class="meal-name">Nineteen Restaurant</div><span class="meal-note">Olivia Plaza Hotel · 廣場上</span><span class="meal-status">✅ 確認</span></td>
+      </tr>
+      <tr>
+        <td class="meal-day">11/27<small>週五 · 哥德區</small></td>
+        <td data-meal="早餐"><span class="meal-time">9:00 AM</span><div class="meal-name">外面吃</div><span class="meal-note">哥德區附近</span></td>
+        <td data-meal="午餐"><span class="meal-time">1:00 PM</span><div class="meal-name">Cañete</div><span class="meal-note">Carrer de la Unió 17 · tapas 吧台</span><span class="meal-status">✅ 確認</span></td>
+        <td data-meal="晚餐"><span class="meal-time">8:30 PM</span><div class="meal-name">正式晚餐</div><span class="meal-note">候選：Estimar · Caelis · Koy Shunka · Ten's</span><span class="meal-status pending">⚠️ 待訂位</span></td>
+      </tr>
+      <tr>
+        <td class="meal-day">11/28<small>週六 · 音樂宮</small></td>
+        <td data-meal="早餐"><span class="meal-time">8:30 AM</span><div class="meal-name">外面吃</div><span class="meal-note">往音樂宮的路上</span></td>
+        <td data-meal="午餐"><span class="meal-time">12:30 PM</span><div class="meal-name">El Born tapas</div><span class="meal-note">候選：SAGÀS · La Carassa · Llamber</span></td>
+        <td data-meal="晚餐"><span class="meal-time">8:00 PM</span><div class="meal-name">Eixample 晚餐</div><span class="meal-note">候選：Bar Mut</span><span class="meal-status pending">⚠️ 待訂位</span></td>
+      </tr>
+      <tr>
+        <td class="meal-day">11/29<small>週日 · Tossa</small></td>
+        <td data-meal="早餐"><span class="meal-time">8:15 AM</span><div class="meal-name">外面吃</div><span class="meal-note">出發前</span></td>
+        <td data-meal="午餐"><span class="meal-time">1:00 PM</span><div class="meal-name">Tossa 海邊 · cim i tomba</div><span class="meal-note">淡季，前一天確認營業</span></td>
+        <td data-meal="晚餐"><span class="meal-time">8:00 PM</span><div class="meal-name">回市區後</div><span class="meal-note">7:00 PM 左右回到</span></td>
+      </tr>
+      <tr>
+        <td class="meal-day">11/30<small>週一 · Montserrat</small></td>
+        <td data-meal="早餐"><span class="meal-time">7:45 AM</span><div class="meal-name">外面吃</div><span class="meal-note">出發前</span></td>
+        <td data-meal="午餐"><span class="meal-time">2:30 PM</span><div class="meal-name">Sitges 海邊海鮮</div><span class="meal-note">Passeig Marítim</span></td>
+        <td data-meal="晚餐"><span class="meal-time">8:30 PM</span><div class="meal-name">最後一晚</div><span class="meal-note">週一很多餐廳公休</span><span class="meal-status pending">⚠️ 待訂位</span></td>
+      </tr>
+      <tr>
+        <td class="meal-day">12/1<small>週二 · 回家</small></td>
+        <td data-meal="早餐"><span class="meal-time">7:30 AM</span><div class="meal-name">外面吃</div><span class="meal-note">退房前</span></td>
+        <td data-meal="午餐" class="meal-none"><div class="meal-name">機場 · 機上</div></td>
+        <td data-meal="晚餐" class="meal-none"><div class="meal-name">機上</div></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="meal-candidates"><strong>候選還沒排：</strong>Prado de Flores · Honest Greens</div>
+</section>
 
 <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
 
