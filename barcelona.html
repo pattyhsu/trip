@@ -183,6 +183,9 @@
   .meal-status.pending { color: var(--red); }
   .meal-status.maybe { color: rgba(42,31,26,0.5); }
   .meal-table td.meal-none .meal-name { color: rgba(42,31,26,0.35); }
+  .meal-cuisine { display: block; font-size: 12px; color: var(--gold); letter-spacing: 1px; margin-top: 1px; }
+  .meal-cand { display: block; font-size: 12px; color: rgba(42,31,26,0.6); line-height: 1.7; }
+  .meal-cand em { font-style: normal; color: var(--gold); }
   .meal-candidates { margin-top: 12px; font-size: 13px; color: rgba(42,31,26,0.6); line-height: 1.8; }
   .meal-candidates strong { color: var(--sepia); font-weight: 600; }
 
@@ -451,11 +454,11 @@
   <div class="confirmed-inner">
     <div class="confirmed-header"><h3>✅ 訂位狀態 · 餐廳</h3></div>
     <div class="confirmed-row">
-      <div class="confirmed-name">Nineteen Restaurant · Olivia Plaza Hotel · 11/26 7:00 PM 晚餐<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">Plaça de Catalunya ｜ 4人 ｜ 訂位折扣 −40%</span></div>
+      <div class="confirmed-name">Nineteen Restaurant · Olivia Plaza Hotel · 11/26 7:00 PM 晚餐<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">地中海 · 加泰隆尼亞 ｜ Plaça de Catalunya ｜ 4人 ｜ 訂位折扣 −40%</span></div>
       <div class="confirmed-code">✅ 確認</div>
     </div>
     <div class="confirmed-row">
-      <div class="confirmed-name">Cañete · 11/27 1:00 PM 午餐<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">Carrer de la Unió 17 ｜ 4人 ｜ Patty Hsu</span></div>
+      <div class="confirmed-name">Cañete · 11/27 1:00 PM 午餐<br><span style="font-size:12px;color:rgba(42,31,26,0.5)">西班牙 tapas ｜ Carrer de la Unió 17 ｜ 4人 ｜ Patty Hsu</span></div>
       <div class="confirmed-code">✅ 確認</div>
     </div>
   </div>
@@ -489,11 +492,11 @@
       <div class="confirmed-code pending">⚠️ 待訂位</div>
     </div>
     <div class="confirmed-row">
-      <div class="confirmed-name">餐廳 · Prado de Flores Restaurant</div>
+      <div class="confirmed-name">餐廳 · Prado de Flores Restaurant · 地中海 · 魚</div>
       <div class="confirmed-code">◻️ 候選</div>
     </div>
     <div class="confirmed-row">
-      <div class="confirmed-name">餐廳 · Honest Greens · 健康餐連鎖</div>
+      <div class="confirmed-name">餐廳 · Honest Greens · 健康餐連鎖 · 沙拉碗</div>
       <div class="confirmed-code">◻️ 候選</div>
     </div>
     <div class="confirmed-row">
@@ -523,31 +526,31 @@
       <tr>
         <td class="meal-day">11/26<small>週四 · 抵達</small></td>
         <td data-meal="早餐" class="meal-none"><div class="meal-name">機上 · 戴高樂轉機</div></td>
-        <td data-meal="午餐"><span class="meal-time">2:00 PM</span><div class="meal-name">海鮮飯或 tapas</div><span class="meal-note">飯店附近，三個人先吃</span></td>
-        <td data-meal="晚餐"><span class="meal-time">7:00 PM</span><div class="meal-name">Nineteen Restaurant</div><span class="meal-note">Olivia Plaza Hotel · 廣場上</span><span class="meal-status">✅ 確認</span></td>
+        <td data-meal="午餐"><span class="meal-time">2:00 PM</span><div class="meal-name">海鮮飯或 tapas</div><span class="meal-cuisine">西班牙菜</span><span class="meal-note">飯店附近，三個人先吃</span></td>
+        <td data-meal="晚餐"><span class="meal-time">7:00 PM</span><div class="meal-name">Nineteen Restaurant</div><span class="meal-cuisine">地中海 · 加泰隆尼亞</span><span class="meal-note">Olivia Plaza Hotel · 廣場上</span><span class="meal-status">✅ 確認</span></td>
       </tr>
       <tr>
         <td class="meal-day">11/27<small>週五 · 哥德區</small></td>
         <td data-meal="早餐"><span class="meal-time">9:00 AM</span><div class="meal-name">外面吃</div><span class="meal-note">哥德區附近</span></td>
-        <td data-meal="午餐"><span class="meal-time">1:00 PM</span><div class="meal-name">Cañete</div><span class="meal-note">Carrer de la Unió 17 · tapas 吧台</span><span class="meal-status">✅ 確認</span></td>
-        <td data-meal="晚餐"><span class="meal-time">8:30 PM</span><div class="meal-name">正式晚餐</div><span class="meal-note">候選：Estimar · Caelis · Koy Shunka · Ten's</span><span class="meal-status pending">⚠️ 待訂位</span></td>
+        <td data-meal="午餐"><span class="meal-time">1:00 PM</span><div class="meal-name">Cañete</div><span class="meal-cuisine">西班牙 tapas · 吧台</span><span class="meal-note">Carrer de la Unió 17</span><span class="meal-status">✅ 確認</span></td>
+        <td data-meal="晚餐"><span class="meal-time">8:30 PM</span><div class="meal-name">正式晚餐</div><span class="meal-note">候選：</span><span class="meal-cand">Estimar <em>海鮮 · 米其林推薦</em></span><span class="meal-cand">Caelis <em>法式加泰隆尼亞 · 米其林一星</em></span><span class="meal-cand">Koy Shunka <em>日本料理 · 米其林一星</em></span><span class="meal-cand">Ten's <em>創意 tapas</em></span><span class="meal-status pending">⚠️ 待訂位</span></td>
       </tr>
       <tr>
         <td class="meal-day">11/28<small>週六 · 音樂宮</small></td>
         <td data-meal="早餐"><span class="meal-time">8:30 AM</span><div class="meal-name">外面吃</div><span class="meal-note">往音樂宮的路上</span></td>
-        <td data-meal="午餐"><span class="meal-time">12:30 PM</span><div class="meal-name">El Born tapas</div><span class="meal-note">候選：SAGÀS · La Carassa · Llamber</span></td>
-        <td data-meal="晚餐"><span class="meal-time">8:00 PM</span><div class="meal-name">Eixample 晚餐</div><span class="meal-note">候選：Bar Mut</span><span class="meal-status pending">⚠️ 待訂位</span></td>
+        <td data-meal="午餐"><span class="meal-time">12:30 PM</span><div class="meal-name">El Born tapas</div><span class="meal-note">候選：</span><span class="meal-cand">SAGÀS <em>加泰隆尼亞三明治 · 農場食材</em></span><span class="meal-cand">Llamber <em>現代 tapas</em></span></td>
+        <td data-meal="晚餐"><span class="meal-time">8:00 PM</span><div class="meal-name">Eixample 晚餐</div><span class="meal-note">候選：</span><span class="meal-cand">Bar Mut <em>小酒館 tapas · 海鮮</em></span><span class="meal-status pending">⚠️ 待訂位</span></td>
       </tr>
       <tr>
         <td class="meal-day">11/29<small>週日 · Tossa</small></td>
         <td data-meal="早餐"><span class="meal-time">8:15 AM</span><div class="meal-name">外面吃</div><span class="meal-note">出發前</span></td>
-        <td data-meal="午餐"><span class="meal-time">1:00 PM</span><div class="meal-name">Tossa 海邊 · cim i tomba</div><span class="meal-note">淡季，前一天確認營業</span></td>
+        <td data-meal="午餐"><span class="meal-time">1:00 PM</span><div class="meal-name">Tossa 海邊 · cim i tomba</div><span class="meal-cuisine">魚燉馬鈴薯 · 當地菜</span><span class="meal-note">淡季，前一天確認營業</span></td>
         <td data-meal="晚餐"><span class="meal-time">8:00 PM</span><div class="meal-name">回市區後</div><span class="meal-note">7:00 PM 左右回到</span></td>
       </tr>
       <tr>
         <td class="meal-day">11/30<small>週一 · Montserrat</small></td>
         <td data-meal="早餐"><span class="meal-time">7:45 AM</span><div class="meal-name">外面吃</div><span class="meal-note">出發前</span></td>
-        <td data-meal="午餐"><span class="meal-time">2:30 PM</span><div class="meal-name">Sitges 海邊海鮮</div><span class="meal-note">Passeig Marítim</span></td>
+        <td data-meal="午餐"><span class="meal-time">2:30 PM</span><div class="meal-name">Sitges 海邊</div><span class="meal-cuisine">海鮮 · 海鮮飯</span><span class="meal-note">Passeig Marítim</span></td>
         <td data-meal="晚餐"><span class="meal-time">8:30 PM</span><div class="meal-name">最後一晚</div><span class="meal-note">週一很多餐廳公休</span><span class="meal-status pending">⚠️ 待訂位</span></td>
       </tr>
       <tr>
@@ -558,7 +561,7 @@
       </tr>
     </tbody>
   </table>
-  <div class="meal-candidates"><strong>候選還沒排：</strong>Prado de Flores · Honest Greens</div>
+  <div class="meal-candidates"><strong>候選還沒排：</strong>Prado de Flores（地中海 · 魚）· Honest Greens（健康餐 · 沙拉碗）</div>
 </section>
 
 <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
