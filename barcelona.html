@@ -221,12 +221,25 @@
     border: 1px solid rgba(194,112,61,0.2); overflow: hidden; position: relative;
   }
   .day-map iframe { width: 100%; height: 100%; border: none; }
+  .route-map { width: 100%; height: 100%; background: var(--cream); }
+  .route-map .leaflet-tile-pane { filter: saturate(0.55) sepia(0.12); }
+  .route-pin {
+    width: 22px; height: 22px; border-radius: 50%; background: var(--gold); color: #fff;
+    border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.35);
+    font: 600 11px/18px 'Cormorant Garamond', serif; text-align: center; white-space: nowrap;
+  }
+  .route-pin.wide { width: auto; padding: 0 5px; border-radius: 11px; }
+  .map-open {
+    position: absolute; top: 10px; right: 10px; z-index: 1001;
+    background: rgba(250,246,239,0.95); color: var(--sepia); text-decoration: none;
+    font-size: 11px; letter-spacing: 1px; padding: 4px 10px; border: 1px solid rgba(194,112,61,0.35);
+  }
   .map-label {
     position: absolute; bottom: 10px; left: 10px;
     background: rgba(42,31,26,0.85); color: var(--gold);
     font-size: 9px; letter-spacing: 2px; padding: 4px 10px;
     font-family: 'Cormorant Garamond', serif; text-transform: uppercase;
-    pointer-events: none; z-index: 1;
+    pointer-events: none; z-index: 1001;
   }
 
   /* ── TIMELINE ── */
@@ -348,6 +361,7 @@
   }
   @media (max-width: 768px) { .hero-title { font-size: 14vw; } }
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
 
@@ -638,7 +652,8 @@
 
     <div class="day-map">
       <div class="map-label">CDG → BCN → 市區</div>
-      <iframe src="https://maps.google.com/maps?saddr=Barcelona+El+Prat+Airport+Terminal+1&amp;daddr=BLESS+Hotel+Barcelona+to:L%27Antiquari+Gastronomic+Barcelona&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+      <div class="route-map" data-mode="car" data-stops="[[&quot;巴塞隆納機場 T1&quot;, 41.2887, 2.0731], [&quot;BLESS Barcelona&quot;, 41.38793, 2.16939], [&quot;L&#x27;Antiquari Gastronòmic&quot;, 41.3999, 2.1556]]"></div>
+      <a class="map-open" href="https://www.google.com/maps/dir/?api=1&amp;origin=41.2887%2C2.0731&amp;destination=41.3999%2C2.1556&amp;travelmode=driving&amp;waypoints=41.38793%2C2.16939" target="_blank" rel="noopener">Google 地圖路線 ↗</a>
     </div>
 
     <div class="timeline">
@@ -742,7 +757,8 @@
 
     <div class="day-map">
       <div class="map-label">音樂宮 → 大教堂 → Sagrada Família</div>
-      <iframe src="https://maps.google.com/maps?saddr=BLESS+Hotel+Barcelona&amp;daddr=Palau+de+la+Musica+Catalana+to:Catedral+de+Barcelona+to:BLESS+Hotel+Barcelona+to:Canete+Carrer+de+la+Unio+17+Barcelona+to:Sagrada+Familia+Barcelona+to:Extra+Bar+Barcelona&amp;dirflg=w&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+      <div class="route-map" data-mode="foot" data-stops="[[&quot;BLESS Barcelona&quot;, 41.38793, 2.16939], [&quot;音樂宮 Palau de la Música&quot;, 41.38758, 2.17523], [&quot;大教堂 · Santa Llúcia 聖誕市集&quot;, 41.38393, 2.17655], [&quot;BLESS Barcelona&quot;, 41.38793, 2.16939], [&quot;Cañete&quot;, 41.37914, 2.17314], [&quot;聖家堂 Sagrada Família&quot;, 41.4035, 2.17443], [&quot;Extra Bar&quot;, 41.40136, 2.1581]]"></div>
+      <a class="map-open" href="https://www.google.com/maps/dir/?api=1&amp;origin=41.38793%2C2.16939&amp;destination=41.40136%2C2.1581&amp;travelmode=walking&amp;waypoints=41.38758%2C2.17523%7C41.38393%2C2.17655%7C41.38793%2C2.16939%7C41.37914%2C2.17314%7C41.4035%2C2.17443" target="_blank" rel="noopener">Google 地圖路線 ↗</a>
     </div>
 
     <div class="timeline">
@@ -826,7 +842,8 @@
 
     <div class="day-map">
       <div class="map-label">哥德區 → La Boqueria → 奎爾宮 → Park Güell → Passeig de Gràcia</div>
-      <iframe src="https://maps.google.com/maps?saddr=Hard+Rock+Cafe+Barcelona&amp;daddr=Mercat+de+la+Boqueria+to:Palau+Guell+Barcelona+to:Park+Guell+Barcelona+to:BLESS+Hotel+Barcelona+to:Casa+Batllo+Barcelona+to:Denassus+Carrer+de+Blai+53+Barcelona&amp;dirflg=w&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+      <div class="route-map" data-mode="foot" data-stops="[[&quot;Hard Rock Cafe 集合&quot;, 41.38596, 2.17075], [&quot;波蓋利亞市場 La Boqueria&quot;, 41.38174, 2.17155], [&quot;奎爾宮 Palau Güell&quot;, 41.37882, 2.17423], [&quot;奎爾公園 Park Güell&quot;, 41.41423, 2.15246], [&quot;BLESS Barcelona&quot;, 41.38793, 2.16939], [&quot;Casa Batlló&quot;, 41.39154, 2.1647], [&quot;Denassus&quot;, 41.37431, 2.16273]]"></div>
+      <a class="map-open" href="https://www.google.com/maps/dir/?api=1&amp;origin=41.38596%2C2.17075&amp;destination=41.37431%2C2.16273&amp;travelmode=walking&amp;waypoints=41.38174%2C2.17155%7C41.37882%2C2.17423%7C41.41423%2C2.15246%7C41.38793%2C2.16939%7C41.39154%2C2.1647" target="_blank" rel="noopener">Google 地圖路線 ↗</a>
     </div>
 
     <div class="timeline">
@@ -920,7 +937,8 @@
 
     <div class="day-map">
       <div class="map-label">Barcelona → Tossa de Mar → La Roca Village</div>
-      <iframe src="https://maps.google.com/maps?saddr=BLESS+Hotel+Barcelona&amp;daddr=Vila+Vella+Tossa+de+Mar+to:La+Roca+Village+to:Cerveceria+Catalana+Barcelona&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+      <div class="route-map" data-mode="car" data-stops="[[&quot;BLESS Barcelona&quot;, 41.38793, 2.16939], [&quot;Tossa de Mar · Vila Vella&quot;, 41.71677, 2.93403], [&quot;La Roca Village&quot;, 41.61076, 2.34386], [&quot;Cervecería Catalana&quot;, 41.3924, 2.1609]]"></div>
+      <a class="map-open" href="https://www.google.com/maps/dir/?api=1&amp;origin=41.38793%2C2.16939&amp;destination=41.3924%2C2.1609&amp;travelmode=driving&amp;waypoints=41.71677%2C2.93403%7C41.61076%2C2.34386" target="_blank" rel="noopener">Google 地圖路線 ↗</a>
     </div>
 
     <div class="timeline">
@@ -996,7 +1014,8 @@
 
     <div class="day-map">
       <div class="map-label">Barcelona → Montserrat → Sitges</div>
-      <iframe src="https://maps.google.com/maps?saddr=BLESS+Hotel+Barcelona&amp;daddr=Monestir+de+Montserrat+to:Sitges+to:Suculent+Rambla+del+Raval+43+Barcelona&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+      <div class="route-map" data-mode="car" data-stops="[[&quot;BLESS Barcelona&quot;, 41.38793, 2.16939], [&quot;蒙特塞拉特修道院&quot;, 41.59336, 1.83748], [&quot;Sitges · Santa Tecla 教堂&quot;, 41.23465, 1.81162], [&quot;Suculent&quot;, 41.37822, 2.17036]]"></div>
+      <a class="map-open" href="https://www.google.com/maps/dir/?api=1&amp;origin=41.38793%2C2.16939&amp;destination=41.37822%2C2.17036&amp;travelmode=driving&amp;waypoints=41.59336%2C1.83748%7C41.23465%2C1.81162" target="_blank" rel="noopener">Google 地圖路線 ↗</a>
     </div>
 
     <div class="timeline">
@@ -1082,7 +1101,8 @@
 
     <div class="day-map">
       <div class="map-label">BCN El Prat</div>
-      <iframe src="https://maps.google.com/maps?saddr=BLESS+Hotel+Barcelona&amp;daddr=Barcelona+El+Prat+Airport+Terminal+1&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+      <div class="route-map" data-mode="car" data-stops="[[&quot;BLESS Barcelona&quot;, 41.38793, 2.16939], [&quot;巴塞隆納機場 T1&quot;, 41.2887, 2.0731]]"></div>
+      <a class="map-open" href="https://www.google.com/maps/dir/?api=1&amp;origin=41.38793%2C2.16939&amp;destination=41.2887%2C2.0731&amp;travelmode=driving" target="_blank" rel="noopener">Google 地圖路線 ↗</a>
     </div>
 
     <div class="timeline">
@@ -1239,6 +1259,43 @@
       if (el && el.getBoundingClientRect().top < 120) current = i;
     });
     navBtns.forEach((btn, i) => btn.classList.toggle('active', i === current));
+  });
+</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // Day route maps: numbered stops joined in visiting order
+  document.querySelectorAll('.route-map').forEach(el => {
+    const stops = JSON.parse(el.dataset.stops);
+    const map = L.map(el, { scrollWheelZoom: false, zoomControl: false, attributionControl: true });
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19, attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    const pts = stops.map(s => [s[1], s[2]]);
+    const line = L.polyline(pts, { color: '#c2703d', weight: 3, opacity: 0.85, dashArray: '6 6' }).addTo(map);
+    // Follow real streets when the OSM router answers; keep the dashed line otherwise
+    const prof = el.dataset.mode === 'foot' ? 'routed-foot/route/v1/foot' : 'routed-car/route/v1/driving';
+    const coords = pts.map(p => p[1] + ',' + p[0]).join(';');
+    fetch(`https://routing.openstreetmap.de/${prof}/${coords}?overview=full&geometries=geojson`)
+      .then(r => r.json())
+      .then(d => {
+        if (d.code !== 'Ok') return;
+        line.setLatLngs(d.routes[0].geometry.coordinates.map(c => [c[1], c[0]]));
+        line.setStyle({ dashArray: null, weight: 4 });
+      })
+      .catch(() => {});
+    const groups = new Map();
+    stops.forEach((s, i) => {
+      const key = s[1] + ',' + s[2];
+      if (!groups.has(key)) groups.set(key, { s, nums: [] });
+      groups.get(key).nums.push(i + 1);
+    });
+    groups.forEach(({ s, nums }) => {
+      const label = nums.join('·');
+      const icon = L.divIcon({ className: '', html: `<div class="route-pin${nums.length > 1 ? ' wide' : ''}">${label}</div>`, iconSize: null, iconAnchor: [11, 11] });
+      L.marker([s[1], s[2]], { icon }).addTo(map).bindTooltip(`${label}. ${s[0]}`, { direction: 'top', offset: [0, -10] });
+    });
+    map.fitBounds(pts, { padding: [36, 36] });
   });
 </script>
 </body>
