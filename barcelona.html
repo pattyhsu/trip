@@ -163,6 +163,11 @@
   .split-section { padding-top: 40px; }
   .split-group { background: rgba(194,112,61,0.06); padding: 10px 20px; font-size: 13px; letter-spacing: 1px; color: var(--sepia); font-weight: 600; border-bottom: 1px solid rgba(43,111,143,0.08); }
   .confirmed-row.subtotal .confirmed-name, .confirmed-row.subtotal .confirmed-code { font-weight: 600; }
+  .cost-fold > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .cost-fold > summary::-webkit-details-marker { display: none; }
+  .cost-fold > summary::after { content: '▾'; color: var(--moss); font-size: 14px; transition: transform 0.2s; }
+  .cost-fold:not([open]) > summary { border-bottom: none; }
+  .cost-fold:not([open]) > summary::after { transform: rotate(-90deg); }
   .confirmed-row.settle { background: rgba(176,58,46,0.07); }
   .confirmed-row.settle .confirmed-name, .confirmed-row.settle .confirmed-code { color: var(--red); font-weight: 600; font-size: 15px; }
 
@@ -1175,6 +1180,28 @@
 
 </div>
 
+<!-- TRIP COST -->
+<div class="confirmed-section split-section">
+  <div class="confirmed-inner">
+    <details class="cost-fold">
+    <summary class="confirmed-header"><h3>💰 旅費</h3></summary>
+    <div class="split-group">機票 · 住宿</div>
+    <div class="confirmed-row"><div class="confirmed-name">長榮 BR87 TPE → CDG 商務艙 · Patty · 爸 · 媽（Aeroplan 3 × 92,500 點＋稅）</div><div class="confirmed-code">CAD $214.80</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Vueling VY8061 CDG → BCN · 3人＋托運 15kg、20kg</div><div class="confirmed-code">€749.97</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">法航 AF1649／AF026 BCN → LAX 商務艙 · Patty · Donald（Flying Blue 220,000 哩＋稅）</div><div class="confirmed-code">US$292.98</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">KLM KL1514／KL807 BCN → TPE 商務艙 · 爸 · 媽（Virgin 點數＋稅 2 × €299.44）</div><div class="confirmed-code">€598.88</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">BLESS Barcelona · 房間 1 · 5 晚（Bilt 139,880 點＋$100 Bilt Cash）</div><div class="confirmed-code">139,880 pts</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">BLESS · 房間 1 到店付</div><div class="confirmed-code">€132.00</div></div>
+    <div class="split-group">交通 · 導覽</div>
+    <div class="confirmed-row"><div class="confirmed-name">Cabify · 11/26</div><div class="confirmed-code">€26.95</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">Cabify · 11/27</div><div class="confirmed-code">€13.96</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">哥德區徒步導覽 · Klook（4人）</div><div class="confirmed-code">NT$5,052</div></div>
+    <div class="confirmed-row subtotal"><div class="confirmed-name">合計（現金）</div><div class="confirmed-code">€1,521.76 · US$292.98 · CAD $214.80 · NT$5,052</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">點數：277,500 Aeroplan · 220,000 Flying Blue · 139,880 Bilt</div><div class="confirmed-code">—</div></div>
+    <div class="confirmed-row"><div class="confirmed-name">未含：Donald 的 LAX → BCN 機票和房間 2、Virgin 點數、Sagrada 導覽、兩天包車、餐廳、門票</div><div class="confirmed-code">—</div></div>
+    </details>
+  </div>
+</div>
 <footer>
   <div class="footer-kanji">西</div>
   <p class="footer-text">Barcelona · Catalonia · Montserrat</p>
